@@ -3,16 +3,18 @@ let DBAccess = require("../lib/jsonAccess");
 let agents = new DBAccess("./db/agents.json");
 let consumers = new DBAccess("./db/consumers.json");
 let bids = new DBAccess("./db/bids.json");
+let listings = new DBAccess("./db/listings.json");
 
 module.exports = function(app) {
 	// Retrieve all agents
 	app.get("/api/agent", function(req, res) {
 	    try {
 	        res.status(200);
-	        res.json(agents.getRecords());
+	        res.send(agents.getRecords());
 	    }
 	    catch(err) {
 	        // Internal error on the server side.
+			console.log(err);
 	        res.status(500);
 	        res.json(err);
 	    }
@@ -27,6 +29,7 @@ module.exports = function(app) {
 	    }
 	    catch(err) {
 	        // Internal error on the server side.
+			console.log(err);
 	        res.status(500);
 	        res.json(err);
 	    }
@@ -41,8 +44,24 @@ module.exports = function(app) {
 	    }
 	    catch(err) {
 	        // Internal error on the server side.
+			console.log(err);
 	        res.status(500);
-	        res.json(err);
+	        res.send(err);
+	    }
+	    return res;
+	});
+	
+	// Retrieve all listings
+	app.get("/api/listing", function(req, res) {
+	    try {
+	        res.status(200);
+	        res.json(listings.getRecords());
+	    }
+	    catch(err) {
+	        // Internal error on the server side.
+			console.log(err);
+	        res.status(500);
+	        res.send(err);
 	    }
 	    return res;
 	});
@@ -57,12 +76,13 @@ module.exports = function(app) {
 	     } else {
 	         res.status(404); // HTML status 404 not found
 	     }
-	     res.json(agents.getRecords());
+	     res.send(agents.getRecords());
 	 }
 	 catch(err) {
 	     // Internal error on the server side.
+		 console.log(err);
 	     res.status(500);
-	     res.json(err);
+	     res.send(err);
 	 }
 	 return res;
 	});
@@ -77,12 +97,13 @@ module.exports = function(app) {
 	     } else {
 	         res.status(404); // HTML status 404 not found
 	     }
-	     res.json(consumers.getRecords());
+	     res.send(consumers.getRecords());
 	 }
 	 catch(err) {
 	     // Internal error on the server side.
+		 console.log(err);
 	     res.status(500);
-	     res.json(err);
+	     res.send(err);
 	 }
 	 return res;
 	});
@@ -97,17 +118,38 @@ module.exports = function(app) {
 	     } else {
 	         res.status(404); // HTML status 404 not found
 	     }
-	     res.json(bids.getRecords());
+	     res.send(bids.getRecords());
 	 }
 	 catch(err) {
 	     // Internal error on the server side.
+		 console.log(err);
 	     res.status(500);
-	     res.json(err);
+	     res.send(err);
 	 }
 	 return res;
 	});
 	
-	// Update an agent
+	app.delete("/api/listing/:id", function(req, res) {
+		try {
+			const success = listings.deleteRecord(req.params.id);
+	   
+			if(success) {
+				res.status(204); // HTML 204 request succeeded
+			} else {
+				res.status(404); // HTML status 404 not found
+			}
+			res.send(listings.getRecords());
+		}
+		catch(err) {
+			// Internal error on the server side.
+			console.log(err);
+			res.status(500);
+			res.send(err);
+		}
+		return res;
+	});
+
+    // Update an agent
 	app.put("/api/agent/:id", function(req, res) {
 	 try {
 	     const success = agents.updateRecord(req.params.id, req.body);
@@ -117,13 +159,13 @@ module.exports = function(app) {
 	     } else {
 	         res.status(404); // HTML status 404 not found
 	     }
-	     res.json(agents.getRecords());
+	     res.send(agents.getRecords());
 	 }
 	 catch(err) {
 	     // Internal error on the server side.
 		 console.log(err);
 	     res.status(500);
-	     res.json(err);
+	     res.send(err);
 	 }
 	 return res;
 	});
@@ -138,12 +180,13 @@ module.exports = function(app) {
 	     } else {
 	         res.status(404); // HTML status 404 not found
 	     }
-	     res.json(consumers.getRecords());
+	     res.send(consumers.getRecords());
 	 }
 	 catch(err) {
 	     // Internal error on the server side.
+		 console.log(err);
 	     res.status(500);
-	     res.json(err);
+	     res.send(err);
 	 }
 	 return res;
 	});
@@ -158,30 +201,50 @@ module.exports = function(app) {
 	     } else {
 	         res.status(404); // HTML status 404 not found
 	     }
-	     res.json(bids.getRecords());
+	     res.send(bids.getRecords());
 	 }
 	 catch(err) {
-		 console.log(err);
 	     // Internal error on the server side.
+		 console.log(err);
 	     res.status(500);
-	     res.json(err);
+	     res.send(err);
 	 }
 	 return res;
 	});
 	
-	
+	// Update a listing
+	app.put("/api/listing/:id", function(req, res) {
+		try {
+			const success = listings.updateRecord(req.params.id, req.body);
+	   
+			if(success) {
+				res.status(204); // HTML 204 request succeeded
+			} else {
+				res.status(404); // HTML status 404 not found
+			}
+			res.send(listings.getRecords());
+		}
+		catch(err) {
+			// Internal error on the server side.
+			console.log(err);
+			res.status(500);
+			res.send(err);
+		}
+		return res;
+	});
+	   
 	
 	// Create an agent
 	app.post("/api/agent", function(req, res) {
 	 try {
 	     res.status(201); // HTML status 201 creation successful
-	     res.json(agents.addRecord(req.body));
+	     res.send(agents.addRecord(req.body));
 	 }
 	 catch(err) {
 	     // Internal error on the server side.
 		 console.log(err);
 	     res.status(500);
-	     res.json(err);
+	     res.send(err);
 	 }
 	 return res; 
 	});
@@ -190,12 +253,13 @@ module.exports = function(app) {
 	app.post("/api/consumer", function(req, res) {
 	 try {
 	     res.status(201); // HTML status 201 creation successful
-	     res.json(consumers.addRecord(req.body));
+	     res.send(consumers.addRecord(req.body));
 	 }
 	 catch(err) {
 	     // Internal error on the server side.
+		 console.log(err);
 	     res.status(500);
-	     res.json(err);
+	     res.send(err);
 	 }
 	 return res; 
 	});
@@ -204,15 +268,31 @@ module.exports = function(app) {
 	app.post("/api/bid", function(req, res) {
 	 try {
 	     res.status(201); // HTML status 201 creation successful
-	     res.json(bids.addRecord(req.body));
+	     res.send(bids.addRecord(req.body));
 	 }
 	 catch(err) {
 	     // Internal error on the server side.
+		 console.log(err);
 	     res.status(500);
-	     res.json(err);
+	     res.send(err);
 	 }
 	 return res; 
 	});
-}	
+
+	// Create a listing
+	app.post("/api/listing", function(req, res) {
+		try {
+			res.status(201); // HTML status 201 creation successful
+			res.send(listings.addRecord(req.body));
+		}
+		catch(err) {
+			// Internal error on the server side.
+			console.log(err);
+			res.status(500);
+			res.send(err);
+		}
+		return res; 
+	   });
+   }	
 	
 	
