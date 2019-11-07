@@ -1,0 +1,33 @@
+{
+  "name": "proagent",
+  "version": "0.5.0",
+  "description": "Create a real estate agent bidding war",
+  "main": "server.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "path": "^0.12.7"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BCButcher/proagent.git"
+  },
+  "keywords": [
+    "mobile first",
+    "real estate",
+    "bid"
+  ],
+  "author": "Brian, Chris, Ruth",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/BCButcher/proagent/issues"
+  },
+  "homepage": "https://github.com/BCButcher/proagent#readme"
+}
