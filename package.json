@@ -1,7 +1,7 @@
 {
   "name": "proagent",
   "version": "0.5.0",
-  "description": "Create a real estate agent bidding war",
+  "description": "Connecting you with agents",
   "main": "server.js",
   "directories": {
     "lib": "lib"
@@ -10,24 +10,28 @@
     "express": "^4.17.1",
     "path": "^0.12.7"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "eslint": "^6.6.0",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-plugin-import": "^2.18.2"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/BCButcher/proagent.git"
+    "url": "git+https://github.com/BCButcher/TRUS-L.git"
   },
   "keywords": [
     "mobile first",
     "real estate",
     "bid"
   ],
-  "author": "Brian, Chris, Ruth",
+  "author": "Brian C. Butcher, Chris Pong, Ruth Lee",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/BCButcher/proagent/issues"
+    "url": "https://github.com/BCButcher/TRUS-L/issues"
   },
-  "homepage": "https://github.com/BCButcher/proagent#readme"
+  "homepage": "https://github.com/BCButcher/TRUS-L#readme"
 }
