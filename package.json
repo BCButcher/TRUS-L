@@ -21,17 +21,17 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/BCButcher/proagent.git"
+    "url": "git+https://github.com/BCButcher/TRUS-L.git"
   },
   "keywords": [
     "mobile first",
     "real estate",
     "bid"
   ],
-  "author": "Brian, Chris, Ruth",
+  "author": "Brian C. Butcher, Chris Pong, Ruth Lee",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/BCButcher/proagent/issues"
+    "url": "https://github.com/BCButcher/TRUS-L/issues"
   },
-  "homepage": "https://github.com/BCButcher/proagent#readme"
+  "homepage": "https://github.com/BCButcher/TRUS-L#readme"
 }
