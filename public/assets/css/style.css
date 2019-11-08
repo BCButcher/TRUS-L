@@ -7,11 +7,11 @@
 .jumbotron{
     height: 40vh;
     font-family: 'Roboto', sans-serif;
-    background: url(./images/TRUSÆL.png) no-repeat center center; 
+    background: url(../images/TRUSÆL.png) no-repeat center center; 
     -webkit-background-size: contain;
     -moz-background-size: contain;
     -o-background-size: contain;
-    background-color: #0a84ff;
+    border: black 5px solid ;
    }
 
 .container2{
