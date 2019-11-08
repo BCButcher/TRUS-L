@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="public/assets/style.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
@@ -22,6 +22,38 @@
 </head>
 
 <body>
+    <!--Navbar-->
+    <nav class="navbar navbar-light bg-info lighten-4 sticky-top">
+
+        <!-- Navbar brand -->
+        <a class="navbar-brand" href="#">Navbar</a>
+
+        <!-- Collapse button -->
+        <button class="navbar-toggler toggler-example" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent1" aria-controls="navbarSupportedContent1" aria-expanded="false"
+            aria-label="Toggle navigation"><span class="dark-blue-text"><i
+                    class="fas fa-bars fa-1x"></i></span></button>
+
+        <!-- Collapsible content -->
+        <div class="collapse navbar-collapse" id="navbarSupportedContent1">
+
+            <!-- Links -->
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Features</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Pricing</a>
+                </li>
+            </ul>
+            <!-- Links -->
+
+        </div>
+    </nav>
+    <!-- Collapsible content -->
     <div class="container-fliud">
         <div class="jumbotron jumbotron-fluid">
             <div class="container">
@@ -30,10 +62,12 @@
         </div>
 
         <div class="container">
-            <button type="button" class="btn btn-info btn-lg btn-block" style="background-color: #1570C1"> Buy </button>
+            <button type="button" class="btn btn-info btn-lg btn-block" style="background-color: #1570C1"> Buy
+            </button>
             <button type="button" class="btn btn-info btn-lg btn-block" style="background-color: #1F9EED"> Sell
             </button>
-            <button type="button" class="btn btn-info btn-lg btn-block" style="background-color: #74C2F3"> Browse
+            <button type="button" class="btn btn-info btn-lg btn-block" style="background-color: #74C2F3">
+                Browse
             </button>
         </div>
         <br>
