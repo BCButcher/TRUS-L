@@ -1,7 +1,7 @@
 {
   "name": "proagent",
   "version": "0.5.0",
-  "description": "Create a real estate agent bidding war",
+  "description": "Connecting you with agents",
   "main": "server.js",
   "directories": {
     "lib": "lib"
