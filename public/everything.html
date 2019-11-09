@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link href="https://fonts.googleapis.com/css?family=Faster+One|Indie+Flower|La+Belle+Aurore|Liu+Jian+Mao+Cao|Mountains+of+Christmas|Nothing+You+Could+Do|Rock+Salt|Special+Elite|Waiting+for+the+Sunrise|Zeyada&display=swap" rel="stylesheet">
@@ -21,6 +21,104 @@
                 background: url(./assets/images/TRUSÆL.png) no-repeat center;
                 padding-top: 50px;
                 padding-bottom: 30px;
+            }
+            
+            * {
+                margin: 5px;
+                padding: 0;
+            }
+            
+            #h2_fp_slogan {
+                text-align: center;
+                width: 100%;
+                font-weight: 900;
+            }
+            
+            #para_head_fp {
+                font-family: nothing you could do;
+                font-weight: 900;
+            }
+            
+            #para_howcan_fp {
+                font-family: special elite;
+                font-size: 20px;
+            }
+            
+            .buyer_location {
+                float: inline-end;
+            }
+            
+            .container2 {
+                text-align: center;
+            }
+            
+            .fa-1x {
+                font-size: 1.5rem;
+            }
+            
+            .navbar-toggler.toggler-example {
+                cursor: pointer;
+            }
+            
+            .dark-blue-text {
+                color: #0A38F5;
+            }
+            
+            #buyer_value_estimate {
+                width: 80%;
+                /* Width of the outside container */
+            }
+            
+            #buyer_value_slider {
+                -webkit-appearance: none;
+                /* Override default CSS styles */
+                appearance: none;
+                width: 80%;
+                /* Full-width */
+                height: 25px;
+                /* Specified height */
+                background: #d3d3d3;
+                /* Grey background */
+                outline: none;
+                /* Remove outline */
+                opacity: 0.7;
+                /* Set transparency (for mouse-over effects on hover) */
+                -webkit-transition: .2s;
+                /* 0.2 seconds transition on hover */
+                transition: opacity .2s;
+                align-content: center;
+            }
+            /* Mouse-over effects */
+            
+            #buyer_value_slider:hover {
+                opacity: 1;
+                /* Fully shown on mouse-over */
+            }
+            /* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
+            
+            #buyer_value_slider::-webkit-slider-thumb {
+                -webkit-appearance: none;
+                /* Override default look */
+                appearance: none;
+                width: 25px;
+                /* Set a specific slider handle width */
+                height: 25px;
+                /* Slider handle height */
+                background: #1570C1;
+                /* Green background */
+                cursor: pointer;
+                /* Cursor on hover */
+            }
+            
+            #buyer_value_slider::-moz-range-thumb {
+                width: 25px;
+                /* Set a specific slider handle width */
+                height: 25px;
+                /* Slider handle height */
+                background: #4CAF50;
+                /* Green background */
+                cursor: pointer;
+                /* Cursor on hover */
             }
         </style>
     </h1>
@@ -76,10 +174,22 @@
     <div class="parallax-container">
         <div class="parallax"><img src="images/parallax2.jpg"></div>
     </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var elems = document.querySelectorAll('.parallax');
+            var instances = M.Parallax.init(elems, options);
+        });
+
+        // Or with jQuery
+
+        $(document).ready(function() {
+            $('.parallax').parallax();
+        });
+    </script>
     <div class="footer-fluid" id="foot_fp" style="text-align: center">
-        ©Copyright 2019
-        <link src=Trusael, Inc All Rights Reserved </div>
-        <script src="assets/js/parallax.js"></script>
+        ©Copyright 2019 Trusael, Inc All Rights Reserved
+    </div>
+    <script src="/js/parallax.js"></script>
 </body>
 
 </html>
