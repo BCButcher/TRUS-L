@@ -9,7 +9,8 @@ CREATE TABLE agents (
    last_name VARCHAR(32) NOT NULL,
    email VARCHAR(32) NOT NULL,
    phone VARCHAR(15) NOT NULL,
-   web_site VARCHAR(2083)
+   web_site VARCHAR(2083),
+   createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
 CREATE TABLE consumers (
@@ -17,7 +18,8 @@ CREATE TABLE consumers (
     display_name VARCHAR(32) NOT NULL,
     first_name VARCHAR(32) NOT NULL,
     last_name VARCHAR(32) NOT NULL,
-    email VARCHAR(32) NOT NULL
+    email VARCHAR(32) NOT NULL,
+    createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
 CREATE TABLE listings (
@@ -27,18 +29,20 @@ CREATE TABLE listings (
     listing_status ENUM("Active", "Signed", "Closed"),
     estimated_value INTEGER,
     transaction_type VARCHAR(4),
-    FOREIGN KEY (poster_id) REFERENCES consumers(id)
+    FOREIGN KEY (poster_id) REFERENCES consumers(id),
+    createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
 CREATE TABLE bids (
    id INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,
    agent_id INTEGER,
    listing_id INTEGER,
-   bid_status ENUM("Active", "Booked", "Closed"),
+   bid_status ENUM("Active", "Signed", "Closed"),
    services VARCHAR(8),
    message VARCHAR(500),    
    FOREIGN KEY (agent_id) REFERENCES agents(id),
-   FOREIGN KEY (listing_id) REFERENCES listings(id)
+   FOREIGN KEY (listing_id) REFERENCES listings(id),
+   createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
 -- ENUM("Rent", "Buy", "Sell", "Rent out"),

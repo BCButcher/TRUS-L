@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Test</title>
+</head>
+<body>
+    <h1>Listings</h1>
+    <ul id="listings">
+        <li>Test</li>
+    </ul>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        function renderListings(listings) {
+            var listingsEl = $("#listings");
+
+            for(let i=0; i<listings.length; i++) {
+                listingsEl.append(`<li>${listings[i]}</li>`);
+            }
+        }
+
+        var getAndRenderListings = function() {
+            try {
+              return getListings().then(function(listings) {
+                  console.log(listings);
+                  renderListings(listings);
+              }
+            } catch(err) {
+                console.log(err);
+            }
+        }
+
+        function getListings() {
+            return $.ajax({
+                url: "api/listing" + id,
+                type: "GET"
+            });
+        }
+    </script>
+</body>
+</html>
