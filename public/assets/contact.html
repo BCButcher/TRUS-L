@@ -56,7 +56,33 @@
 </head>
 
 <body>
-
+    <form>
+        <div class="form-group">
+            <label for="nameinput">Name</label>
+            <input type="name" class="form-control" id="name_contact_id" aria-describedby="emailHelp" placeholder="Please enter your name" style="width: 60%">
+        </div>
+        <div class="form-group">
+            <label for="email_address">Email Address</label>
+            <input type="mail_address" class="form-control" id="email_address" placeholder="Please enter your email address" style="width: 60%">
+        </div>
+        <div class="form-group">
+            <label for="contact_reason">Please choose a reason for contacting us</label>
+            <select class="form-control" id="contact_reason">
+                <option></option>  
+                <option>Selling</option>
+                <option>Buying</option>
+                <option>Renting</option>
+                <option>Transaction</option>
+                <option>Other</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="contact_explanation">Please briefly explain the reason
+            </label>
+            <textarea class="form-control" id="explain_reason" rows="3" style="width: 60%"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
 </body>
 
 </html>
