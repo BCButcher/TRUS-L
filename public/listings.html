@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Test AJAX calls in server</title>
+</head>
+<body>
+    <h1>Listings</h1>
+    <ul id="listings">
+    </ul>
+
+    <h1 id="bidsTitle"></h1>
+    <ul id="bids">
+    </ul>
+
+    <h1>Agents</h1>
+    <ul id="agents">
+    </ul>
+
+    <h1>Consumers</h1>
+    <div id="createProfile" class="container">
+        <div class="row">
+            <div class="col">
+            <form>
+                <div class="form-group">
+                <label for="firstName">First Name</label>
+                <input type="input" class="form-control" id="firstName" placeholder="First name">
+                <label for="lastName">Last Name</label>
+                <input type="input" class="form-control" id="lastName" placeholder="Last name">
+                <label for="email">Email address</label>
+                <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email">
+                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                <label for="displayName">Display Name</label>
+                <input type="input" class="form-control" id="displayName" placeholder="Display name">
+                <button type="button" class="btn btn-primary" onClick="createConsumer();">Create profile</button>
+                </div>
+            </form>
+          </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        function createConsumer() {
+            let consumer = {
+                display_name: $('#displayName').val(),
+                first_name: $('#firstName').val(),
+                last_name: $('#lastName').val(),
+                email: $('#email').val()
+            }
+
+            $.ajax({
+                url: "/api/consumer/",
+                method: "POST",
+                data: consumer
+            }).then(function(newConsumer) {
+                let confirmationMessage = `
+                   PROFILE CREATED
+                   Display name: ${newConsumer.display_name}
+                   First name: ${newConsumer.first_name}
+                   Last name: ${newConsumer.last_name}
+                   Email: ${newConsumer.email}
+
+                `;
+                alert(confirmationMessage);
+            });
+        }
+
+        function viewBid(bidId) {
+            $.ajax({
+                url: "/api/bid/" + bidId,
+                method: "GET"
+            }).then(function(bids) {
+                const bid = bids[0];
+                let message = `
+                    Id: ${bid.id}
+                    Agent id: ${bid.agent_id}
+                    Listing id: ${bid.listing_id}
+                    Status: ${bid.bid_status}
+                    Services offered: ${bid.services}
+                    Message: ${bid.message}
+                `;
+                alert(message);
+            }).catch(function(err) {
+                console.log(err);
+            })
+        }
+
+        function viewAgent(agentId) {
+            $.ajax({
+                url: "/api/agent/" + agentId,
+                method: "GET"
+            }).then(function(agents) {
+                const agent = agents[0];
+                let message = `
+                    Agent: ${agent.first_name} ${agent.last_name}
+                    phone: ${agent.phone}
+                    email: ${agent.email}
+                    website: ${agent.web_site}
+                `;
+                alert(message);
+            }).catch(function(err) {
+                console.log(err);
+            })
+        }
+
+        function displayListings() {
+            const listingsList = $('#listings').empty();
+
+            // AJAX Get call
+            $.ajax({
+                url: "/api/listing",
+                method: "GET"
+            }).then(function(listings) {
+                if(listings.length == 0) {
+                    listingsList.appendTo(`<li>No listings yet</li>`);
+                }
+
+                for(const listing of listings) {
+                    const id = listing.id;
+                    const listingName = `${listing.property_address}, ${listing.estimated_value}`;
+                    let listingRow = `<li>${id}. ${listingName} <button onClick='displayBids(${id})'>Show bids</button></li>`;
+                    listingsList.append(listingRow);
+                }
+            }).catch(function(err) {
+                console.log(err);
+            })
+        }
+
+        function displayBids(listing_id) {
+            const bidsTitle = $('#bidsTitle').empty();
+            bidsTitle.append(`<h3>Bids for listing ${listing_id}</h3>`);
+
+            const bidsList = $('#bids').empty();
+
+            // AJAX Get call
+            $.ajax({
+                url: "/api/bid/listing/" + listing_id,
+                method: "GET"
+            }).then(function(bids) {
+                if(bids.length == 0) {
+                    bidsList.appendTo(`<li>No bids for this listing yet</li>`);
+                }
+
+                for(const bid of bids) {
+                    const id = bid.id;
+                    const bidName = `Bid by ${bid.agent_id}, <b>${bid.message}</b>`;
+                    let bidRow = `<li>${id}. ${bidName} <button onClick='viewBid(${id})'>View this bid</button></li>`;
+                    bidsList.append(bidRow);
+                }
+            }).catch(function(err) {
+                console.log(err);
+            })
+        }
+
+        function displayAgents() {
+            const agentList = $('#agents').empty();
+
+            // AJAX Get call
+            $.ajax({
+                url: "/api/agent",
+                method: "GET"
+            }).then(function(agents) {
+                if(agents.length == 0) {
+                    agentsList.appendTo(`<li>No agents yet</li>`);
+                }
+
+                for(const agent of agents) {
+                    const id = agent.id;
+                    const agentName = `${agent.first_name} ${agent.last_name}`;
+                    let agentRow = `<li>${id}. ${agentName} <button onClick='viewAgent(${id})'>View</button></li>`;
+                    agentList.append(agentRow);
+                }
+            }).catch(function(err) {
+                console.log(err);
+            })
+        }
+
+        $(document).ready(function() {
+            console.log(`Running our code`);
+            displayListings();
+            displayAgents();
+        })
+    </script>
+</body>
+</html>
