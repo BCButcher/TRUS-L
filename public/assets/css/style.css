@@ -1,18 +1,23 @@
 * {
     margin: 5px;
     padding: 0;
+
 }
 
-#h2_fp_slogan {
-    text-align: center;
-    width: 100%;
-    font-weight: 900;
+.containerbg{
+  /* background-image: url('https://images.unsplash.com/photo-1550895030-823330fc2551?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=3264&q=80');
+  height: 100vh;
+   */
 }
-
-#para_head_fp {
-    font-family: nothing you could do;
-    font-weight: 900;
-}
+.jumbotron{
+    height: 40vh;
+    font-family: 'Roboto', sans-serif;
+    background: url(../images/TRUSÆL.png) no-repeat center center; 
+    -webkit-background-size: contain;
+    -moz-background-size: contain;
+    -o-background-size: contain;
+    border: black 5px solid ;
+   }
 
 #para_howcan_fp {
     font-family: special elite;
