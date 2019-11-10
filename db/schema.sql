@@ -10,6 +10,7 @@ CREATE TABLE agents (
    email VARCHAR(32) NOT NULL,
    phone VARCHAR(15) NOT NULL,
    web_site VARCHAR(2083),
+   epassword VARCHAR 32 NOT NULL,
    createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
@@ -19,6 +20,7 @@ CREATE TABLE consumers (
     first_name VARCHAR(32) NOT NULL,
     last_name VARCHAR(32) NOT NULL,
     email VARCHAR(32) NOT NULL,
+    epassword VARCHAR 32 NOT NULL,
     createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 

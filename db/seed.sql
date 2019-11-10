@@ -1,14 +1,14 @@
 use TRUSL;
 
-INSERT INTO agents (license, first_name, last_name, email, phone, web_site) VALUES (123456789, "Abby", "Banksy", "abbybanksy@broker.ca", "416-123-4567", "https://www.abbybanksy.com");
-INSERT INTO agents (license, first_name, last_name, email, phone, web_site) VALUES (234567890, "Charles", "Daly", "charlesdaly@broker.ca", "416-234-5678", "https://www.charlesdaly.com");
-INSERT INTO agents (license, first_name, last_name, email, phone, web_site) VALUES (345678901, "Kanchani", "Franks", "kanchanifranks@broker.ca", "647-123-4567", "https://www.kanchanifranks.com");
-INSERT INTO agents (license, first_name, last_name, email, phone, web_site) VALUES (456789012, "Hashim", "Siyam", "hashimsiyam@broker.ca", "647-456-7890", "https://www.hashimsiyam.com");
-INSERT INTO agents (license, first_name, last_name, email, phone, web_site) VALUES (567890123, "Rupam", "Smith", "rupamsmith@broker.ca", "416-789-1234", "https://www.rupamsmith.com");
+INSERT INTO agents (license, first_name, last_name, email, phone, web_site, password) VALUES (123456789, "Abby", "Banksy", "abbybanksy@broker.ca", "416-123-4567", "https://www.abbybanksy.com", "password");
+INSERT INTO agents (license, first_name, last_name, email, phone, web_site, password) VALUES (234567890, "Charles", "Daly", "charlesdaly@broker.ca", "416-234-5678", "https://www.charlesdaly.com", "password");
+INSERT INTO agents (license, first_name, last_name, email, phone, web_site, password) VALUES (345678901, "Kanchani", "Franks", "kanchanifranks@broker.ca", "647-123-4567", "https://www.kanchanifranks.com", "password");
+INSERT INTO agents (license, first_name, last_name, email, phone, web_site, password) VALUES (456789012, "Hashim", "Siyam", "hashimsiyam@broker.ca", "647-456-7890", "https://www.hashimsiyam.com", "password");
+INSERT INTO agents (license, first_name, last_name, email, phone, web_site, password) VALUES (567890123, "Rupam", "Smith", "rupamsmith@broker.ca", "416-789-1234", "https://www.rupamsmith.com", "password");
 
-INSERT INTO consumers (display_name, first_name, last_name, email) VALUES ("Sleepless_in_Toronto", "Annie", "Reed", "anniereed@fake.com");
-INSERT INTO consumers (display_name, first_name, last_name, email) VALUES ("Neo", "Thomas A.", "Anderson", "thomasaanderson@fake.com");
-INSERT INTO consumers (display_name, first_name, last_name, email) VALUES ("Super", "Louie", "Kritski", "louiekritski@fake.com");
+INSERT INTO consumers (display_name, first_name, last_name, email, password) VALUES ("Sleepless_in_Toronto", "Annie", "Reed", "anniereed@fake.com", "password");
+INSERT INTO consumers (display_name, first_name, last_name, email, password) VALUES ("Neo", "Thomas A.", "Anderson", "thomasaanderson@fake.com", "password");
+INSERT INTO consumers (display_name, first_name, last_name, email, password) VALUES ("Super", "Louie", "Kritski", "louiekritski@fake.com", "password");
 
 INSERT INTO listings (poster_id, property_address, listing_status, estimated_value, transaction_type) VALUES (1, "E02", "Active", 1000000, "b");
 INSERT INTO listings (poster_id, property_address, listing_status, estimated_value, transaction_type) VALUES (2, "E01", "Active", 2000, "a");
