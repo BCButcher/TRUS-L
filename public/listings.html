@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Test</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Test AJAX calls in server</title>
 </head>
 <body>
     <h1>Listings</h1>
@@ -19,8 +20,55 @@
     <ul id="agents">
     </ul>
 
+    <h1>Consumers</h1>
+    <div id="createProfile" class="container">
+        <div class="row">
+            <div class="col">
+            <form>
+                <div class="form-group">
+                <label for="firstName">First Name</label>
+                <input type="input" class="form-control" id="firstName" placeholder="First name">
+                <label for="lastName">Last Name</label>
+                <input type="input" class="form-control" id="lastName" placeholder="Last name">
+                <label for="email">Email address</label>
+                <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email">
+                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                <label for="displayName">Display Name</label>
+                <input type="input" class="form-control" id="displayName" placeholder="Display name">
+                <button type="button" class="btn btn-primary" onClick="createConsumer();">Create profile</button>
+                </div>
+            </form>
+          </div>
+        </div>
+    </div>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script>
+        function createConsumer() {
+            let consumer = {
+                display_name: $('#displayName').val(),
+                first_name: $('#firstName').val(),
+                last_name: $('#lastName').val(),
+                email: $('#email').val()
+            }
+
+            $.ajax({
+                url: "/api/consumer/",
+                method: "POST",
+                data: consumer
+            }).then(function(newConsumer) {
+                let confirmationMessage = `
+                   PROFILE CREATED
+                   Display name: ${newConsumer.display_name}
+                   First name: ${newConsumer.first_name}
+                   Last name: ${newConsumer.last_name}
+                   Email: ${newConsumer.email}
+
+                `;
+                alert(confirmationMessage);
+            });
+        }
+
         function viewBid(bidId) {
             $.ajax({
                 url: "/api/bid/" + bidId,
