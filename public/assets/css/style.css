@@ -1,68 +1,101 @@
-*{
+* {
     margin: 5px;
     padding: 0;
 }
 
+#h2_fp_slogan {
+    text-align: center;
+    width: 100%;
+    font-weight: 900;
+}
 
-.jumbotron{
-    height: 40vh;
-    font-family: 'Roboto', sans-serif;
-    background: url(../images/TRUSÆL.png) no-repeat center center; 
-    -webkit-background-size: contain;
-    -moz-background-size: contain;
-    -o-background-size: contain;
-    border: black 5px solid ;
-   }
+#para_head_fp {
+    font-family: nothing you could do;
+    font-weight: 900;
+}
 
-.container2{
+#para_howcan_fp {
+    font-family: special elite;
+    font-size: 20px;
+}
 
+.buyer_location {
+    float: inline-end;
+}
+
+.container2 {
     text-align: center;
 }
+
 .fa-1x {
     font-size: 1.5rem;
-    }
+}
+
 .navbar-toggler.toggler-example {
     cursor: pointer;
-    }
+}
+
 .dark-blue-text {
     color: #0A38F5;
 }
 
 #buyer_value_estimate {
-    width: 100%; /* Width of the outside container */
-  }
-  
-  /* The slider itself */
+    width: 80%;
+    /* Width of the outside container */
+}
+
 #buyer_value_slider {
-    -webkit-appearance: none;  /* Override default CSS styles */
+    -webkit-appearance: none;
+    /* Override default CSS styles */
     appearance: none;
-    width: 100%; /* Full-width */
-    height: 25px; /* Specified height */
-    background: #d3d3d3; /* Grey background */
-    outline: none; /* Remove outline */
-    opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
-    -webkit-transition: .2s; /* 0.2 seconds transition on hover */
+    width: 80%;
+    /* Full-width */
+    height: 25px;
+    /* Specified height */
+    background: #d3d3d3;
+    /* Grey background */
+    outline: none;
+    /* Remove outline */
+    opacity: 0.7;
+    /* Set transparency (for mouse-over effects on hover) */
+    -webkit-transition: .2s;
+    /* 0.2 seconds transition on hover */
     transition: opacity .2s;
-  }
-  
-  /* Mouse-over effects */
-  #buyer_value_slider:hover {
-    opacity: 1; /* Fully shown on mouse-over */
-  }
-  
-  /* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
-  #buyer_value_slider::-webkit-slider-thumb {
-    -webkit-appearance: none; /* Override default look */
+    align-content: center;
+}
+
+
+/* Mouse-over effects */
+
+#buyer_value_slider:hover {
+    opacity: 1;
+    /* Fully shown on mouse-over */
+}
+
+
+/* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
+
+#buyer_value_slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    /* Override default look */
     appearance: none;
-    width: 25px; /* Set a specific slider handle width */
-    height: 25px; /* Slider handle height */
-    background: #1570C1; /* Green background */
-    cursor: pointer; /* Cursor on hover */
-  }
-  
-  #buyer_value_slider::-moz-range-thumb {
-    width: 25px; /* Set a specific slider handle width */
-    height: 25px; /* Slider handle height */
-    background: #4CAF50; /* Green background */
-    cursor: pointer; /* Cursor on hover */
-  }
+    width: 25px;
+    /* Set a specific slider handle width */
+    height: 25px;
+    /* Slider handle height */
+    background: #1570C1;
+    /* Green background */
+    cursor: pointer;
+    /* Cursor on hover */
+}
+
+#buyer_value_slider::-moz-range-thumb {
+    width: 25px;
+    /* Set a specific slider handle width */
+    height: 25px;
+    /* Slider handle height */
+    background: #4CAF50;
+    /* Green background */
+    cursor: pointer;
+    /* Cursor on hover */
+}

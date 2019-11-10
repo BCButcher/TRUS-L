@@ -1,26 +1,110 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-        <link rel="stylesheet" type="text/css" href="style.css">
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-        crossorigin="anonymous"></script>
-    <   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-        crossorigin="anonymous"></script>
-        <title>Document</title>
-    </head>
-    <body>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <title>Document</title>
+    <h1>
+        <style>
+            h1 {
+                text-align: center;
+                background: url(./images/TRUSÆL.png) no-repeat left;
+                padding-top: 50px;
+                padding-bottom: 30px;
+            }
+        </style>
+    </h1>
+    <!--Navbar-->
+    <nav class="navbar navbar-light bg-info lighten-4 sticky-top" id="navbar">
 
-    </body>
+        <!-- Navbar brand -->
+        <a class="navbar-brand" href="#"></a>
+
+        <!-- Collapse button -->
+        <button class="navbar-toggler toggler-example" type="button" data-toggle="collapse" data-target="#navbarSupportedContent1" aria-controls="navbarSupportedContent1" aria-expanded="false" aria-label="Toggle navigation"><span class="dark-blue-text"><i
+                    class="fas fa-bars fa-1x"></i></span></button>
+
+        <!-- Collapsible content -->
+        <div class="collapse navbar-collapse" id="navbarSupportedContent1">
+
+            <!-- Links -->
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Features</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Pricing</a>
+                </li>
+            </ul>
+            <!-- Links -->
+
+        </div>
+        <!-- Collapsible content -->
+
+    </nav>
+</head>
+
+<body>
+    <p id="intro" style="text-align: center">Agent Sign-Up
+    </p>
+    <style>
+        #intro {
+            margin-left: 200px;
+            margin-right: 200px;
+        }
+    </style>
+    <div class="container-fluid">
+        <form>
+            <div class="form-group">
+                <label for="agt_lic_num_lab" style="width: 60%; margin-left: 265px; display: inline-block">License #:</label>
+                <center>
+                    <input type="text" class="form-control" id="agt_lic_num_inp" placeholder="Please enter your real estate license number" style="width: 60%">
+                </center>
+            </div>
+            <div class="form-group">
+                <label for="first_name_label" style="width: 60%; margin-left: 265px">First Name:</label>
+                <center>
+                    <input type="text" class="form-control" id="first_name_input" placeholder="Please enter your first name" style="width: 60%">
+                </center>
+            </div>
+            <div class="form-group">
+                <label for="last_name_label" style="width: 60%; margin-left: 265px">Last Name:</label>
+                <center>
+                    <input type="text" class="form-control" id="last_name_input" placeholder="Please enter your last name" style="width: 60%">
+                </center>
+            </div>
+            <div class="form-group">
+                <label for="email_label" style="width: 60%; margin-left: 265px">Email Address:</label>
+                <center>
+                    <input type="text" class="form-control" id="email_input" placeholder="Please enter your email address" style="width: 60%">
+                </center>
+            </div>
+            <div class="form-group">
+                <label for="phone_label" style="width: 60%; margin-left: 265px">Phone Number:</label>
+                <center>
+                    <input type="text" class="form-control" id="phone_input" placeholder="Please enter your phone number" style="width: 60%">
+                </center>
+            </div>
+            <div class="form-group">
+                <label for="website_label" style="width: 60%; margin-left: 265px">Website:</label>
+                <center>
+                    <input type="text" class="form-control" id="website_input" placeholder="Please enter your website URL" style="width: 60%">
+                </center>
+            </div>
+            <button type="submit" class="btn btn-primary" style="margin-left: 265px">Sign-Up</button>
+        </form>
+    </div>
+</body>
+
 </html>
