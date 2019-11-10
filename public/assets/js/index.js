@@ -1,13 +1,17 @@
-$('#sellBtn').on('click',function(){
-
-    $.post('/profile/:type', function(){
-        console.log('page loaded')
-
-    });
 
 
+//$('#sellBtn').on('click',function(){
+// });
+    window.onload(
+$.post('')
 
-})
+    )
+  
+  
+
+
+
+
 
 
 
