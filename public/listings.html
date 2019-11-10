@@ -33,6 +33,8 @@
                 <label for="email">Email address</label>
                 <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email">
                 <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                <label for="password">Password</label>
+                <input type="password" class="form-control" id="password" aria-describedby="passwordlHelp" placeholder="Enter password">
                 <label for="displayName">Display Name</label>
                 <input type="input" class="form-control" id="displayName" placeholder="Display name">
                 <button type="button" class="btn btn-primary" onClick="createConsumer();">Create profile</button>
@@ -49,7 +51,8 @@
                 display_name: $('#displayName').val(),
                 first_name: $('#firstName').val(),
                 last_name: $('#lastName').val(),
-                email: $('#email').val()
+                email: $('#email').val(),
+                password: $('#password').val()
             }
 
             $.ajax({
