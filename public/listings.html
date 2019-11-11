@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
+<<<<<<< HEAD
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-119143745-2"></script>
     <script>
@@ -18,96 +18,219 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" type="text/css" href="public/assets/css/style.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+=======
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+>>>>>>> 1967ef5236b0ff9eb9f0e27ac3862585489c2603
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <title>Contact</title>
-    <header>
-        <style>
-            header {
-                text-align: center;
-                background: url(./assets/images/TRUSÆL.png) no-repeat left;
-                padding-top: 50px;
-                padding-bottom: 30px;
-            }
-        </style>
-    </header>
-    <!--Navbar-->
-    <nav class="navbar navbar-light bg-info lighten-4 sticky-top" id="navbar">
-
-        <!-- Navbar brand -->
-        <a class="navbar-brand" href="#"></a>
-
-        <!-- Collapse button -->
-        <button class="navbar-toggler toggler-example" type="button" data-toggle="collapse" data-target="#navbarSupportedContent1" aria-controls="navbarSupportedContent1" aria-expanded="false" aria-label="Toggle navigation"><span class="dark-blue-text"><i
-                            class="fas fa-bars fa-1x"></i></span></button>
-
-        <!-- Collapsible content -->
-        <div class="collapse navbar-collapse" id="navbarSupportedContent1">
-
-            <!-- Links -->
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="./index.html">Home <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="./about.html">About</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href='./contact.html'>Contact</a>
-                </li>
-            </ul>
-            <!-- Links -->
-
-        </div>
-        <!-- Collapsible content -->
-
-    </nav>
+    <title>Test AJAX calls in server</title>
 </head>
-
 <body>
-    <div class="row">
-        <div class="col-sm-6">
-            <div class="card">
-                <div class="card-body">
-                    <h3 class="card-title" style="text-align: center;">$18,880,000</h3>
-                    <h2 class="card-text">2 HYDE PARK CIRCLE, Toronto, Ontario</h2>
-                    <h2 class="card-text">...</h2>
-                    <a href="#" class="btn btn-primary float-right">BID</a>
-                    <img class="float-left" src="https://cdn.realtor.ca/listing/TS636909273196470000/reb82/highres/3/c4414853_1.jpg" alt="sans" width=200px/>
-                </div>
-            </div>
-        </div>
-    </div>
-    <br />
-    <div class="row">
-        <div class="col-sm-6">
-            <div class="card">
-                <div class="card-body">
-                    <h3 class="card-title">$32,000,000</h3>
-                    <h2 class="card-text">71 THE BRIDLE PATH, Toronto, Ontario</h2>
-                    <h2 class="card-text">...</h2>
-                    <a href="#" class="btn btn-primary float-right">BID</a>
-                    <img class="float-left" src="https://cdn.realtor.ca/listing/TS637082213691730000/reb82/highres/8/c4485918_2.jpg" alt="sans" width=200px/>
-                </div>
-            </div>
-        </div>
-    </div>
-    <br />
-    <div class="row">
-        <div class="col-sm-6">
-            <div class="card">
-                <div class="card-body">
-                    <h3 class="card-title">$22,900,000</h3>
-                    <h2 class="card-text">85 THE BRIDLE PATH, Toronto, Ontario</h2>
-                    <h2 class="card-text">...</h2>
-                    <a href="#" class="btn btn-primary float-right">BID</a>
-                    <img class="float-left" src="https://cdn.realtor.ca/listing/TS636921461660130000/reb82/highres/2/c4430712_1.jpg" alt="sans" width=200px/>
-                </div>
-            </div>
-        </div>
-    </div>
-</body>
+    <h1>Listings</h1>
+    <ul id="listings">
+    </ul>
 
+    <h1 id="bidsTitle"></h1>
+    <ul id="bids">
+    </ul>
+
+    <h1>Agents</h1>
+    <ul id="agents">
+    </ul>
+
+    <h1>Consumers</h1>
+    <div id="createProfile" class="container">
+        <div class="row">
+            <div class="col">
+            <form>
+                <div class="form-group">
+                <label for="firstName">First Name</label>
+                <input type="input" class="form-control" id="firstName" placeholder="First name">
+                <label for="lastName">Last Name</label>
+                <input type="input" class="form-control" id="lastName" placeholder="Last name">
+                <label for="email">Email address</label>
+                <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email">
+                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                <label for="password">Password</label>
+                <input type="password" class="form-control" id="password" aria-describedby="passwordlHelp" placeholder="Enter password">
+                <label for="displayName">Display Name</label>
+                <input type="input" class="form-control" id="displayName" placeholder="Display name">
+                <button type="button" class="btn btn-primary" onClick="createConsumer();">Create profile</button>
+                </div>
+            </form>
+          </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        function createListing() {
+            let listing = {
+                poster_id: 1,
+                property_address: '1 Main St',
+                listing_status: 'Active',
+                estimated_value: 400000,
+                transaction_type: 'abcd'
+            };
+
+            $.ajax({
+                url: "/api/listing/",
+                method: "POST",
+                data: listing
+            }).then(function(newListings) {
+                let confirmationMessage = `
+                   LISTING CREATED
+                   Address: ${newListing.property_address}
+                   Estimated Value: ${newListing.estimated_value}
+                `;
+                alert(confirmationMessage);
+            });
+        }
+        createListing();
+
+        function createConsumer() {
+            let consumer = {
+                display_name: $('#displayName').val(),
+                first_name: $('#firstName').val(),
+                last_name: $('#lastName').val(),
+                email: $('#email').val(),
+                password: $('#password').val()
+            }
+
+            $.ajax({
+                url: "/api/consumer/",
+                method: "POST",
+                data: consumer
+            }).then(function(newConsumer) {
+                let confirmationMessage = `
+                   PROFILE CREATED
+                   Display name: ${newConsumer.display_name}
+                   First name: ${newConsumer.first_name}
+                   Last name: ${newConsumer.last_name}
+                   Email: ${newConsumer.email}
+
+                `;
+                alert(confirmationMessage);
+                displayListings();
+            });
+        }
+
+        function viewBid(bidId) {
+            $.ajax({
+                url: "/api/bid/" + bidId,
+                method: "GET"
+            }).then(function(bids) {
+                const bid = bids[0];
+                let message = `
+                    Id: ${bid.id}
+                    Agent id: ${bid.agent_id}
+                    Listing id: ${bid.listing_id}
+                    Status: ${bid.bid_status}
+                    Services offered: ${bid.services}
+                    Message: ${bid.message}
+                `;
+                alert(message);
+            }).catch(function(err) {
+                console.log(err);
+            })
+        }
+
+        function viewAgent(agentId) {
+            $.ajax({
+                url: "/api/agent/" + agentId,
+                method: "GET"
+            }).then(function(agents) {
+                const agent = agents[0];
+                let message = `
+                    Agent: ${agent.first_name} ${agent.last_name}
+                    phone: ${agent.phone}
+                    email: ${agent.email}
+                    website: ${agent.web_site}
+                `;
+                alert(message);
+            }).catch(function(err) {
+                console.log(err);
+            })
+        }
+
+        function displayListings() {
+            const listingsList = $('#listings').empty();
+
+            // AJAX Get call
+            $.ajax({
+                url: "/api/listing",
+                method: "GET"
+            }).then(function(listings) {
+                if(listings.length == 0) {
+                    listingsList.appendTo(`<li>No listings yet</li>`);
+                }
+
+                for(const listing of listings) {
+                    const id = listing.id;
+                    const listingName = `${listing.property_address}, ${listing.estimated_value}`;
+                    let listingRow = `<li>${id}. ${listingName} <button onClick='displayBids(${id})'>Show bids</button></li>`;
+                    listingsList.append(listingRow);
+                }
+            }).catch(function(err) {
+                console.log(err);
+            })
+        }
+
+        function displayBids(listing_id) {
+            const bidsTitle = $('#bidsTitle').empty();
+            bidsTitle.append(`<h3>Bids for listing ${listing_id}</h3>`);
+
+            const bidsList = $('#bids').empty();
+
+            // AJAX Get call
+            $.ajax({
+                url: "/api/bid/listing/" + listing_id,
+                method: "GET"
+            }).then(function(bids) {
+                if(bids.length == 0) {
+                    bidsList.append(`<li>No bids for this listing yet</li>`);
+                }
+
+                for(const bid of bids) {
+                    const id = bid.id;
+                    const bidName = `Bid by ${bid.agent_id}, <b>${bid.message}</b>`;
+                    let bidRow = `<li>${id}. ${bidName} <button onClick='viewBid(${id})'>View this bid</button></li>`;
+                    bidsList.append(bidRow);
+                }
+            }).catch(function(err) {
+                console.log(err);
+            })
+        }
+
+        function displayAgents() {
+            const agentList = $('#agents').empty();
+
+            // AJAX Get call
+            $.ajax({
+                url: "/api/agent",
+                method: "GET"
+            }).then(function(agents) {
+                if(agents.length == 0) {
+                    agentsList.appendTo(`<li>No agents yet</li>`);
+                }
+
+                for(const agent of agents) {
+                    const id = agent.id;
+                    const agentName = `${agent.first_name} ${agent.last_name}`;
+                    let agentRow = `<li>${id}. ${agentName} <button onClick='viewAgent(${id})'>View</button></li>`;
+                    agentList.append(agentRow);
+                }
+            }).catch(function(err) {
+                console.log(err);
+            })
+        }
+
+        $(document).ready(function() {
+            console.log(`Running our code`);
+            displayListings();
+            displayAgents();
+        })
+    </script>
+</body>
 </html>
