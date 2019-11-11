@@ -2,26 +2,37 @@
 <html lang="en">
 
 <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-119143745-2"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+        gtag('config', 'UA-119143745-2');
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-
-    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="public/assets/css/style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <title>Document</title>
-    <h1>
+    <title>Client Criteria</title>
+    <header>
         <style>
-            h1 {
+            header {
                 text-align: center;
-                background: url(./images/TRUSÆL.png) no-repeat left;
+                background: url(./assets/images/TRUSÆL.png) no-repeat left;
                 padding-top: 50px;
                 padding-bottom: 30px;
             }
         </style>
-    </h1>
+    </header>
     <!--Navbar-->
     <nav class="navbar navbar-light bg-info lighten-4 sticky-top" id="navbar">
 
@@ -56,7 +67,7 @@
 </head>
 
 <body>
-    <p id="intro" style="text-align: center">Agent Sign-Up
+    <p id="intro" style="text-align: center">Tell us what you're looking for so we can get you connected to the right agent.
     </p>
     <style>
         #intro {
@@ -67,42 +78,40 @@
     <div class="container-fluid">
         <form>
             <div class="form-group">
-                <label for="agt_lic_num_lab" style="width: 60%; margin-left: 265px; display: inline-block">License #:</label>
+                <label for="buyer_location" style="width: 60%; margin-left: 265px">Location:</label>
                 <center>
-                    <input type="text" class="form-control" id="agt_lic_num_inp" placeholder="Please enter your real estate license number" style="width: 60%">
+                    <input type="text" class="form-control" id="buyer_location" placeholder="Please enter your location" style="width: 60%">
                 </center>
             </div>
             <div class="form-group">
-                <label for="first_name_label" style="width: 60%; margin-left: 265px">First Name:</label>
+                <label for="exampleFormControlSelect1" style="width: 60%; margin-left: 265px">Property Type:</label>
                 <center>
-                    <input type="text" class="form-control" id="first_name_input" placeholder="Please enter your first name" style="width: 60%">
+                    <select class="form-control" id="exampleFormControlSelect1" style="width: 60%">
+                        <option>House</option>
+                        <option>Row/Townhouse</option>
+                        <option>Duplex</option>
+                        <option>Triplex</option>
+                        <option>Condo/Strata</option>
+                    </select>
                 </center>
             </div>
-            <div class="form-group">
-                <label for="last_name_label" style="width: 60%; margin-left: 265px">Last Name:</label>
-                <center>
-                    <input type="text" class="form-control" id="last_name_input" placeholder="Please enter your last name" style="width: 60%">
-                </center>
-            </div>
-            <div class="form-group">
-                <label for="email_label" style="width: 60%; margin-left: 265px">Email Address:</label>
-                <center>
-                    <input type="text" class="form-control" id="email_input" placeholder="Please enter your email address" style="width: 60%">
-                </center>
-            </div>
-            <div class="form-group">
-                <label for="phone_label" style="width: 60%; margin-left: 265px">Phone Number:</label>
-                <center>
-                    <input type="text" class="form-control" id="phone_input" placeholder="Please enter your phone number" style="width: 60%">
-                </center>
-            </div>
-            <div class="form-group">
-                <label for="website_label" style="width: 60%; margin-left: 265px">Website:</label>
-                <center>
-                    <input type="text" class="form-control" id="website_input" placeholder="Please enter your website URL" style="width: 60%">
-                </center>
-            </div>
-            <button type="submit" class="btn btn-primary" style="margin-left: 265px">Sign-Up</button>
+            <center>
+                <div class="form-group" id="buyer_value_estimate">
+                    <label for="formControlRange">Estimated Value:</label><span id="value"></span>
+                    <input type="range" class="form-control-range" min="100000" max="10000000" value="100000" step="50000" id="buyer_value_slider">
+                    <script>
+                        var slider = document.getElementById("buyer_value_slider");
+                        var output = document.getElementById("value");
+                        output.innerHTML = buyer_value_slider.value; // Display the default slider value
+
+                        // Update the current slider value (each time you drag the slider handle)
+                        buyer_value_slider.oninput = function() {
+                            output.innerHTML = this.value;
+                        }
+                    </script>
+                </div>
+                <button onclick="window.location.href='./profileC.html' " type="button" class="btn btn-primary" id="loginBtn_fp;">Submit</button>
+            </center>
         </form>
     </div>
 </body>

@@ -67,55 +67,41 @@
 </head>
 
 <body>
+
     <div class="container">
 
-        <h1>Create Agent Profile</h1>
-        <div class="form-group row">
-            <label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg">First Name</label>
-            <div class="col-sm-10">
-                <input type="text" class="form-control form-control-lg" id="colFormLabelLg" placeholder="" />
+        <form>
+            <div class="form-group">
+                <label for="name_label_contact">Name:</label>
+                <input type="name" class="form-control" id="name_input_contact" aria-describedby="emailHelp" placeholder="Please enter your name">
             </div>
-        </div>
-        <div class="form-group row">
-            <label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg">Last Name</label>
-            <div class="col-sm-10">
-                <input type="text" class="form-control form-control-lg" id="colFormLabelLg" placeholder="" />
+            <div class="form-group">
+                <label for="email_label_contact">Email:</label>
+                <input type="email" class="form-control" id="email_input_contact" placeholder="Please enter your email address">
+                <small id="email_message_contact" class="form-text text-muted">We'll never share your email with anyone
+                    else.</small>
             </div>
-        </div>
-        <div class="form-group row">
-            <label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg">Company</label>
-            <div class="col-sm-10">
-                <input type="text" class="form-control form-control-lg" id="colFormLabelLg" placeholder="" />
+            <div class="form-group">
+                <label for="phone_label_contact">Phone Number:</label>
+                <input type="phone" class="form-control" id="phone_input_contact" placeholder="Please enter your phone number (optional)">
+                <small id="email_message_contact" class="form-text text-muted">We'll never share your phone number with
+                    anyone else.</small>
             </div>
-        </div>
-        <div class="form-group row">
-            <label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg">License Number</label>
-            <div class="col-sm-10">
-                <input type="text" class="form-control form-control-lg" id="colFormLabelLg" placeholder="" />
+            <label>What is your preferred method of contact?</label>
+            <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" id="email-choice_input_contact" name="customRadioInline1" class="custom-control-input">
+                <label class="custom-control-label" id="email_choice_label_contact for=" customRadioInline1 ">Email</label>
             </div>
-        </div>
-        <div class="form-group row">
-            <label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg">Phone Number </label>
-            <div class="col-sm-10">
-                <input type="email" class="form-control form-control-lg" id="colFormLabelLg" placeholder="" />
+            <div class=" custom-control custom-radio custom-control-inline ">
+                <input type=" radio " id=" phone-choice_input_contact " name=" customRadioInline1 " class=" custom-control-input ">
+                <label class=" custom-control-label " id=" phone-choice_label_contact " for=" customRadioInline2 ">Phone</label>
             </div>
-        </div>
-        <div class="form-group row">
-            <label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg">Email</label>
-            <div class="col-sm-10">
-                <input type="email" class="form-control form-control-lg" id="colFormLabelLg" placeholder="" />
+            <div class=" form-group ">
+                <label for=" exampleFormControlTextarea1 " id=" message_label_contact ">Please enter the reason for your message:</label>
+                <textarea class=" form-control " id=" message_input_contact " rows=" 3 "></textarea>
             </div>
-        </div>
-        <div class="form-group row">
-            <label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg">Password</label>
-            <div class="col-sm-10">
-                <input type="password" class="form-control form-control-lg" id="colFormLabelLg" placeholder="" />
-            </div>
-        </div>
-        <button onclick="window.location.href='/.html' " type="button" class="btn btn-info btn-lg btn-block">
-      save</button>
-
-
+            <button type=" submit " id=" submit_button_contact " class=" btn btn-primary ">Submit</button>
+        </form>
 
     </div>
 

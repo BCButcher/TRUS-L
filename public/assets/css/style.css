@@ -1,22 +1,12 @@
-#h2_fp_slogan {
-    text-align: center;
-    width: 100%;
-    font-weight: 900;
-}
-
-#para_head_fp {
-    font-family: nothing you could do;
-    font-weight: 900;
-}
-
-#para_howcan_fp {
-    font-family: special elite;
-    font-size: 20px;
-}
-
-.buyer_location {
-    float: inline-end;
-}
+.jumbotron{
+    height: 40vh;
+    font-family: 'Roboto', sans-serif;
+    background: url(../images/TRUSÆL.png) no-repeat center center; 
+    -webkit-background-size: contain;
+    -moz-background-size: contain;
+    -o-background-size: contain;
+    border: black 5px solid ;
+   }
 
 .container2 {
     text-align: center;
