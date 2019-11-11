@@ -31,6 +31,7 @@ CREATE TABLE listings (
     listing_status ENUM("Active", "Signed", "Closed"),
     estimated_value INTEGER,
     transaction_type VARCHAR(4),
+    type_of_home VARCHAR(256),
     FOREIGN KEY (poster_id) REFERENCES consumers(id),
     createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );

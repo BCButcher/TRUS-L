@@ -52,7 +52,8 @@
                 property_address: '1 Main St',
                 listing_status: 'Active',
                 estimated_value: 400000,
-                transaction_type: 'abcd'
+                transaction_type: 'abcd',
+                type_of_home: "Detached"
             };
 
             $.ajax({
@@ -64,6 +65,7 @@
                    LISTING CREATED
                    Address: ${newListing.property_address}
                    Estimated Value: ${newListing.estimated_value}
+                   Type of home: ${newListing.type_of_home}
                 `;
                 alert(confirmationMessage);
             });
