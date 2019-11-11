@@ -108,6 +108,178 @@
             </div>
         </div>
     </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        function createListing() {
+            let listing = {
+                poster_id: 1,
+                property_address: '1 Main St',
+                listing_status: 'Active',
+                estimated_value: 400000,
+                transaction_type: 'abcd',
+                type_of_home: "Detached"
+            };
+
+            $.ajax({
+                url: "/api/listing/",
+                method: "POST",
+                data: listing
+            }).then(function(newListings) {
+                let confirmationMessage = `
+                   LISTING CREATED
+                   Address: ${newListing.property_address}
+                   Estimated Value: ${newListing.estimated_value}
+                   Type of home: ${newListing.type_of_home}
+                `;
+                alert(confirmationMessage);
+            });
+        }
+        createListing();
+
+        function createConsumer() {
+            let consumer = {
+                display_name: $('#displayName').val(),
+                first_name: $('#firstName').val(),
+                last_name: $('#lastName').val(),
+                email: $('#email').val(),
+                password: $('#password').val()
+            }
+
+            $.ajax({
+                url: "/api/consumer/",
+                method: "POST",
+                data: consumer
+            }).then(function(newConsumer) {
+                let confirmationMessage = `
+                   PROFILE CREATED
+                   Display name: ${newConsumer.display_name}
+                   First name: ${newConsumer.first_name}
+                   Last name: ${newConsumer.last_name}
+                   Email: ${newConsumer.email}
+
+                `;
+                alert(confirmationMessage);
+                displayListings();
+            });
+        }
+
+        function viewBid(bidId) {
+            $.ajax({
+                url: "/api/bid/" + bidId,
+                method: "GET"
+            }).then(function(bids) {
+                const bid = bids[0];
+                let message = `
+                    Id: ${bid.id}
+                    Agent id: ${bid.agent_id}
+                    Listing id: ${bid.listing_id}
+                    Status: ${bid.bid_status}
+                    Services offered: ${bid.services}
+                    Message: ${bid.message}
+                `;
+                alert(message);
+            }).catch(function(err) {
+                console.log(err);
+            })
+        }
+
+        function viewAgent(agentId) {
+            $.ajax({
+                url: "/api/agent/" + agentId,
+                method: "GET"
+            }).then(function(agents) {
+                const agent = agents[0];
+                let message = `
+                    Agent: ${agent.first_name} ${agent.last_name}
+                    phone: ${agent.phone}
+                    email: ${agent.email}
+                    website: ${agent.web_site}
+                `;
+                alert(message);
+            }).catch(function(err) {
+                console.log(err);
+            })
+        }
+
+        function displayListings() {
+            const listingsList = $('#listings').empty();
+
+            // AJAX Get call
+            $.ajax({
+                url: "/api/listing",
+                method: "GET"
+            }).then(function(listings) {
+                if(listings.length == 0) {
+                    listingsList.appendTo(`<li>No listings yet</li>`);
+                }
+
+                for(const listing of listings) {
+                    const id = listing.id;
+                    const listingName = `${listing.property_address}, ${listing.estimated_value}`;
+                    let listingRow = `<li>${id}. ${listingName} <button onClick='displayBids(${id})'>Show bids</button></li>`;
+                    listingsList.append(listingRow);
+                }
+            }).catch(function(err) {
+                console.log(err);
+            })
+        }
+
+        function displayBids(listing_id) {
+            const bidsTitle = $('#bidsTitle').empty();
+            bidsTitle.append(`<h3>Bids for listing ${listing_id}</h3>`);
+
+            const bidsList = $('#bids').empty();
+
+            // AJAX Get call
+            $.ajax({
+                url: "/api/bid/listing/" + listing_id,
+                method: "GET"
+            }).then(function(bids) {
+                if(bids.length == 0) {
+                    bidsList.append(`<li>No bids for this listing yet</li>`);
+                }
+
+                for(const bid of bids) {
+                    const id = bid.id;
+                    const bidName = `Bid by ${bid.agent_id}, <b>${bid.message}</b>`;
+                    let bidRow = `<li>${id}. ${bidName} <button onClick='viewBid(${id})'>View this bid</button></li>`;
+                    bidsList.append(bidRow);
+                }
+            }).catch(function(err) {
+                console.log(err);
+            })
+        }
+
+        function displayAgents() {
+            const agentList = $('#agents').empty();
+
+            // AJAX Get call
+            $.ajax({
+                url: "/api/agent",
+                method: "GET"
+            }).then(function(agents) {
+                if(agents.length == 0) {
+                    agentsList.appendTo(`<li>No agents yet</li>`);
+                }
+
+                for(const agent of agents) {
+                    const id = agent.id;
+                    const agentName = `${agent.first_name} ${agent.last_name}`;
+                    let agentRow = `<li>${id}. ${agentName} <button onClick='viewAgent(${id})'>View</button></li>`;
+                    agentList.append(agentRow);
+                }
+            }).catch(function(err) {
+                console.log(err);
+            })
+        }
+
+        $(document).ready(function() {
+            console.log(`Running our code`);
+            displayListings();
+            displayAgents();
+        })
+    </script>
 </body>
 
 </html>

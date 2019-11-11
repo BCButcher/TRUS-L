@@ -10,13 +10,13 @@ INSERT INTO consumers (display_name, first_name, last_name, email, password) VAL
 INSERT INTO consumers (display_name, first_name, last_name, email, password) VALUES ("Neo", "Thomas A.", "Anderson", "thomasaanderson@fake.com", "password");
 INSERT INTO consumers (display_name, first_name, last_name, email, password) VALUES ("Super", "Louie", "Kritski", "louiekritski@fake.com", "password");
 
-INSERT INTO listings (poster_id, property_address, listing_status, estimated_value, transaction_type) VALUES (1, "E02", "Active", 1000000, "b");
-INSERT INTO listings (poster_id, property_address, listing_status, estimated_value, transaction_type) VALUES (2, "E01", "Active", 2000, "a");
-INSERT INTO listings (poster_id, property_address, listing_status, estimated_value, transaction_type) VALUES (3, "E11", "Active", 3000, "d");
-INSERT INTO listings (poster_id, property_address, listing_status, estimated_value, transaction_type) VALUES (3, "E11", "Active", 1800, "d");
-INSERT INTO listings (poster_id, property_address, listing_status, estimated_value, transaction_type) VALUES (3, "E12", "Active", 2500, "d");
-INSERT INTO listings (poster_id, property_address, listing_status, estimated_value, transaction_type) VALUES (3, "E06", "Active", 3600, "d");
-INSERT INTO listings (poster_id, property_address, listing_status, estimated_value, transaction_type) VALUES (3, "E14", "Active", 3500, "d");
+INSERT INTO listings (poster_id, property_address, listing_status, estimated_value, transaction_type, type_of_home) VALUES (1, "E02", "Active", 1000000, "b", "Detached");
+INSERT INTO listings (poster_id, property_address, listing_status, estimated_value, transaction_type, type_of_home) VALUES (2, "E01", "Active", 2000, "a", "Semi");
+INSERT INTO listings (poster_id, property_address, listing_status, estimated_value, transaction_type, type_of_home) VALUES (3, "E11", "Active", 3000, "d", "Townhome");
+INSERT INTO listings (poster_id, property_address, listing_status, estimated_value, transaction_type, type_of_home) VALUES (3, "E11", "Active", 1800, "d", "Condo");
+INSERT INTO listings (poster_id, property_address, listing_status, estimated_value, transaction_type, type_of_home) VALUES (3, "E12", "Active", 2500, "d", "Detached");
+INSERT INTO listings (poster_id, property_address, listing_status, estimated_value, transaction_type, type_of_home) VALUES (3, "E06", "Active", 3600, "d", "Semi");
+INSERT INTO listings (poster_id, property_address, listing_status, estimated_value, transaction_type, type_of_home) VALUES (3, "E14", "Active", 3500, "d", "Townhome");
 
 INSERT INTO bids (agent_id, listing_id, bid_status, services, message) VALUES (1, 1, "Active", "abc", "Hire me because I am in the top 1% of all realtors in the area.");
 INSERT INTO bids (agent_id, listing_id, bid_status, services, message) VALUES (2, 1, "Active", "f", "Hire me because I am your mother.");
