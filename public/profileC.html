@@ -10,11 +10,9 @@
       rel="stylesheet"
       href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
     />
-
-    <!-- Material Design Bootstrap -->
-    <link href="css/mdb.min.css" rel="stylesheet" />
-    <!-- Your custom styles (optional) -->
-    <script
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  
+    <script 
       src="https://code.jquery.com/jquery-3.4.1.js"
       integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
       crossorigin="anonymous"
@@ -41,6 +39,7 @@
       integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
       crossorigin="anonymous"
     ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <title>Create User Account</title>
   </head>
   <body>
@@ -67,9 +66,7 @@
         <!-- Links -->
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
-            <a class="nav-link" href="#"
-              >Home <span class="sr-only">(current)</span></a
-            >
+            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">Features</a>
@@ -87,37 +84,33 @@
       <h1>Create Profile</h1>
       <div class="form-group row">
         <label
-          for="colFormLabelLg"
-          class="col-sm-2 col-form-label col-form-label-lg"
-          >Email address</label
-        >
+          for="email"
+          class="col-sm-2 col-form-label col-form-label-lg">Email address
+        </label>
         <div class="col-sm-10">
           <input
             type="email"
             class="form-control form-control-lg"
-            id="colFormLabelLg"
-            placeholder=""
-          />
+            id="email"
+            placeholder=""/>
         </div>
       </div>
       <div class="form-group row">
           <label
-            for="colFormLabelLg"
+            for="userName"
             class="col-sm-2 col-form-label col-form-label-lg"
-            >User Name</label
-          >
+            >Display name</label>
           <div class="col-sm-10">
             <input
               type="text"
               class="form-control form-control-lg"
-              id="colFormLabelLg"
-              placeholder=""
-            />
+              id="displayName"
+              placeholder=""/>
           </div>
         </div>
       <div class="form-group row">
         <label
-          for="colFormLabelLg"
+          for="password"
           class="col-sm-2 col-form-label col-form-label-lg"
           >Password</label
         >
@@ -132,7 +125,7 @@
       </div>
       <div class="form-group row">
           <label
-            for="colFormLabelLg"
+            for="firstName"
             class="col-sm-2 col-form-label col-form-label-lg"
             >First Name</label
           >
@@ -140,14 +133,14 @@
             <input
               type="text"
               class="form-control form-control-lg"
-              id="colFormLabelLg"
+              id="firstName"
               placeholder=""
             />
           </div>
         </div>
         <div class="form-group row">
             <label
-              for="colFormLabelLg"
+              for="lastName"
               class="col-sm-2 col-form-label col-form-label-lg"
               >Last Name</label
             >
@@ -155,7 +148,7 @@
               <input
                 type="text"
                 class="form-control form-control-lg"
-                id="colFormLabelLg"
+                id="lastName"
                 placeholder=""
               />
             </div>
@@ -164,30 +157,30 @@
       <h3>Listing</h3>
       <div class="form-group row">
         <label
-          for="colFormLabelLg"
+          for="typeOfHome"
           class="col-sm-2 col-form-label col-form-label-lg"
           >Type of home</label
         >
         <div class="col-sm-10">
           <input
             type="text"
+            id="typeOfHome"
             class="form-control form-control-lg"
-            id="colFormLabelLg"
             placeholder=""
           />
         </div>
       </div>
       <div class="form-group row">
         <label
-          for="colFormLabelLg"
+          for="address"
           class="col-sm-2 col-form-label col-form-label-lg"
           >Address</label
         >
         <div class="col-sm-10">
           <input
             type="text"
+            id="address"
             class="form-control form-control-lg"
-            id="colFormLabelLg"
             placeholder=""
           />
         </div>
@@ -201,8 +194,8 @@
         <div class="col-sm-10">
           <input
             type="text"
+            id="estimatedVal"
             class="form-control form-control-lg"
-            id="colFormLabelLg"
             placeholder=""
           />
         </div>
@@ -210,12 +203,15 @@
 
       <button
         type="button"
-        id="buttonC"
         onclick="createConsumer()";
+       
         class="btn btn-info btn-lg btn-block"
       >
         List
       </button>
     </div>
+    
   </body>
+  <script src="assets/js/index.js"></script>
+
 </html>
