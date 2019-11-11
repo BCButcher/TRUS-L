@@ -1,9 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
     <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
     <link
@@ -44,22 +40,34 @@
   </head>
   <body>
     <!--Navbar-->
-    <nav class="navbar navbar-light bg-info lighten-4 sticky-top">
-      <!-- Navbar brand -->
-      <a class="navbar-brand" href="#">Navbar</a>
+    <nav class="navbar navbar-light bg-info lighten-4 sticky-top" id="navbar">
 
-      <!-- Collapse button -->
-      <button
-        class="navbar-toggler toggler-example"
-        type="button"
-        data-toggle="collapse"
-        data-target="#navbarSupportedContent1"
-        aria-controls="navbarSupportedContent1"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span class="dark-blue-text"><i class="fas fa-bars fa-1x"></i></span>
-      </button>
+        <!-- Navbar brand -->
+        <a class="navbar-brand" href="#"></a>
+
+        <!-- Collapse button -->
+        <button class="navbar-toggler toggler-example" type="button" data-toggle="collapse" data-target="#navbarSupportedContent1" aria-controls="navbarSupportedContent1" aria-expanded="false" aria-label="Toggle navigation"><span class="dark-blue-text"><i
+                            class="fas fa-bars fa-1x"></i></span></button>
+
+        <!-- Collapsible content -->
+        <div class="collapse navbar-collapse" id="navbarSupportedContent1">
+
+            <!-- Links -->
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="./index.html">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="./about.html">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href='./contact.html'>Contact</a>
+                </li>
+            </ul>
+            <!-- Links -->
+
+        </div>
+        <!-- Collapsible content -->
 
       <!-- Collapsible content -->
       <div class="collapse navbar-collapse" id="navbarSupportedContent1">
@@ -79,7 +87,9 @@
       </div>
       <!-- Collapsible content -->
     </nav>
+</head>
 
+<body>
     <div class="container">
       <h1>Create Profile</h1>
       <div class="form-group row">

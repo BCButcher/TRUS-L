@@ -24,16 +24,16 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <title>Contact</title>
-    <header>
+    <h1>
         <style>
-            header {
+            h1 {
                 text-align: center;
                 background: url(./assets/images/TRUSÆL.png) no-repeat left;
                 padding-top: 50px;
                 padding-bottom: 30px;
             }
         </style>
-    </header>
+    </h1>
     <!--Navbar-->
     <nav class="navbar navbar-light bg-info lighten-4 sticky-top" id="navbar">
 
@@ -42,7 +42,7 @@
 
         <!-- Collapse button -->
         <button class="navbar-toggler toggler-example" type="button" data-toggle="collapse" data-target="#navbarSupportedContent1" aria-controls="navbarSupportedContent1" aria-expanded="false" aria-label="Toggle navigation"><span class="dark-blue-text"><i
-                            class="fas fa-bars fa-1x"></i></span></button>
+                    class="fas fa-bars fa-1x"></i></span></button>
 
         <!-- Collapsible content -->
         <div class="collapse navbar-collapse" id="navbarSupportedContent1">
@@ -68,14 +68,41 @@
 </head>
 
 <body>
+
     <div class="container">
-        
 
-      
-            
-
-
-    
+        <form>
+            <div class="form-group">
+                <label for="name_label_contact">Name:</label>
+                <input type="name" class="form-control" id="name_input_contact" aria-describedby="emailHelp" placeholder="Please enter your name">
+            </div>
+            <div class="form-group">
+                <label for="email_label_contact">Email:</label>
+                <input type="email" class="form-control" id="email_input_contact" placeholder="Please enter your email address">
+                <small id="email_message_contact" class="form-text text-muted">We'll never share your email with anyone
+                    else.</small>
+            </div>
+            <div class="form-group">
+                <label for="phone_label_contact">Phone Number:</label>
+                <input type="phone" class="form-control" id="phone_input_contact" placeholder="Please enter your phone number (optional)">
+                <small id="email_message_contact" class="form-text text-muted">We'll never share your phone number with
+                    anyone else.</small>
+            </div>
+            <label>What is your preferred method of contact?</label>
+            <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" id="email-choice_input_contact" name="customRadioInline1" class="custom-control-input">
+                <label class="custom-control-label" id="email_choice_label_contact for=" customRadioInline1 ">Email</label>
+            </div>
+            <div class=" custom-control custom-radio custom-control-inline ">
+                <input type=" radio " id=" phone-choice_input_contact " name=" customRadioInline1 " class=" custom-control-input ">
+                <label class=" custom-control-label " id=" phone-choice_label_contact " for=" customRadioInline2 ">Phone</label>
+            </div>
+            <div class=" form-group ">
+                <label for=" exampleFormControlTextarea1 " id=" message_label_contact ">Please enter the reason for your message:</label>
+                <textarea class=" form-control " id=" message_input_contact " rows=" 3 "></textarea>
+            </div>
+            <button type=" submit " id=" submit_button_contact " class=" btn btn-primary ">Submit</button>
+        </form>
 
     </div>
 
