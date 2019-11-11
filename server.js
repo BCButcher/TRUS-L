@@ -1,7 +1,6 @@
 // Dependencies
 // =============================================================
 let express = require('express');
-let DBAccess = require('./lib/dbAccess');
 
 // Sets up the Express App
 // =============================================================
@@ -25,5 +24,5 @@ app.listen(PORT, function () {
 
 // Close your database connection when Node exits
 process.on('exit', async function (code) {
-    return console.log(`About to exit with code ${code}`);
+  return console.log(`About to exit with code ${code}`);
 });

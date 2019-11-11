@@ -46,6 +46,30 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script>
+        function createListing() {
+            let listing = {
+                poster_id: 1,
+                property_address: '1 Main St',
+                listing_status: 'Active',
+                estimated_value: 400000,
+                transaction_type: 'abcd'
+            };
+
+            $.ajax({
+                url: "/api/listing/",
+                method: "POST",
+                data: listing
+            }).then(function(newListings) {
+                let confirmationMessage = `
+                   LISTING CREATED
+                   Address: ${newListing.property_address}
+                   Estimated Value: ${newListing.estimated_value}
+                `;
+                alert(confirmationMessage);
+            });
+        }
+        createListing();
+
         function createConsumer() {
             let consumer = {
                 display_name: $('#displayName').val(),
@@ -69,6 +93,7 @@
 
                 `;
                 alert(confirmationMessage);
+                displayListings();
             });
         }
 
@@ -145,7 +170,7 @@
                 method: "GET"
             }).then(function(bids) {
                 if(bids.length == 0) {
-                    bidsList.appendTo(`<li>No bids for this listing yet</li>`);
+                    bidsList.append(`<li>No bids for this listing yet</li>`);
                 }
 
                 for(const bid of bids) {
