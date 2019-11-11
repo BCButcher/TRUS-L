@@ -24,3 +24,7 @@ Page - Index.html <link src="./public/index.html">
     para _row_cont2_fp      Parallax row container 2    71
     para_head2_fp           Parallax header 2           72
     para_howcan_fp          Parallax help statement     60
+
+Page -- process_bid.html <link src="./public/assets/process_bid.html">
+    ID's                    Description                 Line #      CSS Line #
+    
