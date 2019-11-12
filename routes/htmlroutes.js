@@ -14,33 +14,37 @@ module.exports = function (app) {
   // User creates a profile
   app.get('/profile/:type', function (req, res) {
     if (req.params.type === 'agent') {
-      res.sendFile(path.join(__dirname, '../public/assets/profile/profilea.html'));
+      res.sendFile(path.join(__dirname, '../public/assets/profile/profileA.html'));
     }
     else {
-      res.sendFile(path.join(__dirname, '../public/assets/profile/profilec.html'));
+      res.sendFile(path.join(__dirname, '../public/assets/profile/profileC.html'));
     }
   });
 
-  // List the active bids
-  app.get('/bids', function (req, res) {
-    res.sendFile(path.join(__dirname, '../public/assets/bids/bids.html'));
+  app.get('/createbid', function (req, res) {
+    res.sendFile(path.join(__dirname, '../public/assets/bids/createbid.html'));
   });
 
-  // After the user has rejected a bid, this page asks if they want to tell the
-  // agent why.
-  app.get('/process_bid', function (req, res) {
-    res.sendFile(path.join(__dirname, '../public/assets/bids/process_bid.html'));
-  });
+  // // List the active bids
+  // app.get('/bids', function (req, res) {
+  //   res.sendFile(path.join(__dirname, '../public/assets/bids/bids.html'));
+  // });
 
-  // View a particular bid.
-  app.get('/viewbid', function (req, res) {
-    res.sendFile(path.join(__dirname, '../public/assets/bids/agent_bid.html'));
-  });
+  // // After the user has rejected a bid, this page asks if they want to tell the
+  // // agent why.
+  // app.get('/process_bid', function (req, res) {
+  //   res.sendFile(path.join(__dirname, '../public/assets/bids/process_bid.html'));
+  // });
 
-  // Tell the user that their listing has been posted
-  app.get('/confirm', function (req, res) {
-    res.sendFile(path.join(__dirname, '../public/assets/bids/confirm.html'));
-  });
+  // // View a particular bid.
+  // app.get('/viewbid', function (req, res) {
+  //   res.sendFile(path.join(__dirname, '../public/assets/bids/agent_bid.html'));
+  // });
+
+  // // Tell the user that their listing has been posted
+  // app.get('/confirm', function (req, res) {
+  //   res.sendFile(path.join(__dirname, '../public/assets/bids/confirm.html'));
+  // });
 
   // View all active listings
   app.get('/listings', function (req, res) {
