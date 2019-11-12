@@ -65,21 +65,33 @@ function createAgent() {
     password:$('agentPass').val()
 
   };
+
+  $.ajax({
+    url: "/api/agent/",
+    method: "POST",
+    data: newAgent
+  }).then(function(newAgent) {
+    // $("#agentConfirmation").append(`
+
+    //          <h3> PROFILE CREATED</h3>
+    //          <li>Display name: ${newAgent.typeofHome}</li>
+    //          <li>First name: ${newAgent.address}</li>
+    //          <li>Last name: ${newAgent.estimatedVal}</li>
+
+    //       `);
+    alert(confirmationMessage);
+  });
 }
 
-$.ajax({
-  url: "/api/agent/",
-  method: "POST",
-  data: newAgent
-}).then(function(newAgent) {
-  // $("#agentConfirmation").append(`
-
-  //          <h3> PROFILE CREATED</h3>
-  //          <li>Display name: ${newAgent.typeofHome}</li>
-  //          <li>First name: ${newAgent.address}</li>
-  //          <li>Last name: ${newAgent.estimatedVal}</li>
-
-  //       `);
-  alert(confirmationMessage);
-});
+function createConsumerAndListing() {
+  createConsumer();
+  createListing();
 }
+
+function updateSlider() {
+  var slider = document.getElementById("buyer_value_slider");
+  var output = document.getElementById("value");
+  output.innerHTML = buyer_value_slider.value; // Display the default slider value
+}
+
+
