@@ -17,19 +17,6 @@ module.exports = function (app) {
     return res;
   });
 
-  app.get('/api/agent/:id/:password', async function (req, res) {
-    try {
-      res.status(200);
-      res.send(await dbAccess.verifyAgentPassword(req.params.id, req.params.password));
-    } catch (err) {
-      // Internal error on the server side.
-      console.log(err);
-      res.status(500);
-      res.send(err);
-    }
-    return res;
-  });
-
   // Get the agent with the given id
   app.get('/api/agent/:id', async function (req, res) {
     try {

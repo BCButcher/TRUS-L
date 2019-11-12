@@ -1,47 +1,28 @@
-$(document).ready(function() {
-    $("#consumer_login_login").click(function() {
-        var username = $("email_login_input").val().trim();
-        var password = $("password_login_input").val().trim();
+function verifyPassword() {
+    event.preventDefault();
+    
+    var username = $("#email_login_input").val().trim();
+    var password = $("#password_login_input").val().trim();
 
-        if (username != "" && password != "") {
-            $.ajax({
-                url: '/api/consumer/:id/:password',
-                type: 'post',
-                data: { username: username, password: password },
-                success: function(response) {
-                    var msg = "";
-                    if (response == 1) {
-                        window.location = "./profileC.html";
-                    } else {
-                        msg = "Invalid username and password.";
-                    }
-                    $("#message").html(msg);
-                }
-            });
-        }
-    });
-});
+    console.log("verifying");
 
-$(document).ready(function() {
-    $("#agent_login_login").click(function() {
-        var username = $("email_login_input").val().trim();
-        var password = $("password_login_input").val().trim();
-
-        if (username != "" && password != "") {
-            $.ajax({
-                url: '/api/agent/:id/:password',
-                type: 'post',
-                data: { username: username, password: password },
-                success: function(response) {
-                    var msg = "";
-                    if (response == 1) {
-                        window.location = "./profileA.html";
-                    } else {
-                        msg = "Invalid username and password.";
-                    }
-                    $("#message").html(msg);
-                }
-            });
-        }
-    });
-});
+    if (username != "" && password != "") {
+        $.ajax({
+            url: '/api/' + username + '/' + password,
+            type: 'post',
+            data: { id: username, password: password }
+        }).then(function(response) {
+            if (response == true) {
+                console.log("verify password response true");
+                window.location = "/dashboard";
+            } else {
+                console.log("verify password response false");
+                $("#message").html("Invalid username and password.");
+            }
+        }).catch(function(err) {
+            // If something goes wrong, send the message to the console to tell us what error was 
+            // thrown.
+            console.log(err);
+        });
+    }
+}

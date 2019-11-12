@@ -6,22 +6,20 @@ CREATE TABLE agents (
    id INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,
    license INTEGER NOT NULL,
    title VARCHAR(256) NOT NULL,
-   first_name VARCHAR(32) NOT NULL,
-   last_name VARCHAR(32) NOT NULL,
-   email VARCHAR(32) NOT NULL,
    phone VARCHAR(15) NOT NULL,
    web_site VARCHAR(2083),
-   password VARCHAR (256) NOT NULL,
    createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
-CREATE TABLE consumers (
+CREATE TABLE users (
     id INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,
     display_name VARCHAR(32) NOT NULL,
     first_name VARCHAR(32) NOT NULL,
     last_name VARCHAR(32) NOT NULL,
     email VARCHAR(32) NOT NULL,
     password VARCHAR (256) NOT NULL,
+    agent_id INTEGER,
+    FOREIGN KEY (agent_id) REFERENCES agents(id),
     createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
@@ -33,7 +31,7 @@ CREATE TABLE listings (
     estimated_value INTEGER,
     transaction_type VARCHAR(4),
     type_of_home VARCHAR(256),
-    FOREIGN KEY (poster_id) REFERENCES consumers(id),
+    FOREIGN KEY (poster_id) REFERENCES users(id),
     createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
