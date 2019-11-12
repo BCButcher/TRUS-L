@@ -6,3 +6,6 @@ function updateSlider() {
 }
 
 
+function createConsumerAndListing() {
+    
+}

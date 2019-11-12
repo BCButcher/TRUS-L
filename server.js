@@ -13,6 +13,7 @@ app.use(express.json());
 app.use(express.static('public'));
 
 // Routes
+require('./routes/apiRoutes_common')(app);
 require('./routes/apiRoutes_bid')(app);
 require('./routes/apiRoutes_listing')(app);
 require('./routes/apiRoutes_agent')(app);

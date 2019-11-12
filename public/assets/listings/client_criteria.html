@@ -47,40 +47,6 @@
 
     </nav>
 
-    <div class="container">
-        <div class="row">
-            <div class="col text-center p-3">
-                    Tell us what you're looking for so we can get you connected to the right agent.
-            </div>
-        </div>
-    </div>
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col">
-                <form>
-                    <div class="form-group w-100">
-                        <label for="buyer_location">Location:</label>
-                        <input type="text" class="form-control w-100" id="buyer_location" placeholder="Please enter your location" style="width: 60%">
-                    </div>
-                    <div class="form-group w-100">
-                        <label for="propertyType">Property Type:</label>
-                        <select class="form-control" id="propertyType">
-                            <option>House</option>
-                            <option>Row/Townhouse</option>
-                            <option>Duplex</option>
-                            <option>Triplex</option>
-                            <option>Condo/Strata</option>
-                        </select>
-                    </div>
-                    <div class="form-group w-100" id="buyer_value_estimate">
-                        <label for="buyer_value_slider">Estimated Value:</label><span id="value"></span>
-                        <input type="range" class="form-control-range w-100" onInput="updateSlider()" min="100000" max="10000000" value="100000" step="50000" id="buyer_value_slider">
-                    </div>
-                    <button onclick="window.location.href='/profile/consumer'" type="button" class="btn btn-primary" id="loginBtn_fp">Submit</button>
-                </form>
-            </div>
-        </div> 
-    </div>
 
     <script src="/assets/listings/client_criteria.js"></script>
 </body>
