@@ -1,7 +1,14 @@
+header {
+    text-align: center;
+    background: url(/assets/images/TRUSÆL.png) no-repeat left;
+    padding-top: 50px;
+    padding-bottom: 30px;
+}
+
 .jumbotron{
     height: 40vh;
     font-family: 'Roboto', sans-serif;
-    background: url(../images/TRUSÆL.png) no-repeat center center; 
+    background: url(/assets/images/TRUSÆL.png) no-repeat center center; 
     -webkit-background-size: contain;
     -moz-background-size: contain;
     -o-background-size: contain;

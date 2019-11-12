@@ -13,7 +13,10 @@ app.use(express.json());
 app.use(express.static('public'));
 
 // Routes
-require('./routes/apiRoutes')(app);
+require('./routes/apiRoutes_bid')(app);
+require('./routes/apiRoutes_listing')(app);
+require('./routes/apiRoutes_agent')(app);
+require('./routes/apiRoutes_consumer')(app);
 require('./routes/htmlRoutes')(app);
 
 // Starts the server to begin listening

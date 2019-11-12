@@ -16,23 +16,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" type="text/css" href="public/assets/css/style.css">
+    <link rel="stylesheet" type="text/css" href="/assets/css/style.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <title>Contact</title>
-    <header>
-        <style>
-            header {
-                text-align: center;
-                background: url(./assets/images/TRUSÆL.png) no-repeat left;
-                padding-top: 50px;
-                padding-bottom: 30px;
-            }
-        </style>
-    </header>
+    <title>Bids</title>
+</head>
+<body>
+    <header></header>
     <!--Navbar-->
     <nav class="navbar navbar-light bg-info lighten-4 sticky-top" id="navbar">
 
@@ -49,13 +42,13 @@
             <!-- Links -->
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="./index.html">Home <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="./about.html">About</a>
+                    <a class="nav-link" href="/about">About</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href='./contact.html'>Contact</a>
+                    <a class="nav-link" href='/contact'>Contact</a>
                 </li>
             </ul>
             <!-- Links -->
@@ -64,26 +57,25 @@
         <!-- Collapsible content -->
 
     </nav>
-</head>
+    <h1>Bids for Listing</h1>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <ul id="listingId">
+                </ul>
+            </div>
+        </div>
+    </div>
 
-<body>
+
     <div class="container">
         <div class="jumbotron jumbotron-fluid">
             <div class="currentBids">
-                <h1 class="display-4">Current Bids</h1>
+                <h2>Current Bids</h2>
                 <div class="row">
                     <div class="col-sm-6">
-                        <div class="card">
-                            <div class="card-body" width="100%">
-                                <h3 class="card-title" style="text-align: center;">Bid: </h3>
-                                <h2 class="card-text" width="100%">Property Address: </h2>
-                                <h2 class="card-text">Agent Name: </h2>
-                                <h2 class="card-text">Services Offered: </h2>
-                                <a href="#" class="btn btn-primary float-right">Accept Bid</a>
-                                <a href="#" class="btn btn-primary float-right">Reject Bid</a>
-                                <img class="float-left" src="/Agent Photo" alt="sans" width=200px />
-                            </div>
-                        </div>
+                        <ul id="bidColCurrent">
+                        </ul>
                     </div>
                 </div>
             </div>
@@ -91,26 +83,19 @@
 
         <div class="jumbotron jumbotron-fluid">
             <div class="rejectedBids">
+                <h2>Rejected Bids</h2>
                 <div class="row">
                     <div class="col-sm-6">
-                        <div class="card">
-                            <div class="card-body" width="100%">
-                                <h3 class="card-title" style="text-align: center;">Bid: </h3>
-                                <h2 class="card-text" width="100%">Property Address: </h2>
-                                <h2 class="card-text">Agent Name: </h2>
-                                <h2 class="card-text">Services Offered: </h2>
-                                <a href="#" class="btn btn-primary float-right">Accept Bid</a>
-                                <p style="float: right"> Rejected Bid </p>
-                                <img class="float-left" src="/Agent Photo" alt="sans" width=200px />
-                            </div>
-                        </div>
+                        <ul id="bidColRejected">
+                        </ul>
                     </div>
                 </div>
             </div>
-            <p class="lead"></p>
         </div>
     </div>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="/assets/bids/bids.js"></script>
 </body>
 
 </html>

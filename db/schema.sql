@@ -40,7 +40,7 @@ CREATE TABLE bids (
    id INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,
    agent_id INTEGER,
    listing_id INTEGER,
-   bid_status ENUM("Active", "Signed", "Closed"),
+   bid_status ENUM("Active", "Signed", "Closed", "Rejected"),
    services VARCHAR(8),
    message VARCHAR(500),    
    FOREIGN KEY (agent_id) REFERENCES agents(id),

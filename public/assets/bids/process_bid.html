@@ -23,16 +23,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <title>Trusael</title>
-    <h1>
-        <style>
-            h1 {
-                text-align: center;
-                background: url(./assets/images/TRUSÆL.png) no-repeat left;
-                padding-top: 50px;
-                padding-bottom: 30px;
-            }
-        </style>
-    </h1>
+</head>
+<body>
+    <header></header>
+
     <!--Navbar-->
     <nav class="navbar navbar-light bg-info lighten-4 sticky-top" id="navbar">
 
@@ -49,13 +43,13 @@
             <!-- Links -->
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="./about.html">About</a>
+                    <a class="nav-link" href="/about">About</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href='./contact.html'>Contact</a>
+                    <a class="nav-link" href='/contact'>Contact</a>
                 </li>
             </ul>
             <!-- Links -->
@@ -64,21 +58,29 @@
         <!-- Collapsible content -->
 
     </nav>
-</head>
-
-<body>
-    <form>
-        <label>Would you like to share your reason for rejecting this bid?
-            <br />
-            Your feedback is completely optional but, it will greatly assist both agents, and Trusael make improvements to better meet your needs.</label>
-        <div class="form-group ">
-            <label for="exampleFormControlTextarea1 " id="agent_bid_reject_label">Please briefly explain your reason for rejecting the agents bid</label>
-            <textarea class="form-control " id="agent_bid_reject_message" rows="3 "></textarea>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <form>
+                    Would you like to share your reason for rejecting this bid?
+                    <br />
+                    Your feedback is completely optional but, it will greatly assist both agents, and Trusael make improvements to better meet your needs.
+                    <div class="form-group ">
+                        <label for="agent_bid_reject_message" id="agent_bid_reject_label">Please briefly explain your reason for rejecting the agents bid</label>
+                        <textarea class="form-control " id="agent_bid_reject_message" rows="3 "></textarea>
+                    </div>
+                    <button type="button" id="submit_reject_reason_button" class="btn btn-primary" onClick="save();">Submit</button>
+                    <button type="button" id="skip_reject_reason_button" class="btn btn-primary" onClick="">Skip</button>
+                </form>
+            </div>
         </div>
-        <button type="submit" id="submit_reject_reason_button" class="btn btn-primary ">Submit</button>
-        <button type="submit" id="skip_reject_reason_button" class="btn btn-primary ">Skip</button>
-    </form>
+    </div>
 
+    <script>
+        function save() {
+
+        }
+    </script>
 </body>
 
 </html>
