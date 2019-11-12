@@ -1,10 +1,10 @@
 use TRUSL;
 
-INSERT INTO agents (license, first_name, last_name, email, phone, web_site, password) VALUES (123456789, "Abby", "Banksy", "abbybanksy@broker.ca", "416-123-4567", "https://www.abbybanksy.com", "password");
-INSERT INTO agents (license, first_name, last_name, email, phone, web_site, password) VALUES (234567890, "Charles", "Daly", "charlesdaly@broker.ca", "416-234-5678", "https://www.charlesdaly.com", "password");
-INSERT INTO agents (license, first_name, last_name, email, phone, web_site, password) VALUES (345678901, "Kanchani", "Franks", "kanchanifranks@broker.ca", "647-123-4567", "https://www.kanchanifranks.com", "password");
-INSERT INTO agents (license, first_name, last_name, email, phone, web_site, password) VALUES (456789012, "Hashim", "Siyam", "hashimsiyam@broker.ca", "647-456-7890", "https://www.hashimsiyam.com", "password");
-INSERT INTO agents (license, first_name, last_name, email, phone, web_site, password) VALUES (567890123, "Rupam", "Smith", "rupamsmith@broker.ca", "416-789-1234", "https://www.rupamsmith.com", "password");
+INSERT INTO agents (license, first_name, last_name, email, phone, web_site, password, title) VALUES (123456789, "Abby", "Banksy", "abbybanksy@broker.ca", "416-123-4567", "https://www.abbybanksy.com", "password", "Broker");
+INSERT INTO agents (license, first_name, last_name, email, phone, web_site, password, title) VALUES (234567890, "Charles", "Daly", "charlesdaly@broker.ca", "416-234-5678", "https://www.charlesdaly.com", "password", "Agent");
+INSERT INTO agents (license, first_name, last_name, email, phone, web_site, password, title) VALUES (345678901, "Kanchani", "Franks", "kanchanifranks@broker.ca", "647-123-4567", "https://www.kanchanifranks.com", "password", "Broker of Record");
+INSERT INTO agents (license, first_name, last_name, email, phone, web_site, password, title) VALUES (456789012, "Hashim", "Siyam", "hashimsiyam@broker.ca", "647-456-7890", "https://www.hashimsiyam.com", "password", "Agent");
+INSERT INTO agents (license, first_name, last_name, email, phone, web_site, password, title) VALUES (567890123, "Rupam", "Smith", "rupamsmith@broker.ca", "416-789-1234", "https://www.rupamsmith.com", "password", "Agent");
 
 INSERT INTO consumers (display_name, first_name, last_name, email, password) VALUES ("Sleepless_in_Toronto", "Annie", "Reed", "anniereed@fake.com", "password");
 INSERT INTO consumers (display_name, first_name, last_name, email, password) VALUES ("Neo", "Thomas A.", "Anderson", "thomasaanderson@fake.com", "password");
