@@ -6,11 +6,6 @@ module.exports = function (app) {
     res.sendFile(path.join(__dirname, '../public/assets/index.html'));
   });
 
-  // Why do I need to return the CSS file explicitly? Why doesn't the relative path work?
-  app.get('/public/assets/css/style.css', function (req, res) {
-    res.sendFile(path.join(__dirname, '../public/assets/css/style.css'));
-  });
-
   // Login screen
   app.get('/login', function (req, res) {
     res.sendFile(path.join(__dirname, '../public/assets/login/login.html'));
