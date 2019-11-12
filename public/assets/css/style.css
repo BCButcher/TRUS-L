@@ -5,7 +5,7 @@ header {
     padding-bottom: 30px;
 }
 
-.jumbotron{
+#frontJumbo{
     height: 40vh;
     font-family: 'Roboto', sans-serif;
     background: url(/assets/images/TRUSÆL.png) no-repeat center center; 
@@ -104,4 +104,12 @@ header {
 #other,
 #other_text {
     display: inline-block;
+}
+
+
+.custom-checkbox {
+    display: inline-block; 
+    justify-content: space-around;
+    flex-wrap: wrap;
+    min-width: 8em;
 }
