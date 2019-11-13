@@ -13,19 +13,19 @@ INSERT INTO users (display_name, first_name, last_name, email, password, agent_i
 INSERT INTO users (display_name, first_name, last_name, email, password, agent_id) VALUES ("Charles Daly", "Charles", "Daly", "charlesdaly@broker.ca", "password", 2);
 INSERT INTO users (display_name, first_name, last_name, email, password, agent_id) VALUES ("Kanchani Franks", "Kanchani", "Franks", "kanchanifranks@broker.ca", "password", 3);
 INSERT INTO users (display_name, first_name, last_name, email, password, agent_id) VALUES ("Hashim Siyam", "Hashim", "Siyam", "hashimsiyam@broker.ca", "password", 4);
-INSERT INTO users (display_name, first_name, last_name, email, password, agent_id) VALUES ("Rupam Smith", "Rupam", "Smith", "rupamsmith@broker.ca", "password", 5);
+INSERT INTO users (display_name, first_name, last_name, email, password, agent_id) VALUES ("Fiona Smith", "Fiona", "Smith", "fionasmith@broker.ca", "password", 5);
 
 INSERT INTO listings (poster_id, property_address, listing_status, estimated_value, transaction_type, type_of_home) VALUES (1, "1 Main St", "Active", 1000000, "b", "Detached");
 INSERT INTO listings (poster_id, property_address, listing_status, estimated_value, transaction_type, type_of_home) VALUES (2, "1 Smith St", "Active", 2000, "a", "Semi");
 INSERT INTO listings (poster_id, property_address, listing_status, estimated_value, transaction_type, type_of_home) VALUES (3, "1 Yonge St", "Active", 3000, "d", "Townhome");
 INSERT INTO listings (poster_id, property_address, listing_status, estimated_value, transaction_type, type_of_home) VALUES (3, "1 Sheppard Ave", "Active", 1800, "d", "Condo");
-INSERT INTO listings (poster_id, property_address, listing_status, estimated_value, transaction_type, type_of_home) VALUES (3, "1 Bloor", "Active", 2500, "d", "Detached");
-INSERT INTO listings (poster_id, property_address, listing_status, estimated_value, transaction_type, type_of_home) VALUES (3, "1 College", "Active", 3600, "d", "Semi");
-INSERT INTO listings (poster_id, property_address, listing_status, estimated_value, transaction_type, type_of_home) VALUES (3, "1 Royal York", "Active", 3500, "d", "Townhome");
+INSERT INTO listings (poster_id, property_address, listing_status, estimated_value, transaction_type, type_of_home) VALUES (3, "1 Bloor", "Signed", 2500, "d", "Detached");
+INSERT INTO listings (poster_id, property_address, listing_status, estimated_value, transaction_type, type_of_home) VALUES (3, "1 College", "Signed", 3600, "d", "Semi");
+INSERT INTO listings (poster_id, property_address, listing_status, estimated_value, transaction_type, type_of_home) VALUES (3, "1 Royal York", "Signed", 3500, "d", "Townhome");
 
-INSERT INTO bids (agent_id, listing_id, bid_status, services, message) VALUES (1, 1, "Active", "abc", "Hire me because I am in the top 1% of all realtors in the area.");
-INSERT INTO bids (agent_id, listing_id, bid_status, services, message) VALUES (2, 1, "Active", "f", "Hire me because I am your mother.");
-INSERT INTO bids (agent_id, listing_id, bid_status, services, message) VALUES (3, 1, "Active", "df", "I will work tirelessly.");
+INSERT INTO bids (agent_id, listing_id, bid_status, services, message) VALUES (1, 1, "Rejected", "abc", "Hire me because I am in the top 1% of all realtors in the area.");
+INSERT INTO bids (agent_id, listing_id, bid_status, services, message) VALUES (2, 1, "Active", "f", "I will work tirelessly.");
+INSERT INTO bids (agent_id, listing_id, bid_status, services, message) VALUES (3, 1, "Active", "df", "Hire me because I am your mother.");
 INSERT INTO bids (agent_id, listing_id, bid_status, services, message) VALUES (4, 1, "Active", "abcdef", "Look at some of the last properties I sold.");
 INSERT INTO bids (agent_id, listing_id, bid_status, services, message) VALUES (5, 1, "Active", "eg", "Blah blah blah");
 INSERT INTO bids (agent_id, listing_id, bid_status, services, message) VALUES (1, 2, "Active", "bdef", "Hire me because I am in the top 1% of all realtors in the area.");
@@ -35,6 +35,6 @@ INSERT INTO bids (agent_id, listing_id, bid_status, services, message) VALUES (1
 INSERT INTO bids (agent_id, listing_id, bid_status, services, message) VALUES (1, 4, "Active", "bdef", "Hire me because I am in the top 1% of all realtors in the area.");
 INSERT INTO bids (agent_id, listing_id, bid_status, services, message) VALUES (2, 4, "Active", "bf", "I know the inside of the market.");
 INSERT INTO bids (agent_id, listing_id, bid_status, services, message) VALUES (3, 4, "Active", "bef", "You will have the best choices with me.");
-INSERT INTO bids (agent_id, listing_id, bid_status, services, message) VALUES (1, 5, "Active", "bdef", "Hire me because I am in the top 1% of all realtors in the area.");
-INSERT INTO bids (agent_id, listing_id, bid_status, services, message) VALUES (1, 6, "Active", "bdef", "Hire me because I am in the top 1% of all realtors in the area.");
-INSERT INTO bids (agent_id, listing_id, bid_status, services, message) VALUES (1, 7, "Active", "bdef", "Hire me because I am in the top 1% of all realtors in the area.");
+INSERT INTO bids (agent_id, listing_id, bid_status, services, message) VALUES (1, 5, "Signed", "bdef", "Hire me because I am in the top 1% of all realtors in the area.");
+INSERT INTO bids (agent_id, listing_id, bid_status, services, message) VALUES (1, 6, "Signed", "bdef", "Hire me because I am in the top 1% of all realtors in the area.");
+INSERT INTO bids (agent_id, listing_id, bid_status, services, message) VALUES (1, 7, "Signed", "bdef", "Hire me because I am in the top 1% of all realtors in the area.");

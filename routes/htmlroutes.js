@@ -21,6 +21,11 @@ module.exports = function (app) {
     }
   });
 
+  // User creates a profile
+  app.get('/dashboard', function (req, res) {
+    res.sendFile(path.join(__dirname, '../public/assets/login/dashboard.html'));
+  });
+
   app.get('/createbid', function (req, res) {
     res.sendFile(path.join(__dirname, '../public/assets/bids/createbid.html'));
   });
@@ -36,10 +41,10 @@ module.exports = function (app) {
   //   res.sendFile(path.join(__dirname, '../public/assets/bids/process_bid.html'));
   // });
 
-  // // View a particular bid.
-  // app.get('/viewbid', function (req, res) {
-  //   res.sendFile(path.join(__dirname, '../public/assets/bids/agent_bid.html'));
-  // });
+  // View a particular bid.
+  app.get('/viewbid', function (req, res) {
+    res.sendFile(path.join(__dirname, '../public/assets/bids/agent_bid.html'));
+  });
 
   // // Tell the user that their listing has been posted
   // app.get('/confirm', function (req, res) {

@@ -32,6 +32,20 @@ module.exports = function (app) {
     return res;
   });
 
+  app.get('/api/listing/:id/:user_type', async function (req, res) {
+    try {
+      res.status(200);
+      let rows = await dbAccess.getListingsForUser(req.params.id, req.params.user_type);
+      res.send(rows);
+    } catch (err) {
+      // Internal error on the server side.
+      console.log(err);
+      res.status(500);
+      res.send(err);
+    }
+    return res;
+  });
+
   app.delete('/api/listing/:id', async function (req, res) {
     try {
       const success = await dbAccess.deleteListing(req.params.id);
