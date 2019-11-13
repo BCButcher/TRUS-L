@@ -45,6 +45,21 @@ module.exports = function (app) {
     return res;
   });
 
+  // Get the bids and listings for the agent, with the given id, but only
+  // if the bid is Active or Rejected. We don't need Signed or Closed bids.
+  app.get('/api/bid/agent/open/:id', async function (req, res) {
+    try {
+      res.status(200);
+      res.send(await dbAccess.getBidsForAgentWithIdActiveOrRejected(req.params.id));
+    } catch (err) {
+      // Internal error on the server side.
+      console.log(err);
+      res.status(500);
+      res.send(err);
+    }
+    return res;
+  });
+
   // Get the bids for the listing with the given id
   app.get('/api/bid/listing/:id', async function (req, res) {
     try {
