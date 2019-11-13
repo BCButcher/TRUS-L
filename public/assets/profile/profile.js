@@ -79,7 +79,6 @@ function createAgent() {
     //          <li>Last name: ${newAgent.estimatedVal}</li>
 
     //       `);
-    alert(confirmationMessage);
   });
 }
 
