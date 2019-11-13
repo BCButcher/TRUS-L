@@ -114,3 +114,20 @@ function getUserInfo() {
   };
 }
 
+function getParam() {
+  // When the HTML page is opened with a query parameter, it will be the id of something.
+  // This method reads the incoming query parameters and returns the value of the first parameter.
+  // This method assumes that only one query parameter will ever be used.
+
+  // http://mysite.com/index.html?id=1&name=foo&address=123%20Main%20St
+
+  let queryParams = window.location.search.substring(1); // window.location.search returns '?id=1'. substring(1) strips off the ?
+  var paramsArray = new Array;
+  var qpSplit = new RegExp('[&=]');
+  paramsArray = queryParams.split(qpSplit); // Note that spaces, %20, will remain in the values. 
+  return resultArray;
+}
+
+
+
+
