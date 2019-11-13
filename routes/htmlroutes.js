@@ -30,11 +30,6 @@ module.exports = function (app) {
     res.sendFile(path.join(__dirname, '../public/assets/bids/createbid.html'));
   });
 
-  // // List the active bids
-  // app.get('/bids', function (req, res) {
-  //   res.sendFile(path.join(__dirname, '../public/assets/bids/bids.html'));
-  // });
-
   // // After the user has rejected a bid, this page asks if they want to tell the
   // // agent why.
   // app.get('/process_bid', function (req, res) {
