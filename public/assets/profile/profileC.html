@@ -107,26 +107,32 @@
                             <div class="form-group w-100">
                                 <label for="propertyType">Property Type:</label>
                                 <select class="form-control" id="propertyType">
-                  <option value="a">House</option>
-                  <option value="b">Row/Townhouse</option>
-                  <option value="c">Duplex</option>
-                  <option value="d">Triplex</option>
-                  <option value="e">Condo/Strata</option>
-                </select>
+                                  <option value="a">House</option>
+                                  <option value="b">Row/Townhouse</option>
+                                  <option value="c">Duplex</option>
+                                  <option value="d">Triplex</option>
+                                  <option value="e">Condo/Strata</option>
+                                </select>
                             </div>
                             <div class="form-group w-100" id="buyer_value_estimate">
-                                <label for="buyer_value_slider">Estimated Value:</label><span id="value"></span>
-                                <input type="range" class="form-control-range w-100" onInput="updateSlider()" min="100000" max="10000000" value="100000" step="50000" id="buyer_value_slider">
+                                <label for="buyer_value_slider">Estimated Value:</label>$<span id="value">0</span>
+                                <input type="range" class="form-control-range w-100" onInput="updateSlider()" min="100000" max="10000000" value="100000" step="10000" id="buyer_value_slider">
                             </div>
-                            <button onClick="window.location.href='/profile/consumer';createUserAndListing();" type="button" class="btn btn-primary" id="loginBtn_fp">Submit</button>
+                            <button onClick="createUser();" type="button" class="btn btn-primary" id="loginBtn_fp">Submit</button>
                         </form>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col" id="confirm">
                     </div>
                 </div>
             </div>
         </div>
     </div>
     <script src="/assets/profile/profile.js"></script>
-    <script src="/assets/profile/validate.js"></script>
+    <!-- <script src="/assets/profile/validate.js"></script> -->
 </body>
 
 </html>

@@ -1,78 +1,76 @@
 
 // adding new listing
 function createListing(id) {
-  let newlisting = {
-    poster_id: id,
-    property_address: $("#address").val(),
-    listing_status: "Active",
-    estimated_value: $('#buyer_value_slider').val(),
-    type_of_home: $('#propertyType').val()
-    
-  };
-console.log(newlisting);
-  $.ajax({
-    url: "/api/listing/",
-    method: "POST",
-    data: newlisting
-  }).then(function(newListing) {
-   console.log(newlisting);
-  });
+  try {
+    console.log(id);
+
+    let newlisting = {
+      poster_id: id,
+      property_address: $("#buyer_location").val(),
+      listing_status: "Active",
+      estimated_value: $('#buyer_value_slider').val(),
+      type_of_home: $('#propertyType option:selected').text()
+    };
+
+    $.ajax({
+      url: "/api/listing/",
+      method: "POST",
+      data: newlisting
+    }).then(function(newListing) {
+      showConfirmation();
+    }).catch(function(err) {
+      console.log(err);
+    });
+  } catch(err) {
+    console.log(err);
+  }
 }
 
 function createUser() {
-  let consumer = {
-    display_name: $("#displayName").val(),
-    first_name: $("#firstName").val(),
-    last_name: $("#lastName").val(),
-    email: $("#email").val(),
-    password:$('#password').val()
-  };
+  try {
+    let newConsumer = {
+      display_name: $("#displayName").val(),
+      first_name: $("#firstName").val(),
+      last_name: $("#lastName").val(),
+      email: $("#email").val(),
+      password:$('#password').val()
+    };
 
-  // eslint-disable-next-line no-undef
-  $.ajax({
-    url: "/api/consumer/",
-    method: "POST",
-    data: consumer
-  }).then(function(newConsumer) {
-    let confirmationMessage = `
-                 PROFILE CREATED
-                 Display name: ${newConsumer.displayName}
-                 First name: ${newConsumer.firstName}
-                 Last name: ${newConsumer.lastName}
-                 Email: ${newConsumer.email}
-  
-              `;
-   
-  });
-  createListing(Consumer.id);
-  window.location.href = "/confirm.html";
+    // eslint-disable-next-line no-undef
+    $.ajax({
+      url: "/api/consumer/",
+      method: "POST",
+      data: newConsumer
+    }).then(async function(newConsumer) {
+      createListing(newConsumer.user_id.id);
+    }).catch(function(err) {
+      console.log(err);
+    });
+  } catch(err) {
+    console.log(err);
+  }
 }
 
-function createAgent() {
-  let newAgent = {
-    id: id,
-    license: $('licenseNumber').val(),
-    first_name:$('agentName').val(),
-    last_name:$('agentLast').val(),
-    email:$('agentEmail').val(),
-    phone:$('agentPhone').val(),
-    web_site:$('agentCompany').val(),
-    password:$('agentPass').val()
+function showConfirmation() {
+  // If the user profile is created, tell them it was successful
+  // and show them the button to turn to the login page. 
 
-  };
-
-  $.ajax({
-    url: "/api/agent/",
-    method: "POST",
-    data: newAgent
-  }).then(function(newAgent) {
-    console.log(newAgent)
-  });
+  const confirmSection = $('#confirm').empty();
+  let confirmRow = getConfirmRow();
+  confirmSection.append(confirmRow);
 }
 
-function createUserAndListing() {
-  createUser();
-  createListing();
+function getConfirmRow() {
+  let confirmRow = `
+  <div class="row">
+    <div class="col">
+      <p>Your profile and listing were created. Please sign in.</p>
+      <button type="button" id="goToDashboard" class="btn btn-primary" onClick="window.location.href='/dashboard'">Login</button>
+   </div>
+ </div>
+ `;
+//    console.log("biddetails " + rejectionReasonRow);
+ return confirmRow;
 }
 
 function updateSlider() {

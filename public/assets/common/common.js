@@ -12,6 +12,13 @@ async function getOpenBidsForAgent(agent_id) {
   });
 }
 
+async function getLastConsumerCreated() {
+  return $.ajax({
+    url: "/api/consumer/last",
+    method: "GET"
+  });
+}
+
 async function getListings() {
   const userInfo = getUserInfo();
   if(userInfo.agent_id == "null") {
