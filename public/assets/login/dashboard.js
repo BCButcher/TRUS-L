@@ -1,11 +1,10 @@
-async function renderListingsAndBidsForUser() {
-  let listings = await getListingsForUser();
-  if(listings.length == 0) {
-    $('#listings' ).append(`<li>No listings yet</li>`);
-    renderBidsForListing(null);
-    return;
-  }
-
+async function renderPage() {
+    let listings = await getListings();
+    if(listings.length == 0) {
+      $('#listings' ).append(`<li>No listings yet</li>`);
+      renderBidsForListing(null);
+      return;
+    }
 
     // Default the list of bids to the first listing in the list
     let userInfo = getUserInfo();
@@ -91,6 +90,6 @@ $( document ).ready(function() {
   if(!sessionStorage.user_id) {
     window.location = '/login';
   } else {
-    renderListingsAndBidsForUser();
+    renderPage();
   }
 });
