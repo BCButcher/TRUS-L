@@ -19,7 +19,7 @@
     <link rel="stylesheet" type="text/css" href="/assets/css/style.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <title>Create a Profile</title>
@@ -64,27 +64,48 @@
     <div class="container">
         <div class="row">
             <div class="col">
-                <h1 style="text-align: center; margin-top: 30px;">Create Your Profile</h1>
-                <div class="form-group" style="margin-top: 20px;">
-                    <label for="name_label_contact">First Name:</label>
-                    <input type="name" class="form-control" id="firstname" aria-describedby="emailHelp" placeholder="Please enter your name">
-                </div>
-                <div class="form-group">
-                    <label for="name_label_contact">Last Name:</label>
-                    <input type="name" class="form-control" id="lastname" aria-describedby="emailHelp" placeholder="Please enter your name">
-                </div>
-                <div class="form-group">
-                    <label for="name_label_contact">Display Name:</label>
-                    <input type="name" class="form-control" id="displayname" aria-describedby="emailHelp" placeholder="Please enter your name">
-                </div>
-                <div class="form-group">
-                    <label for="name_label_contact">Email:</label>
-                    <input type="name" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Please enter your name">
-                </div>
-                <div class="form-group">
-                    <label for="name_label_contact">Password:</label>
-                    <input type="name" class="form-control" id="colFormLabelLg" aria-describedby="emailHelp" placeholder="Please enter your name">
-                </div>
+                <form id="profilec_form">
+                    <h1 style="text-align: center; margin-top: 30px;">Create Your Profile</h1>
+                    <div class="form-group" style="margin-top: 20px;">
+                        <label for="name_label_contact">First Name:</label>
+                        <input type="name" class="form-control" id="firstname" aria-describedby="emailHelp" placeholder="Please enter your name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="name_label_contact">Last Name:</label>
+                        <input type="name" class="form-control" id="lastname" aria-describedby="emailHelp" placeholder="Please enter your name">
+                    </div>
+                    <div class="form-group">
+                        <label for="name_label_contact">Display Name:</label>
+                        <input type="name" class="form-control" id="displayname" aria-describedby="emailHelp" placeholder="Please enter your name">
+                    </div>
+                    <div class="form-group">
+                        <label for="name_label_contact">Email:</label>
+                        <input type="name" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Please enter your name">
+                    </div>
+                    <script>
+                        const profilecForm = document.getElementById('profilec_Form');
+                        const emailField = document.getElementById('email');
+                        const loginButton = document.getElementById('loginBtn_fp');
+
+                        emailField.addEventListener('keyup', function(event) {
+                            isValidEmail = emailField.checkValidity();
+
+                            if (isValidEmail) {
+                                loginButton.disabled = false;
+                            } else {
+                                loginButton.disabled = true;
+                            }
+                        });
+
+                        loginButton.addEventListener('click', function(event) {
+                            profilecForm.submit();
+                        });
+                    </script>
+                    <div class="form-group">
+                        <label for="name_label_contact">Password:</label>
+                        <input type="name" class="form-control" id="colFormLabelLg" aria-describedby="emailHelp" placeholder="Please enter your name">
+                    </div>
+                </form>
             </div>
         </div>
         <div class="column">
@@ -107,18 +128,18 @@
                             <div class="form-group w-100">
                                 <label for="propertyType">Property Type:</label>
                                 <select class="form-control" id="propertyType">
-                  <option>House</option>
-                  <option>Row/Townhouse</option>
-                  <option>Duplex</option>
-                  <option>Triplex</option>
-                  <option>Condo/Strata</option>
+                  <option value="a">House</option>
+                  <option value="b">Row/Townhouse</option>
+                  <option value="c">Duplex</option>
+                  <option value="d">Triplex</option>
+                  <option value="e">Condo/Strata</option>
                 </select>
                             </div>
                             <div class="form-group w-100" id="buyer_value_estimate">
                                 <label for="buyer_value_slider">Estimated Value:</label><span id="value"></span>
                                 <input type="range" class="form-control-range w-100" onInput="updateSlider()" min="100000" max="10000000" value="100000" step="50000" id="buyer_value_slider">
                             </div>
-                            <button onclick="window.location.href='/profile/consumer'" onclick="createConsumerAndListing()" type="button" class="btn btn-primary" id="loginBtn_fp">Submit</button>
+                            <button onclick="createConsumerAndListing()" type="button" class="btn btn-primary" id="loginBtn_fp">Submit</button>
                         </form>
                     </div>
                 </div>
@@ -126,6 +147,7 @@
         </div>
     </div>
     <script src="/assets/profile/profile.js"></script>
+    <script src="/assets/profile/validate.js"></script>
 </body>
 
 </html>
