@@ -22,7 +22,6 @@ console.log(listings);
       <small>${listing.listing_status}</small>
     </div>
     <li>${listing.type_of_home}</li>
-    <li>${listing.transaction_type}</li>
     <li>${listing.estimated_value}</li>
     <small>${listing.poster_id}</small>
   </a>
