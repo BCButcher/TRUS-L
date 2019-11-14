@@ -23,22 +23,17 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <title>Create a Profile</title>
-</head>
-<body>
+
     <header></header>
     <!--Navbar-->
     <nav class="navbar navbar-light bg-info lighten-4 sticky-top" id="navbar">
-
         <!-- Navbar brand -->
         <a class="navbar-brand" href="#"></a>
-
         <!-- Collapse button -->
         <button class="navbar-toggler toggler-example" type="button" data-toggle="collapse" data-target="#navbarSupportedContent1" aria-controls="navbarSupportedContent1" aria-expanded="false" aria-label="Toggle navigation"><span class="dark-blue-text"><i
-                            class="fas fa-bars fa-1x"></i></span></button>
-
+                    class="fas fa-bars fa-1x"></i></span></button>
         <!-- Collapsible content -->
         <div class="collapse navbar-collapse" id="navbarSupportedContent1">
-
             <!-- Links -->
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
@@ -55,64 +50,49 @@
                 </li>
             </ul>
             <!-- Links -->
-
         </div>
         <!-- Collapsible content -->
-
     </nav>
-    <div class="container pb-3">
+</head>
 
-        <h1>Create Agent Profile</h1>
-        <div class="form-group row">
-            <label for="agentName" class="col-sm-2 col-form-label col-form-label-lg">First Name</label>
-            <div class="col-sm-10">
-                <input type="text" class="form-control form-control-lg" id="agentName" placeholder="" />
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h1 style="text-align: center; margin-top: 30px;">Create Agent Profile</h1>
+                <div class="form-group" style="margin-top: 20px;">
+                    <label for="name_label_contact">First Name:</label>
+                    <input type="name" class="form-control" id="agentName" aria-describedby="emailHelp" placeholder="Please enter your name">
+                </div>
+                <div class="form-group" style="margin-top: 20px;">
+                    <label for="name_label_contact">Last Name:</label>
+                    <input type="name" class="form-control" id="agentLast" aria-describedby="emailHelp" placeholder="Please enter your name">
+                </div>
+                <div class="form-group" style="margin-top: 20px;">
+                    <label for="name_label_contact">Agency Name:</label>
+                    <input type="name" class="form-control" id="agentCompany" aria-describedby="emailHelp" placeholder="Please enter your name">
+                </div>
+                <div class="form-group" style="margin-top: 20px;">
+                    <label for="name_label_contact">CREA License Number:</label>
+                    <input type="name" class="form-control" id="licenseNumber" aria-describedby="emailHelp" placeholder="Please enter your name">
+                </div>
+                <div class="form-group" style="margin-top: 20px;">
+                    <label for="name_label_contact">Phone Number:</label>
+                    <input type="name" class="form-control" id="agentPhone" aria-describedby="emailHelp" placeholder="Please enter your name">
+                </div>
+                <div class="form-group" style="margin-top: 20px;">
+                    <label for="name_label_contact">Email Address:</label>
+                    <input type="name" class="form-control" id="agentEmail" aria-describedby="emailHelp" placeholder="Please enter your name">
+                </div>
+                <div class="form-group" style="margin-top: 20px;">
+                    <label for="name_label_contact">Password:</label>
+                    <input type="name" class="form-control" id="agentPass" aria-describedby="emailHelp" placeholder="Please enter your name">
+                </div>
+                <button onclick="window.location.href='/dashboard'" onClick="createAgent()" type="button" class="btn btn-info btn-lg btn-block">Save</button>
             </div>
+            <script src="/assets/profile/profile.js"></script>
         </div>
-        <div class="form-group row">
-            <label for="agentLast" class="col-sm-2 col-form-label col-form-label-lg">Last Name</label>
-            <div class="col-sm-10">
-                <input type="text" class="form-control form-control-lg" id="agentLast" placeholder="" />
-            </div>
-        </div>
-        <div class="form-group row">
-            <label for="agentCompany" class="col-sm-2 col-form-label col-form-label-lg">Company Website</label>
-            <div class="col-sm-10">
-                <input type="text" class="form-control form-control-lg" id="agentCompany" placeholder="" />
-            </div>
-        </div>
-        <div class="form-group row">
-            <label for="licenseNumber" class="col-sm-2 col-form-label col-form-label-lg">License Number</label>
-            <div class="col-sm-10">
-                <input type="text" class="form-control form-control-lg" id="licenseNumber" placeholder="" />
-            </div>
-        </div>
-        <div class="form-group row">
-            <label for="agentPhone" class="col-sm-2 col-form-label col-form-label-lg">Phone Number </label>
-            <div class="col-sm-10">
-                <input type="email" class="form-control form-control-lg" id="agentPhone" placeholder="" />
-            </div>
-        </div>
-        <div class="form-group row">
-            <label for="agentEmail" class="col-sm-2 col-form-label col-form-label-lg">Email</label>
-            <div class="col-sm-10">
-                <input type="email" class="form-control form-control-lg" id="agentEmail" placeholder="" />
-            </div>
-        </div>
-        <div class="form-group row">
-            <label for="agentPass" class="col-sm-2 col-form-label col-form-label-lg">Password</label>
-            <div class="col-sm-10">
-                <input type="password" class="form-control form-control-lg" id="agentPass" placeholder="" />
-            </div>
-        </div>
-        <button onclick="window.location.href='/dashboard'" onClick="createAgent()" type="button" class="btn btn-info btn-lg btn-block">
-      Save</button>
-
-
-
     </div>
-    <script src="/assets/profile/profile.js"></script>
-
 </body>
 
 </html>
