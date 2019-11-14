@@ -1,5 +1,17 @@
-const isValidEmail = email_input_profileC.checkValidity();
+const profilecForm = document.getElementById('profilec_Form');
+const emailField = document.getElementById('email');
+const loginButton = document.getElementById('loginBtn_fp');
 
-email_input_profilec.addEventListener('keyup', function(event) {
-    isValidEmail = email_input_profiec.checkValidity();
+emailField.addEventListener('keyup', function(event) {
+    isValidEmail = emailField.checkValidity();
+
+    if (isValidEmail) {
+        loginButton.disabled = false;
+    } else {
+        loginButton.disabled = true;
+    }
+});
+
+loginButton.addEventListener('click', function(event) {
+    profilecForm.submit();
 });
