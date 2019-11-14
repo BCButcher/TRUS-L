@@ -69,24 +69,24 @@
             <div class="col">
                 <h1 style="text-align: center; margin-top: 30px;">Create Your Profile</h1>
                 <div class="form-group" style="margin-top: 20px;">
-                    <label for="name_label_contact">First Name:</label>
-                    <input type="name" class="form-control" id="firstname" aria-describedby="emailHelp" placeholder="Please enter your name">
+                    <label for="firstName">First Name:</label>
+                    <input type="name" class="form-control" id="firstName" aria-describedby="emailHelp" placeholder="Please enter your name">
                 </div>
                 <div class="form-group">
-                    <label for="name_label_contact">Last Name:</label>
-                    <input type="name" class="form-control" id="lastname" aria-describedby="emailHelp" placeholder="Please enter your name">
+                    <label for="lastName">Last Name:</label>
+                    <input type="name" class="form-control" id="lastName" aria-describedby="emailHelp" placeholder="Please enter your name">
                 </div>
                 <div class="form-group">
-                    <label for="name_label_contact">Display Name:</label>
-                    <input type="name" class="form-control" id="displayname" aria-describedby="emailHelp" placeholder="Please enter your name">
+                    <label for="displayName">Display Name:</label>
+                    <input type="name" class="form-control" id="displayName" aria-describedby="emailHelp" placeholder="Please enter your name">
                 </div>
                 <div class="form-group">
-                    <label for="name_label_contact">Email:</label>
-                    <input type="name" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Please enter your name">
+                    <label for="email">Email:</label>
+                    <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Please enter your name">
                 </div>
                 <div class="form-group">
-                    <label for="name_label_contact">Password:</label>
-                    <input type="name" class="form-control" id="colFormLabelLg" aria-describedby="emailHelp" placeholder="Please enter your name">
+                    <label for="password">Password:</label>
+                    <input type="password" class="form-control" id="password" aria-describedby="emailHelp" placeholder="Please enter your name">
                 </div>
             </div>
         </div>
@@ -121,7 +121,7 @@
                                 <label for="buyer_value_slider">Estimated Value:</label><span id="value"></span>
                                 <input type="range" class="form-control-range w-100" onInput="updateSlider()" min="100000" max="10000000" value="100000" step="50000" id="buyer_value_slider">
                             </div>
-                            <button onclick="window.location.href='/profile/consumer'" onclick="createConsumerAndListing()" type="button" class="btn btn-primary" id="loginBtn_fp">Submit</button>
+                            <button onClick="window.location.href='/profile/consumer';createUserAndListing();" type="button" class="btn btn-primary" id="loginBtn_fp">Submit</button>
                         </form>
                     </div>
                 </div>

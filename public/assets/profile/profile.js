@@ -1,3 +1,4 @@
+
 // adding new listing
 function createListing(id) {
   let newlisting = {
@@ -5,7 +6,8 @@ function createListing(id) {
     property_address: $("#address").val(),
     listing_status: "Active",
     estimated_value: $('#buyer_value_slider').val(),
-    transaction_type: $('#propertyType').val()
+    type_of_home: $('#propertyType').val()
+    
   };
 console.log(newlisting);
   $.ajax({
@@ -17,12 +19,13 @@ console.log(newlisting);
   });
 }
 
-function createConsumer() {
+function createUser() {
   let consumer = {
     display_name: $("#displayName").val(),
     first_name: $("#firstName").val(),
     last_name: $("#lastName").val(),
-    email: $("#email").val()
+    email: $("#email").val(),
+    password:$('#password').val()
   };
 
   // eslint-disable-next-line no-undef
@@ -67,8 +70,8 @@ function createAgent() {
   });
 }
 
-function createConsumerAndListing() {
-  createConsumer();
+function createUserAndListing() {
+  createUser();
   createListing();
 }
 
