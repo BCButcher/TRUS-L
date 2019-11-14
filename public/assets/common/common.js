@@ -12,14 +12,15 @@ async function getOpenBidsForAgent(agent_id) {
   });
 }
 
-async function getListingsForUser() {
+async function getListings() {
   const userInfo = getUserInfo();
   if(userInfo.agent_id == "null") {
     return $.ajax({
       url: "/api/listing/" + userInfo.user_id + "/consumer",
       method: "GET"
     });
-  } else {    return $.ajax({
+  } else {    
+    return $.ajax({
       url: "/api/listing/" + userInfo.agent_id + "/agent",
       method: "GET"
     });

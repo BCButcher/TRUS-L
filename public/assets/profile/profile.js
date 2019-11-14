@@ -4,24 +4,16 @@ function createListing(id) {
     poster_id: id,
     property_address: $("#address").val(),
     listing_status: "Active",
-    estimated_value: $("#estimatedVal").val(),
-    transaction_type: "abcd"
+    estimated_value: $('#buyer_value_slider').val(),
+    transaction_type: $('#propertyType').val()
   };
-
+console.log(newlisting);
   $.ajax({
     url: "/api/listing/",
     method: "POST",
     data: newlisting
   }).then(function(newListing) {
-    $("#listingConfirmation").append(`
-  
-            <h3> PROFILE CREATED</h3>
-            <li>Display name: ${newListing.typeofHome}</li>
-            <li>First name: ${newListing.address}</li>
-            <li>Last name: ${newListing.estimatedVal}</li>
-  
-          `);
-    alert(confirmationMessage);
+   console.log(newlisting);
   });
 }
 
@@ -47,9 +39,9 @@ function createConsumer() {
                  Email: ${newConsumer.email}
   
               `;
-    alert(confirmationMessage);
+   
   });
-  createListing(newConsumer.id);
+  createListing(Consumer.id);
   window.location.href = "/confirm.html";
 }
 
@@ -71,14 +63,7 @@ function createAgent() {
     method: "POST",
     data: newAgent
   }).then(function(newAgent) {
-    // $("#agentConfirmation").append(`
-
-    //          <h3> PROFILE CREATED</h3>
-    //          <li>Display name: ${newAgent.typeofHome}</li>
-    //          <li>First name: ${newAgent.address}</li>
-    //          <li>Last name: ${newAgent.estimatedVal}</li>
-
-    //       `);
+    console.log(newAgent)
   });
 }
 

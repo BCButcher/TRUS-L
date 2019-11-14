@@ -19,7 +19,7 @@
     <link rel="stylesheet" type="text/css" href="/assets/css/style.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <title>Create a Profile</title>
@@ -73,6 +73,22 @@
                     <input type="name" class="form-control" id="agentTitle" aria-describedby="emailHelp" placeholder="Please enter your working title">
                 </div>
                 <div class="form-group" style="margin-top: 20px;">
+<<<<<<< HEAD
+                    <label for="displayName">Display Name</label>
+                    <input type="name" class="form-control" id="displayName" aria-describedby="emailHelp" placeholder="Please enter your working title">
+                </div>
+                <div class="form-group" style="margin-top: 20px;">
+                    <label for="licenseNumber">CREA License Number:</label>
+                    <input type="name" class="form-control" id="licenseNumber" aria-describedby="emailHelp" placeholder="Please enter your CREA License #">
+                </div>
+                <div class="form-group" style="margin-top: 20px;">
+                    <label for="agentPhone">Phone Number:</label>
+                    <input type="name" class="form-control" id="agentPhone" aria-describedby="emailHelp" placeholder="Please enter your phone #">
+                </div>
+                <div class="form-group" style="margin-top: 20px;">
+                    <label for="agentEmail">Email Address:</label>
+                    <input type="name" class="form-control" id="agentEmail" aria-describedby="emailHelp" placeholder="Please enter your email address">
+=======
                     <label for="licenseNumber">CREA License Number:</label>
                     <input type="name" class="form-control" id="licenseNumber" aria-describedby="emailHelp" placeholder="Please enter your CREA License #">
                 </div>
@@ -87,10 +103,15 @@
                 <div class="form-group" style="margin-top: 20px;">
                     <label for="agentPass">Password:</label>
                     <input type="name" class="form-control" id="agentPass" aria-describedby="emailHelp" placeholder="Please enter your password">
+>>>>>>> 8f8b3f9ba9bfbca38600c60c0797f6f282d36de7
                 </div>
-                <button onclick="window.location.href='/dashboard'" onClick="createAgent()" type="button" class="btn btn-info btn-lg btn-block">Save</button>
+                <div class="form-group" style="margin-top: 20px;">
+                    <label for="agentPass">Password:</label>
+                    <input type="name" class="form-control" id="agentPass" aria-describedby="emailHelp" placeholder="Please enter your password">
+                </div>
+                <button onClick="createAgent()" type="button" class="btn btn-info btn-lg btn-block">Save</button>
             </div>
-            <script src="/assets/profile/profile.js"></script>
+            <script src="/assets/profile/profileagent.js"></script>
         </div>
     </div>
 </body>
