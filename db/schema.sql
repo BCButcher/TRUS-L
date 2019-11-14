@@ -29,7 +29,6 @@ CREATE TABLE listings (
     property_address VARCHAR(256),
     listing_status ENUM("Active", "Signed"),
     estimated_value INTEGER,
-    transaction_type VARCHAR(4),
     type_of_home VARCHAR(256),
     FOREIGN KEY (poster_id) REFERENCES users(id),
     createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP
