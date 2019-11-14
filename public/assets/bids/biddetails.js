@@ -16,7 +16,7 @@ function getRejectionReasonRow(bidId) {
      </div>
    </div>
    `;
-   console.log("biddetails " + rejectionReasonRow);
+//    console.log("biddetails " + rejectionReasonRow);
    return rejectionReasonRow;
 }
 
@@ -30,8 +30,8 @@ async function acceptBid(bidId) {
         // Update this bid from 'Active' to 'Signed'
         const bid_status = 'Signed';
         let updatedBid = await updateBidStatus(bidId, bid_status);
-        console.log("biddetails acceptBid ");
-        console.log(updatedBid);
+        // console.log("biddetails acceptBid ");
+        // console.log(updatedBid);
         if(updatedBid == undefined) {
             updatedBid = await getBidWithId(bidId);
             updatedBid = updatedBid[0];
@@ -57,7 +57,7 @@ async function acceptBid(bidId) {
 }
 
 async function getBidWithId(bidId) {
-    console.log("/api/bid/" + bidId);
+    // console.log("/api/bid/" + bidId);
     return $.ajax({
         url: "/api/bid/" + bidId,
         method: "GET"
@@ -65,7 +65,7 @@ async function getBidWithId(bidId) {
 }
 
 async function updateBidStatus(bidId, bidStatus) {
-    console.log("/api/bid/" + bidId + "/" + bidStatus);
+    // console.log("/api/bid/" + bidId + "/" + bidStatus);
     return $.ajax({
         url: "/api/bid/" + bidId + "/" + bidStatus,
         method: "PUT"
@@ -87,7 +87,7 @@ async function updateListing(listing_id, listing_status) {
 }
 
 async function updateBidRejected(bid_id, reason) {
-    console.log("updateBidRejected " + bid_id + " " + reason);
+    // console.log("updateBidRejected " + bid_id + " " + reason);
     return $.ajax({
         url: "/api/bid/rejected/" + bid_id + "/" + reason,
         method: "PUT"
@@ -100,7 +100,7 @@ function getRejectionReason() {
 
 function rejectBid(bidId) {
     // If the user clicks Reject, render the reason section
-    console.log("rejectBid "+ bidId);
+    // console.log("rejectBid "+ bidId);
 
     const rejectionReasonSection = $('#rejectionReason').empty();
     let rejectionReasonRow = getRejectionReasonRow(bidId);
@@ -108,7 +108,7 @@ function rejectBid(bidId) {
 }
 
 async function save(bidId) {
-    console.log("save " + bidId);
+    // console.log("save " + bidId);
     // This method is called when the user saves a Rejection reason
 
     let reason = getRejectionReason();
@@ -117,7 +117,7 @@ async function save(bidId) {
 }
 
 async function skip(bidId) {
-    console.log("skip " + bidId);
+    // console.log("skip " + bidId);
     // This method is called when the user does not enter a rejection reason
     let updatedBid = await updateBidStatus(bidId, "Rejected");
     window.location = "/dashboard";
@@ -138,22 +138,22 @@ function renderBid(bid) {
 }
 
 function renderBidButtons(bid) {
-    console.log("renderBidButtons");
+    // console.log("renderBidButtons");
     let buttonRow = `
         <button type="button" class="btn btn-primary btn-lg" onClick="acceptBid(${bid.id})">Accept</button>
         <button type="button" class="btn btn-secondary btn-lg" onClick="rejectBid(${bid.id})">Reject</button>
     `;
     $('#abcd').append(buttonRow);
-    console.log(buttonRow);
+    // console.log(buttonRow);
 }
 
 async function renderPage(bidId) {
-    console.log("biddetails " + bidId);
+    // console.log("biddetails " + bidId);
 
     // Render the bid title "bid from firstName lastName"
     let bids = await getBidWithIdIncludeAgentName(bidId);
     const bid = bids[0];
-    console.log(bid);
+    // console.log(bid);
 
     renderBidDetailTitle(bid);
 
