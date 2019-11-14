@@ -23,7 +23,7 @@ INSERT INTO listings (poster_id, property_address, listing_status, estimated_val
 INSERT INTO listings (poster_id, property_address, listing_status, estimated_value, transaction_type, type_of_home) VALUES (3, "1 College", "Signed", 3600, "d", "Semi");
 INSERT INTO listings (poster_id, property_address, listing_status, estimated_value, transaction_type, type_of_home) VALUES (3, "1 Royal York", "Signed", 3500, "d", "Townhome");
 
-INSERT INTO bids (agent_id, listing_id, bid_status, services, message) VALUES (1, 1, "Rejected", "abc", "Hire me because I am in the top 1% of all realtors in the area.");
+INSERT INTO bids (agent_id, listing_id, bid_status, services, message, rejection_reason) VALUES (1, 1, "Rejected", "abc", "Hire me because I am in the top 1% of all realtors in the area.", "I am rejecting your bid because I am hiring my mother.");
 INSERT INTO bids (agent_id, listing_id, bid_status, services, message) VALUES (2, 1, "Active", "f", "I will work tirelessly.");
 INSERT INTO bids (agent_id, listing_id, bid_status, services, message) VALUES (3, 1, "Active", "df", "Hire me because I am your mother.");
 INSERT INTO bids (agent_id, listing_id, bid_status, services, message) VALUES (4, 1, "Active", "abcdef", "Look at some of the last properties I sold.");
@@ -35,6 +35,6 @@ INSERT INTO bids (agent_id, listing_id, bid_status, services, message) VALUES (1
 INSERT INTO bids (agent_id, listing_id, bid_status, services, message) VALUES (1, 4, "Active", "bdef", "Hire me because I am in the top 1% of all realtors in the area.");
 INSERT INTO bids (agent_id, listing_id, bid_status, services, message) VALUES (2, 4, "Active", "bf", "I know the inside of the market.");
 INSERT INTO bids (agent_id, listing_id, bid_status, services, message) VALUES (3, 4, "Active", "bef", "You will have the best choices with me.");
-INSERT INTO bids (agent_id, listing_id, bid_status, services, message) VALUES (1, 5, "Signed", "bdef", "Hire me because I am in the top 1% of all realtors in the area.");
+INSERT INTO bids (agent_id, listing_id, bid_status, services, message) VALUES (1, 5, "Active", "bdef", "Hire me because I am in the top 1% of all realtors in the area.");
 INSERT INTO bids (agent_id, listing_id, bid_status, services, message) VALUES (1, 6, "Signed", "bdef", "Hire me because I am in the top 1% of all realtors in the area.");
 INSERT INTO bids (agent_id, listing_id, bid_status, services, message) VALUES (1, 7, "Signed", "bdef", "Hire me because I am in the top 1% of all realtors in the area.");

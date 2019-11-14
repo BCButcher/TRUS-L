@@ -68,6 +68,7 @@ module.exports = function (app) {
   // Update a listings's status, not the entire listing
   app.put('/api/listing/:id/:status', async function (req, res) {
     try {
+      console.log("dbAccess put " + "/api/listing/" + req.params.id + "/" + req.params.status);
       const success = await dbAccess.updateListingStatus(req.params.id, req.params.status);
 
       if (success) {
@@ -75,7 +76,10 @@ module.exports = function (app) {
       } else {
         res.status(404); // HTML status 404 not found
       }
-      res.send(await dbAccess.getListings(req.params.status)); 
+      let listing = await dbAccess.getListingsWithId(req.params.id);
+      console.log("apiroutes_listing");
+      console.log(listing);
+      res.send(listing);
     } catch (err) {
       // Internal error on the server side.
       console.log(err);

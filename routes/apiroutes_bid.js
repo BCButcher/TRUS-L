@@ -60,6 +60,20 @@ module.exports = function (app) {
     return res;
   });
 
+  // Get the bid and agent name for the bid with the given id.
+  app.get('/api/bid/agent/:id', async function (req, res) {
+    try {
+      res.status(200);
+      res.send(await dbAccess.getBidsAndAgentNameWithBidId(req.params.id));
+    } catch (err) {
+      // Internal error on the server side.
+      console.log(err);
+      res.status(500);
+      res.send(err);
+    }
+    return res;
+  });
+
   // Get the bids for the listing with the given id
   app.get('/api/bid/listing/:id', async function (req, res) {
     try {
@@ -98,7 +112,31 @@ module.exports = function (app) {
   // Update a bid's status
   app.put('/api/bid/:id/:status', async function (req, res) {
     try {
-      const success = await dbAccess.updateBidStatus(req.params.id, req.params.status);
+      console.log("apiroutes_bids update bid status " + req.params.id + " " + req.params.status);
+      let row = await dbAccess.updateBidStatus(req.params.id, req.params.status);
+
+      if (row) {
+        res.status(204); // HTML 204 request succeeded
+      } else {
+        res.status(404); // HTML status 404 not found
+      }
+      // let bids = await dbAccess.getBidWithId(req.params.id);
+      console.log("apiroutes_bids update bid status ");
+      console.log(row);
+      res.send(row);
+    } catch (err) {
+      // Internal error on the server side.
+      console.log(err);
+      res.status(500);
+      res.send(err);
+    }
+    return res;
+  });
+
+  app.put('/api/bid/rejected/:id/:reason', async function (req, res) {
+    try {
+      console.log("apiroutes_bid /api/bid/rejected/" + req.params.id + " " + req.params.reason);
+      const success = await dbAccess.updateBidRejected(req.params.id, req.params.reason);
 
       if (success) {
         res.status(204); // HTML 204 request succeeded
@@ -114,6 +152,7 @@ module.exports = function (app) {
     }
     return res;
   });
+  
 
   // Create a bid
   app.post('/api/bid', async function (req, res) {

@@ -27,7 +27,7 @@ CREATE TABLE listings (
     id INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,
     poster_id INTEGER,
     property_address VARCHAR(256),
-    listing_status ENUM("Active", "Signed", "Closed"),
+    listing_status ENUM("Active", "Signed"),
     estimated_value INTEGER,
     transaction_type VARCHAR(4),
     type_of_home VARCHAR(256),
@@ -37,11 +37,12 @@ CREATE TABLE listings (
 
 CREATE TABLE bids (
    id INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,
-   agent_id INTEGER,
-   listing_id INTEGER,
-   bid_status ENUM("Active", "Signed", "Closed", "Rejected"),
+   agent_id INTEGER NOT NULL,
+   listing_id INTEGER NOT NULL,
+   bid_status ENUM("Active", "Signed", "Rejected"),
    services VARCHAR(8),
-   message VARCHAR(500),    
+   message VARCHAR(500),
+   rejection_reason VARCHAR(500),
    FOREIGN KEY (agent_id) REFERENCES agents(id),
    FOREIGN KEY (listing_id) REFERENCES listings(id),
    createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP

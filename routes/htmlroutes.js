@@ -37,8 +37,8 @@ module.exports = function (app) {
   // });
 
   // View a particular bid.
-  app.get('/viewbid', function (req, res) {
-    res.sendFile(path.join(__dirname, '../public/assets/bids/agent_bid.html'));
+  app.get('/biddetails', function (req, res) {
+    res.sendFile(path.join(__dirname, '../public/assets/bids/biddetails.html'));
   });
 
   // // Tell the user that their listing has been posted

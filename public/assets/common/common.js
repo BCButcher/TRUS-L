@@ -57,7 +57,7 @@ function getListingRowForAgent(listing) {
   let listingRow = 
   `<br>
     <div class="list-group" onClick="renderOpenBidsForAgent()">
-      <a href="#bids" class="list-group-item">
+      <a href="/createbid?id=${listing.id}" class="list-group-item">
         <div class="d-flex w-100 justify-content-between">
           <h5 class="mb-1">${listing.property_address}</h5>
           <small>${listing.listing_status}</small>
@@ -78,7 +78,7 @@ function getBidRowForAgent(bid) {
   `
     <br>
     <div class="list-group">
-      <a href="/biddetails/?id=${bid.id}" class="list-group-item">
+      <a href="/counterbid?id=${bid.id}" class="list-group-item">
       <div class="d-flex w-100 justify-content-between">
         <h5 class="mb-1">${bid.property_address}</h5>
         <small>${bid.estimated_value}</small>
@@ -92,6 +92,7 @@ function getBidRowForAgent(bid) {
 }
 
 function getBidRowForUser(bid) {
+  let rejectedReason = (bid.rejectedReason == undefined) ? "" : bid.rejectedReason;
   let bidsRow = 
   `
     <br>
@@ -100,6 +101,8 @@ function getBidRowForUser(bid) {
       <div class="d-flex w-100 justify-content-between">
         <h5 class="mb-1">${bid.first_name} ${bid.last_name}</h5>
         <small>${bid.message}</small>
+        <small>${bid.bid_status}</small>
+        <small>${rejectedReason}</small>
       </div>
      </a>
     </div>
@@ -125,7 +128,9 @@ function getParam() {
   var paramsArray = new Array;
   var qpSplit = new RegExp('[&=]');
   paramsArray = queryParams.split(qpSplit); // Note that spaces, %20, will remain in the values. 
-  return resultArray;
+
+  // will return an array such as ['id', '1', 'name', 'foo', 'address', '123 Main St']
+  return paramsArray;
 }
 
 
