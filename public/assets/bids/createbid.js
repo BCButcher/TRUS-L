@@ -1,7 +1,7 @@
 function createBid() {
     let storedService = getServices();
     const userInfo = getUserInfo();
-    let listId = 1; //getParam();
+    let listId = getParam()[1];
     let bidInfo = {
         agent_id: userInfo.agent_id,
         listing_id: listId,
