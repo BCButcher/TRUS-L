@@ -27,6 +27,8 @@ function createListing(id) {
 }
 
 function createUser() {
+  event.preventDefault();
+  
   try {
     let newConsumer = {
       display_name: $("#displayName").val(),
@@ -52,25 +54,8 @@ function createUser() {
 }
 
 function showConfirmation() {
-  // If the user profile is created, tell them it was successful
-  // and show them the button to turn to the login page. 
-
-  const confirmSection = $('#confirm').empty();
-  let confirmRow = getConfirmRow();
-  confirmSection.append(confirmRow);
-}
-
-function getConfirmRow() {
-  let confirmRow = `
-  <div class="row">
-    <div class="col">
-      <p>Your profile and listing were created. Please sign in.</p>
-      <button type="button" id="goToDashboard" class="btn btn-primary" onClick="window.location.href='/dashboard'">Login</button>
-   </div>
- </div>
- `;
-//    console.log("biddetails " + rejectionReasonRow);
- return confirmRow;
+  // Redirect them to the dashboard
+  window.location.href='/dashboard';
 }
 
 function updateSlider() {
