@@ -2,7 +2,7 @@
 // =============================================================
 let express = require('express');
 let path = require('path');
-//const apiRoutes_common = require('./routes/apiRoutes_common');
+const apiRoutes_common = require(path.join(__dirname, 'routes', 'apiroutes_common'));
 
 // Sets up the Express App
 // =============================================================
@@ -19,7 +19,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 //app.use(bodyParser.urlencoded({extended: false}));
 
-//app.use(apiRoutes_common);
+app.use(apiRoutes_common);
 
 // require(path.join(__dirname, './routes/apiRoutes_bid'))(app);
 // require(path.join(__dirname, './routes/apiRoutes_listing'))(app);
