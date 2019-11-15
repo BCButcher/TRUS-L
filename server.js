@@ -7,7 +7,7 @@ const apiRoutes_bid = require(path.join(__dirname, 'routes', 'apiroutes_bid'));
 const apiRoutes_listing = require(path.join(__dirname, 'routes', 'apiroutes_listing'));
 const apiRoutes_agent = require(path.join(__dirname, 'routes', 'apiroutes_agent'));
 const apiRoutes_consumer = require(path.join(__dirname, 'routes', 'apiroutes_consumer'));
-const htmlRoutes = require(path.join(__dirname, 'routes', 'htmlRoutes'));
+const htmlRoutes = require(path.join(__dirname, 'routes', 'htmlroutes'));
 
 // Sets up the Express App
 // =============================================================
