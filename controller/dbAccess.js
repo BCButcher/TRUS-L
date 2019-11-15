@@ -17,13 +17,17 @@ let Database = require('./async-db');
 class DBAccess {
   constructor() {
     try {
-      this.db = new Database({
-        host: 'localhost',
-        port: 3306,
-        user: 'root',
-        password: process.env.SQL_PASSWORD,
-        database: 'trusl'
-      });
+      if (process.env.JAWSDB_URL) {
+        this.db = new Database(process.env.JAWSDB_URL);
+      } else {
+        this.db = new Database({
+          host: 'localhost',
+          port: 3306,
+          user: 'root',
+          password: process.env.SQL_PASSWORD,
+          database: 'trusl'
+        });
+      }
     } catch (err) {
       console.log(err);
     }
