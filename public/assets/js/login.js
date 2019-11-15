@@ -22,6 +22,7 @@ function verifyPassword() {
             // sensitive information. 
             sessionStorage.user_id=response.user_id;
             sessionStorage.agent_id=response.agent_id;
+            sessionStorage.display_name=response.display_name;
             window.location = "/dashboard";
         }
     }).catch(function(err) {

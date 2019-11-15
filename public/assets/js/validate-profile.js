@@ -12,6 +12,6 @@ emailField.addEventListener('keyup', function(event) {
     }
 });
 
-loginButton.addEventListener('click', function(event) {
-    profilecForm.submit();
-});
+// loginButton.addEventListener('click', function(event) {
+//     profilecForm.submit();
+// });
