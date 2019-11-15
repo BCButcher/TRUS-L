@@ -145,7 +145,8 @@ function getBidRowForUser(bid) {
 function getUserInfo() {
   return {
     user_id: sessionStorage.user_id,
-    agent_id: sessionStorage.agent_id
+    agent_id: sessionStorage.agent_id,
+    display_name: sessionStorage.display_name
   };
 }
 

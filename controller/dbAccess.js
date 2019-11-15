@@ -111,19 +111,19 @@ class DBAccess {
 
     // If no such email exists, return an empty array
     if(rows.length === 0) {
-      return {user_id: -1, agent_id: null};
+      return {user_id: -1, agent_id: null, display_name: ""};
     }
 
     let id = rows[0].id;
-    query = 'SELECT password, agent_id FROM users WHERE id=?';
+    query = 'SELECT password, agent_id, display_name FROM users WHERE id=?';
     args = [id];
     rows = await this.db.query(query, args);
     let cipher = this.encrypt(password);
     let agent_id = (rows[0].agent_id == "null") ? null : rows[0].agent_id;
     if (rows[0].password === cipher) {
-      return {user_id: id, agent_id: agent_id};
+      return {user_id: id, agent_id: agent_id, display_name: rows[0].display_name};
     } else {
-      return {user_id: -1, agent_id: null};
+      return {user_id: -1, agent_id: null, display_name: ""};
     }
   }
 
