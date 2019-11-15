@@ -133,8 +133,8 @@ function renderBidDetailTitle(bid) {
 }
 
 function renderBid(bid) {
-    $('#bidDetail').append( "blah blah blah");
-
+	// Fill in the checkboxes
+	// TODO Finish
 }
 
 function renderBidButtons(bid) {
@@ -143,7 +143,7 @@ function renderBidButtons(bid) {
         <button type="button" class="btn btn-primary btn-lg" onClick="acceptBid(${bid.id})">Accept</button>
         <button type="button" class="btn btn-secondary btn-lg" onClick="rejectBid(${bid.id})">Reject</button>
     `;
-    $('#abcd').append(buttonRow);
+    $('#bidButtons').append(buttonRow);
     // console.log(buttonRow);
 }
 
