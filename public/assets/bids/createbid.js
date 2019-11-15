@@ -16,6 +16,7 @@ function createBid() {
         data: bidInfo
     }).then(function(newConsumer) {
   console.log('new bid posted')
+        window.location.href='/dashboard';
     });
 }
 
