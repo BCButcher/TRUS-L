@@ -6,59 +6,59 @@ const router = express.Router();
 
 // View the home page
 router.get('/', function (req, res) {
-  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+  res.sendFile(path.join(__dirname, '..', 'public', 'index.html'));
 });
 
 // Login screen
 router.get('/login', function (req, res) {
-  res.sendFile(path.join(__dirname, 'public', 'login.html'));
+  res.sendFile(path.join(__dirname, '..', 'public', 'login.html'));
 });
 
 // User creates a profile
 router.get('/profile/:type', function (req, res) {
   if (req.params.type === 'agent') {
-    res.sendFile(path.join(__dirname, 'public', 'profileA.html'));
+    res.sendFile(path.join(__dirname, '..', 'public', 'profileA.html'));
   }
   else {
-    res.sendFile(path.join(__dirname, 'public', 'profileC.html'));
+    res.sendFile(path.join(__dirname, '..', 'public', 'profileC.html'));
   }
 });
 
 // User creates a profile
 router.get('/dashboard', function (req, res) {
-  res.sendFile(path.join(__dirname, 'public', 'dashboard.html'));
+  res.sendFile(path.join(__dirname, '..', 'public', 'dashboard.html'));
 });
 
 router.get('/createbid', function (req, res) {
-  res.sendFile(path.join(__dirname, 'public', 'createbid.html'));
+  res.sendFile(path.join(__dirname, '..', 'public', 'createbid.html'));
 });
 
 router.get('/counterbid', function (req, res) {
-  res.sendFile(path.join(__dirname, 'public', 'counter_bid.html'));
+  res.sendFile(path.join(__dirname, '..', 'public', 'counter_bid.html'));
 });
 
 router.get('/deletebid', function (req, res) {
-  res.sendFile(path.join(__dirname, 'public', 'delete_bid.html'));
+  res.sendFile(path.join(__dirname, '..', 'public', 'delete_bid.html'));
 });
 
 // View a particular bid.
 router.get('/biddetails', function (req, res) {
-  res.sendFile(path.join(__dirname, 'public', 'biddetails.html'));
+  res.sendFile(path.join(__dirname, '..', 'public', 'biddetails.html'));
 });
 
 // View client contact information
 router.get('/clientdetails', function (req, res) {
-  res.sendFile(path.join(__dirname, 'public', 'clientdetails.html'));
+  res.sendFile(path.join(__dirname, '..', 'public', 'clientdetails.html'));
 });
 
 // Static contact us information (Trusael)
 router.get('/contact', function (req, res) {
-  res.sendFile(path.join(__dirname, 'public', 'contact.html'));
+  res.sendFile(path.join(__dirname, '..', 'public', 'contact.html'));
 });
 
 // Static blurb about Trusael
 router.get('/about', function (req, res) {
-  res.sendFile(path.join(__dirname, 'public', 'about.html'));
+  res.sendFile(path.join(__dirname, '..', 'public', 'about.html'));
 });
 
 module.exports = router;
