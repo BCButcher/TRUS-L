@@ -7,7 +7,7 @@ function createBid() {
         listing_id: listId,
         bid_status: 'Active',
         services: storedService,
-        message:$('#offer').val() 
+        message: $('#offer').val() 
     }
   console.log(bidInfo);
     $.ajax({
@@ -40,52 +40,78 @@ function getServices() {
    
 }
 
+function listenToEvents() {
+    var checkboxesSocial = $("#social_media");
+
+    checkboxesSocial.on('click', checkStatus1);
+
+    function checkStatus1() {
+        if ($(checkboxesSocial).is(':checked')) {
+            $("#facebook").prop('disabled', false);
+            $("#instagram").prop('disabled', false);
+            $("#pinterest").prop('disabled', false);
+            $("#twitter").prop('disabled', false);
+        } else {
+            $("#facebook").prop('disabled', true);
+            $("#instagram").prop('disabled', true);
+            $("#pinterest").prop('disabled', true);
+            $("#twitter").prop('disabled', true);
+        }
+    }
+
+    var checkboxesMeetings = $("#progress_meetings");
+
+    checkboxesMeetings.on('click', checkStatus2);
+
+    function checkStatus2() {
+        if ($(checkboxesMeetings).is(':checked')) {
+            $("#in_person_reports").prop('disabled', false);
+            $("#phone").prop('disabled', false);
+            $("#video_conferencing").prop('disabled', false);
+        } else {
+            $("#in_person_reports").prop('disabled', true);
+            $("#phone").prop('disabled', true);
+            $("#video_conferencing").prop('disabled', true);
+        }
+    }
+
+    var checkboxesTriple = $("#in_person_reports, #phone, #video_conferencing");
+
+    checkboxesTriple.on('click', checkStatus3);
+
+    function checkStatus3() {
+        if ($(checkboxesTriple).is(':checked')) {
+            $("#daily").prop('disabled', false);
+            $("#twice_per_week").prop('disabled', false);
+            $("#bi_weekly").prop('disabled', false);
+            $("#weekly").prop('disabled', false);
+        } else {
+            $("#daily").prop('disabled', true);
+            $("#twice_per_week").prop('disabled', true);
+            $("#bi_weekly").prop('disabled', true);
+            $("#weekly").prop('disabled', true);
+        }
+    }
+
+    var checkboxesDrone = $("#pro_drone_videography");
+
+    checkboxesDrone.on('click', checkStatus4);
+
+    function checkStatus4() {
+        if ($(checkboxesDrone).is(':checked')) {
+            $("#drone_indoor").prop('disabled', false);
+            $("#drone_outdoor").prop('disabled', false);
+        } else {
+            $("#drone_indoor").prop('disabled', true);
+            $("#drone_outdoor").prop('disabled', true);
+        }
+    }
+}
 
 
+// Return the checkboxes selected as a string, e.g.
+// If 'Painting' is selected, and that checkbox is option 'a',
+// append 'a' to the services string
+function getServices() {
 
-// function services(services){
-     
-//     let servicesArray = [];
-//     if (services.indexOf('a') >= 0) {
-//       // option a was selected
-//       servicesArray.push('In-person tours');
-//     }
-
-//     if (services.indexOf('b') >= 0) {
-//       // option b selected
-//       servicesArray.push('Online advertising');
-//     }
-
-//     // Isn't there a way to declare an array with named indices?
-//     if (services.indexOf('c') >= 0) {
-//       // option b selected
-//       servicesArray.push('Paint');
-//     }
-
-//     if (services.indexOf('d') >= 0) {
-//       // option b selected
-//       servicesArray.push('Print brochures');
-//     }
-
-//     if (services.indexOf('e') >= 0) {
-//       // option b selected
-//       servicesArray.push('Print advertising');
-//     }
-
-//     if (services.indexOf('f') >= 0) {
-//       // option b selected
-//       servicesArray.push('Staging');
-//     }
-
-//     if (services.indexOf('g') >= 0) {
-//       // option b selected
-//       servicesArray.push('Virtual tours');
-//     }
-
-//     if (services.indexOf('h') >= 0) {
-//       // option b selected
-//       servicesArray.push("Buy your house if you can't sell it");
-//     }
-
-//     return servicesArray;
-//   
+}
