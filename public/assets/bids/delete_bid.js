@@ -1,5 +1,5 @@
 function generateButton() {
-    let bidId = getParams()[1];
+    let bidId = getParam()[1];
     let buttonRow = `
        <button type="button" class="btn btn-info btn-lg" id="viewbids" onclick="deleteBid(${bidId})">Delete</button>
     `;

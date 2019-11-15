@@ -88,8 +88,8 @@ function getListingRowForAgent(listing) {
 function getBidRowForAgent(bid) {
   let url = "";
   if(bid.bid_status === 'Rejected') {
-    console.log("***"+bid.rejectedReason+"***");
-    if(bid.rejectedReason === 'Another agent has been awarded the contract.') {
+    console.log("***"+bid.rejection_reason+"***");
+    if(bid.rejection_reason === 'Another agent has been awarded the contract.') {
       url = `/deletebid?id=${bid.id}`;
     } else {
       url = `/counterbid?id=${bid.id}`;

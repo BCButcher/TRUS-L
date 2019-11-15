@@ -33,8 +33,8 @@ INSERT INTO bids (agent_id, listing_id, bid_status, services, message) VALUES (5
 INSERT INTO bids (agent_id, listing_id, bid_status, services, message) VALUES (4, 3, "Active", "bdef", "You won't regret it.");
 INSERT INTO bids (agent_id, listing_id, bid_status, services, message) VALUES (1, 3, "Active", "bdef", "Hire me because I am in the top 1% of all realtors in the area.");
 INSERT INTO bids (agent_id, listing_id, bid_status, services, message) VALUES (1, 4, "Active", "bdef", "Hire me because I am in the top 1% of all realtors in the area.");
-INSERT INTO bids (agent_id, listing_id, bid_status, services, message) VALUES (2, 4, "Active", "bf", "I know the inside of the market.");
-INSERT INTO bids (agent_id, listing_id, bid_status, services, message) VALUES (3, 4, "Active", "bef", "You will have the best choices with me.");
+INSERT INTO bids (agent_id, listing_id, bid_status, services, message) VALUES (2, 4, "Active", "bf", "I know the market inside and out.");
+INSERT INTO bids (agent_id, listing_id, bid_status, services, message) VALUES (3, 4, "Active", "bef", "I provide the best customer service of all realtors in the city.");
 INSERT INTO bids (agent_id, listing_id, bid_status, services, message) VALUES (1, 5, "Active", "bdef", "Hire me because I am in the top 1% of all realtors in the area.");
 INSERT INTO bids (agent_id, listing_id, bid_status, services, message) VALUES (1, 6, "Signed", "bdef", "Hire me because I am in the top 1% of all realtors in the area.");
 INSERT INTO bids (agent_id, listing_id, bid_status, services, message) VALUES (1, 7, "Signed", "bdef", "Hire me because I am in the top 1% of all realtors in the area.");
