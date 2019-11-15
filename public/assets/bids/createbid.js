@@ -115,3 +115,7 @@ function listenToEvents() {
 function getServices() {
 
 }
+
+$(document).ready(function() { 
+    listenToEvents();
+});
