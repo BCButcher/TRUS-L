@@ -80,11 +80,13 @@ function getListingRowForAgent(listing) {
 }
 
 function getBidRowForAgent(bid) {
+  let url = (bid.bid_status === 'Rejected') ? `/counterbid?id=${bid.id}` : `/biddetails?id=${bid.id}`;
+
   let bidsRow = 
   `
     <br>
     <div class="list-group">
-      <a href="/counterbid?id=${bid.id}" class="list-group-item">
+      <a href="${url}">
       <div class="d-flex w-100 justify-content-between">
         <h5 class="mb-1">${bid.property_address}</h5>
         <small>${bid.estimated_value}</small>
