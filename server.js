@@ -2,6 +2,7 @@
 // =============================================================
 let express = require('express');
 let path = require('path');
+const apiRoutes_common = require('./routes/apiRoutes_common');
 
 // Sets up the Express App
 // =============================================================
@@ -14,12 +15,17 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Routes
-require(path.join(__dirname, 'routes', 'apiRoutes_common'))(app);
-require(path.join(__dirname, './routes/apiRoutes_bid'))(app);
-require(path.join(__dirname, './routes/apiRoutes_listing'))(app);
-require(path.join(__dirname, './routes/apiRoutes_agent'))(app);
-require(path.join(__dirname, './routes/apiRoutes_consumer'))(app);
-require(path.join(__dirname, './routes/htmlRoutes'))(app);
+//require(path.join(__dirname, 'routes', 'apiRoutes_common'))(app);
+
+//app.use(bodyParser.urlencoded({extended: false}));
+
+app.use(apiRoutes_common);
+
+// require(path.join(__dirname, './routes/apiRoutes_bid'))(app);
+// require(path.join(__dirname, './routes/apiRoutes_listing'))(app);
+// require(path.join(__dirname, './routes/apiRoutes_agent'))(app);
+// require(path.join(__dirname, './routes/apiRoutes_consumer'))(app);
+// require(path.join(__dirname, './routes/htmlRoutes'))(app);
 
 // Starts the server to begin listening
 // =============================================================
