@@ -14,7 +14,7 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Routes
-require(path.join(__dirname, './routes/apiRoutes_common'))(app);
+require(path.join(__dirname, './routes/apiRoutes_common.js'))(app);
 require(path.join(__dirname, './routes/apiRoutes_bid'))(app);
 require(path.join(__dirname, './routes/apiRoutes_listing'))(app);
 require(path.join(__dirname, './routes/apiRoutes_agent'))(app);
