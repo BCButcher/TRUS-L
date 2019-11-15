@@ -3,6 +3,11 @@
 let express = require('express');
 let path = require('path');
 const apiRoutes_common = require(path.join(__dirname, 'routes', 'apiroutes_common'));
+const apiRoutes_bid = require(path.join(__dirname, 'routes', 'apiroutes_bid'));
+const apiRoutes_listing = require(path.join(__dirname, 'routes', 'apiroutes_listing'));
+const apiRoutes_agent = require(path.join(__dirname, 'routes', 'apiroutes_agent'));
+const apiRoutes_consumer = require(path.join(__dirname, 'routes', 'apiroutes_consumer'));
+const htmlRoutes = require(path.join(__dirname, 'routes', 'htmlRoutes'));
 
 // Sets up the Express App
 // =============================================================
@@ -20,6 +25,11 @@ app.use(express.static(path.join(__dirname, 'public')));
 //app.use(bodyParser.urlencoded({extended: false}));
 
 app.use(apiRoutes_common);
+app.use(apiRoutes_bid);
+app.use(apiRoutes_listing);
+app.use(apiRoutes_agent);
+app.use(apiRoutes_consumer);
+app.use(htmlRoutes);
 
 // require(path.join(__dirname, './routes/apiRoutes_bid'))(app);
 // require(path.join(__dirname, './routes/apiRoutes_listing'))(app);
