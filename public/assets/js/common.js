@@ -45,15 +45,18 @@ function getListingRowForConsumer(listing) {
   let listingRow = 
    `<br>
      <div class="list-group" onClick="renderBidsForListing(${listing.id}, '${listing.property_address}')">
-       <a href="#bids" class="list-group-item">
+     <div class="card border-left-0 border-right-0"
+       <a href="#bids">     
+         <div class="card-header font-weight-bolder"><i class="fas fa-map-marked-alt"></i> ${listing.property_address}</div> 
+         <hr> 
+         <h5 class="card-title text-center"><i class="fas fa-dollar-sign"></i>${listing.estimated_value}</h5>
+         <p class='text-center'>${listing.type_of_home}</p>
          <div class="d-flex w-100 justify-content-between">
-           <h5 class="mb-1">${listing.property_address}</h5>
-           <small>${listing.listing_status}</small>
+         <small class='font-weight-bold'>id:${listing.poster_id}</small>
+         <small class='font-weight-bold text-success'>${listing.listing_status}</small>
          </div>
-         <li>${listing.type_of_home}</li>
-         <li>${listing.estimated_value}</li>
-         <small>${listing.poster_id}</small>
        </a>
+       </div>
      </div>
  `;
 // console.log(listingRow);
@@ -129,15 +132,18 @@ function getBidRowForUser(bid) {
   let bidsRow = 
   `
     <br>
-    <div class="list-group">
-      <a href="/biddetails/?id=${bid.id}" class="list-group-item">
+  <div class="card border-left-0 border-right-0">
+    
+      <a href="/biddetails/?id=${bid.id}">
+      <h5 class="card-title text-dark"><i class="fas fa-user-tie"></i>
+      ${bid.first_name} ${bid.last_name}</h5>
       <div class="d-flex w-100 justify-content-between">
-        <h5 class="mb-1">${bid.first_name} ${bid.last_name}</h5>
-        <small>${bid.message}</small>
-        <small>${bid.bid_status}</small>
+        <p class='text-info'><i class="fas fa-quote-left"></i> ${bid.message} <i class="fas fa-quote-right"></i></p>
+        <small class="text-success font-weight-bold">${bid.bid_status}</small>
       </div>
      </a>
     </div>
+    
    `;
   return bidsRow;
 }

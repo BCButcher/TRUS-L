@@ -5,6 +5,7 @@ header {
     padding-bottom: 30px;
 }
 
+
 #frontJumbo{
     height: 40vh;
     font-family: 'Roboto', sans-serif;
@@ -110,4 +111,10 @@ header {
     justify-content: space-around;
     flex-wrap: wrap;
     min-width: 8em;
+}
+
+
+.card{
+    padding: 20px;
+    border-right: none;
 }
