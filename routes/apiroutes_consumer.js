@@ -30,6 +30,18 @@ module.exports = function (app) {
     return res;
   });
 
+  app.get('/api/consumer/:id', async function (req, res) {
+    try {
+      res.status(200);
+      res.send(await dbAccess.getUserWithId(req.params.id));
+    } catch (err) {
+      // Internal error on the server side.
+      console.log(err);
+      res.status(500);
+      res.send(err);
+    }
+    return res;
+  });
 
   // Delete a consumer
   app.delete('/api/consumer/:id', async function (req, res) {

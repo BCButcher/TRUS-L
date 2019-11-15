@@ -61,17 +61,23 @@ function getListingRowForConsumer(listing) {
 }
 
 function getListingRowForAgent(listing) {
+  let url = "";
+  if(listing.listing_status === 'Signed') {
+    url = `/clientdetails?id=${listing.id}`;
+  } else {
+    url = `/createbid?id=${listing.id}`;
+  }
+
   let listingRow = 
   `<br>
     <div class="list-group" onClick="renderOpenBidsForAgent()">
-      <a href="/createbid?id=${listing.id}" class="list-group-item">
+      <a href="${url}" class="list-group-item">
         <div class="d-flex w-100 justify-content-between">
           <h5 class="mb-1">${listing.property_address}</h5>
           <small>${listing.listing_status}</small>
         </div>
         <li>${listing.type_of_home}</li>
         <li>${listing.estimated_value}</li>
-        <small>${listing.poster_id}</small>
       </a>
     </div>
 `;
@@ -80,7 +86,18 @@ function getListingRowForAgent(listing) {
 }
 
 function getBidRowForAgent(bid) {
-  let url = (bid.bid_status === 'Rejected') ? `/counterbid?id=${bid.id}` : `/biddetails?id=${bid.id}`;
+  let url = "";
+  if(bid.bid_status === 'Rejected') {
+    console.log("***"+bid.rejectedReason+"***");
+    if(bid.rejectedReason === 'Another agent has been awarded the contract.') {
+      url = `/deletebid?id=${bid.id}`;
+    } else {
+      url = `/counterbid?id=${bid.id}`;
+    }
+  } else {
+    url = `/biddetails?id=${bid.id}`;
+  }
+  console.log(url);
 
   let bidsRow = 
   `

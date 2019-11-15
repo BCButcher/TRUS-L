@@ -34,6 +34,10 @@ module.exports = function (app) {
     res.sendFile(path.join(__dirname, '../public/assets/bids/counter_bid.html'));
   });
 
+  app.get('/deletebid', function (req, res) {
+    res.sendFile(path.join(__dirname, '../public/assets/bids/delete_bid.html'));
+  });
+
   // // After the user has rejected a bid, this page asks if they want to tell the
   // // agent why.
   // app.get('/process_bid', function (req, res) {
@@ -50,9 +54,9 @@ module.exports = function (app) {
   //   res.sendFile(path.join(__dirname, '../public/assets/bids/confirm.html'));
   // });
 
-  // View all active listings
-  app.get('/listings', function (req, res) {
-    res.sendFile(path.join(__dirname, '../public/assets/listings/listings.html'));
+  // View client contact information
+  app.get('/clientdetails', function (req, res) {
+    res.sendFile(path.join(__dirname, '../public/assets/listings/clientdetails.html'));
   });
 
   // Static contact us information (Trusael)
