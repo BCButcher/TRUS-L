@@ -1,6 +1,7 @@
 // Dependencies
 // =============================================================
 let express = require('express');
+let path = require('path');
 
 // Sets up the Express App
 // =============================================================
@@ -10,15 +11,15 @@ let PORT = 3000;
 // Sets up the Express app to handle data parsing
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use(express.static('public'));
+app.use(express.static(path.join(__dirname, 'public')));
 
 // Routes
-require('./routes/apiRoutes_common')(app);
-require('./routes/apiRoutes_bid')(app);
-require('./routes/apiRoutes_listing')(app);
-require('./routes/apiRoutes_agent')(app);
-require('./routes/apiRoutes_consumer')(app);
-require('./routes/htmlRoutes')(app);
+require(path.join(__dirname, './routes/apiRoutes_common'))(app);
+require(path.join(__dirname, './routes/apiRoutes_bid'))(app);
+require(path.join(__dirname, './routes/apiRoutes_listing'))(app);
+require(path.join(__dirname, './routes/apiRoutes_agent'))(app);
+require(path.join(__dirname, './routes/apiRoutes_consumer'))(app);
+require(path.join(__dirname, './routes/htmlRoutes'))(app);
 
 // Starts the server to begin listening
 // =============================================================
