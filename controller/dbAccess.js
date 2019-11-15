@@ -25,6 +25,7 @@ class DBAccess {
         database: 'trusl'
       });
     } catch (err) {
+      console.log(err);
     }
   }
 
@@ -343,9 +344,14 @@ class DBAccess {
       // If the user is an agent, we need to show them the listings where
       // their bid is the accepted bid and any listings that they can bid on.
       // SELECT listings.* from (bids INNER JOIN listings ON bids.listing_id = listings.id) WHERE bids.bid_status='Signed' AND bids.agent_id=1;
-      let query = "SELECT DISTINCT listings.* from (bids INNER JOIN listings ON bids.listing_id = listings.id) WHERE (bids.bid_status='Signed' AND bids.agent_id=?) OR listings.listing_status='Active'";
+      let query = "SELECT DISTINCT listings.* from (bids INNER JOIN listings ON bids.listing_id = listings.id) WHERE (bids.bid_status='Signed' AND bids.agent_id=?)";
       let args = [user_id];
-      const rows = await this.db.query(query, args);
+      const bidRows = await this.db.query(query, args);
+
+      query = "SELECT DISTINCT * FROM listings WHERE listings.listing_status='Active'";
+      const listingRows = await this.db.query(query);
+
+      const rows = bidRows.concat(listingRows);
 
       // console.log("dbAccess getListingsForUser");
       // console.log(query);

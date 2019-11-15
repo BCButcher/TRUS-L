@@ -1,4 +1,4 @@
-let DBAccess = require('../lib/dbAccess');
+let DBAccess = require('../controller/dbAccess');
 
 const dbAccess = new DBAccess();
 

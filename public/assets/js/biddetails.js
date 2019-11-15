@@ -112,7 +112,7 @@ async function save(bidId) {
     // This method is called when the user saves a Rejection reason
 
     let reason = getRejectionReason();
-    let updatedBid = await updateBid(bidId, reason);
+    let updatedBid = await updateBidRejected(bidId, reason);
     window.location = "/dashboard";
 }
 
@@ -130,11 +130,6 @@ function renderBidDetailTitle(bid) {
        Bid From ${bid.first_name} ${bid.last_name}
     `;
     bidDetailTitle.append(title);
-}
-
-function renderBid(bid) {
-	// Fill in the checkboxes
-	// TODO Finish
 }
 
 function renderBidButtons(bid) {
@@ -155,9 +150,6 @@ function renderPage(bid) {
 
     renderBidDetailTitle(bid);
 
-    // Render the bid details (checkbox values)
-    renderBid(bid);
-
     // Render the Accept and Reject buttons
     renderBidButtons(bid);
 }
@@ -175,6 +167,6 @@ $( document ).ready(async function() {
     renderPage(bid); 
 
     listenToEvents();
-    selectCheckboxes(bid);
+    selectCheckboxes(bid); // render the bid checkboxes
     populateMessage(bid);
   });
