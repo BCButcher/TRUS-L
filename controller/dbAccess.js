@@ -1,5 +1,5 @@
 require('dotenv').config();
-const CryptoJS = require('crypto-js');
+//const CryptoJS = require('crypto-js');
 let Database = require('./async-db');
 
 //  1. Post new consumer
