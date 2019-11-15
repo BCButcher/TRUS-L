@@ -117,7 +117,15 @@ function getBidRowForAgent(bid) {
 }
 
 function getBidRowForUser(bid) {
-  let rejectedReason = (bid.rejectedReason == undefined) ? "" : bid.rejectedReason;
+  if(bid.bid_status !== 'Active') {
+    // The user does not have anything else to do if it's Rejected. The agent can counter 
+    // but that's it for the user.
+    //
+    // If the bid is Signed, then so is the Listing, and clicking on the Listing will take
+    // the user to the agent's bid showing what was promised.
+    return;
+  }
+
   let bidsRow = 
   `
     <br>
@@ -127,7 +135,6 @@ function getBidRowForUser(bid) {
         <h5 class="mb-1">${bid.first_name} ${bid.last_name}</h5>
         <small>${bid.message}</small>
         <small>${bid.bid_status}</small>
-        <small>${rejectedReason}</small>
       </div>
      </a>
     </div>
