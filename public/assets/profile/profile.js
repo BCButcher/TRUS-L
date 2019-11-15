@@ -14,7 +14,7 @@ console.log(newlisting);
     url: "/api/listing/",
     method: "POST",
     data: newlisting
-  }).then(function(newListing) {
+  }).then(function(newlisting) {
    console.log(newlisting);
   });
 }
