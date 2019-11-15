@@ -77,8 +77,8 @@ module.exports = function (app) {
         res.status(404); // HTML status 404 not found
       }
       let listing = await dbAccess.getListingsWithId(req.params.id);
-      console.log("apiroutes_listing");
-      console.log(listing);
+      // console.log("apiroutes_listing");
+      // console.log(listing);
       res.send(listing);
     } catch (err) {
       // Internal error on the server side.
@@ -92,8 +92,11 @@ module.exports = function (app) {
   // Create a listing
   app.post('/api/listing', async function (req, res) {
     try {
+      const newListing = await dbAccess.createListing(req.body);
+      // console.log("apiroutes_listing create a listing");
+      // console.log(newListing);
       res.status(201); // HTML status 201 creation successful
-      res.send(await dbAccess.createListing(req.body));
+      res.send(newListing);
     } catch (err) {
       // Internal error on the server side.
       console.log(err);
