@@ -147,12 +147,10 @@ function renderBidButtons(bid) {
     // console.log(buttonRow);
 }
 
-async function renderPage(bidId) {
+function renderPage(bid) {
     // console.log("biddetails " + bidId);
 
     // Render the bid title "bid from firstName lastName"
-    let bids = await getBidWithIdIncludeAgentName(bidId);
-    const bid = bids[0];
     // console.log(bid);
 
     renderBidDetailTitle(bid);
@@ -164,12 +162,18 @@ async function renderPage(bidId) {
     renderBidButtons(bid);
 }
 
-$( document ).ready(function() {
-    // '/createbid?listingid=3
+$( document ).ready(async function() {
+    // '/biddetails?id=3
     // Only one query parameter is expected in this URL, the bid id
 
     // Array(6) ["id", "1", "name", "foo", "address", "123%20Main%20St"]
     // In this page, we expect id=num, so get the value in the second position
-    let ids = getParam();
-    renderPage(ids[1]); // getParam is defined in common.js
+    let ids = getParam(); // getParam is defined in common.js
+
+    let bids = await getBidWithIdIncludeAgentName(ids[1]);
+    const bid = bids[0];
+    renderPage(bid); 
+
+    listenToEvents();
+    selectCheckboxes(bid);    
   });

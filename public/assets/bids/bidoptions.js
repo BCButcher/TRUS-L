@@ -1,17 +1,56 @@
 function getServices() {
-    let storedService;
     let serviceProvided = [];
     let serviceArray;
 
-    serviceArray = $("input[name='services[]']:checked").map(function(i, obj){
-        console.log(obj.value);
+    serviceArray = $("input:checked").map(function(i, obj){
+        // console.log(obj.value);
         return obj.value;
     });
         
     for(let i = 0; i < serviceArray.length; i++){
         serviceProvided.push(serviceArray[i]); 
     }
-    return storedService = serviceProvided.toString().replace(/,/g,'');
+    return serviceProvided.toString().replace(/,/g,'');
+}
+
+function selectCheckboxes(bid) {
+    // If this is a page that is being populated from values stored in the database
+    // (i.e., either counter bid or bid details), then the column stored in the database
+    // must be used to pre-select the checkboxes (and maybe enable them?)
+
+    
+    const storedService = bid.services;
+
+    $('#in_person_tours').prop('checked', (storedService.indexOf('a')>=0));
+    $('#open_houses').prop('checked', (storedService.indexOf('i')>=0));
+    $('#vr_tours').prop('checked', (storedService.indexOf('j')>=0));
+    $('#have_own_website').prop('checked', (storedService.indexOf('k')>=0));
+    $('#progress_meetings').prop('checked', (storedService.indexOf('l')>=0));
+    $('#in_person_reports').prop('checked', (storedService.indexOf('m')>=0));
+    $('#phone').prop('checked', (storedService.indexOf('n')>=0));
+    $('#video_conferencing').prop('checked', (storedService.indexOf('o')>=0));
+    $('#daily').prop('checked', (storedService.indexOf('p')>=0));
+    $('#twice_per_week').prop('checked', (storedService.indexOf('q')>=0));
+    $('#bi_weekly').prop('checked', (storedService.indexOf('r')>=0));
+    $('#weekly').prop('checked', (storedService.indexOf('s')>=0));
+    $('#references').prop('checked', (storedService.indexOf('t')>=0));
+    $('#social_media').prop('checked', (storedService.indexOf('u')>=0));
+    $('#facebook').prop('checked', (storedService.indexOf('v')>=0));
+    $('#instagram').prop('checked', (storedService.indexOf('w')>=0));
+    $('#pinterest').prop('checked', (storedService.indexOf('x')>=0));
+    $('#twitter').prop('checked', (storedService.indexOf('y')>=0));
+    $('#pro_videography').prop('checked', (storedService.indexOf('z')>=0));
+    $('#pro_drone_videography').prop('checked', (storedService.indexOf('A')>=0));
+    $('#drone_indoor').prop('checked', (storedService.indexOf('B')>=0));
+    $('#drone_outdoor').prop('checked', (storedService.indexOf('C')>=0));
+    $('#pro_photography').prop('checked', (storedService.indexOf('D')>=0));
+    $('#online_advertising').prop('checked', (storedService.indexOf('b')>=0));
+    $('#painting').prop('checked', (storedService.indexOf('c')>=0));
+    $('#brochures').prop('checked', (storedService.indexOf('d')>=0));
+    $('#print_advertising').prop('checked', (storedService.indexOf('e')>=0));
+    $('#staging').prop('checked', (storedService.indexOf('f')>=0));
+    $('#virtual_tours').prop('checked', (storedService.indexOf('g')>=0));
+    $('#buy_house').prop('checked', (storedService.indexOf('h')>=0));
 }
 
 function listenToEvents() {

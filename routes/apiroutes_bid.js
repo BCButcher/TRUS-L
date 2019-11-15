@@ -133,6 +133,31 @@ module.exports = function (app) {
     return res;
   });
 
+  // Update a bid's status and options
+  app.put('/api/bid/active/:id/:services/:message', async function (req, res) {
+    try {
+      console.log("apiroutes_bids  /api/bid/active/" + req.params.id);
+      let row = await dbAccess.updateBidOptions(req.params.id, req.params.services, req.params.message);
+
+      if (row) {
+        res.status(204); // HTML 204 request succeeded
+      } else {
+        res.status(404); // HTML status 404 not found
+      }
+      // let bids = await dbAccess.getBidWithId(req.params.id);
+      console.log("apiroutes_bids update bid status ");
+      console.log(row);
+      res.send(row);
+    } catch (err) {
+      // Internal error on the server side.
+      console.log(err);
+      res.status(500);
+      res.send(err);
+    }
+    return res;
+  });
+
+
   app.put('/api/bid/rejected/:id/:reason', async function (req, res) {
     try {
       console.log("apiroutes_bid /api/bid/rejected/" + req.params.id + " " + req.params.reason);
