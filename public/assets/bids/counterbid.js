@@ -31,5 +31,6 @@ $( document ).ready(async function() {
     const bid = bids[0];
 
     listenToEvents();
-    selectCheckboxes(bid);    
+    selectCheckboxes(bid);
+    populateMessage(bid);
   });

@@ -175,5 +175,6 @@ $( document ).ready(async function() {
     renderPage(bid); 
 
     listenToEvents();
-    selectCheckboxes(bid);    
+    selectCheckboxes(bid);
+    populateMessage(bid);
   });

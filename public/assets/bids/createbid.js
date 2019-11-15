@@ -21,3 +21,7 @@ function createBid() {
         window.location.href='/dashboard';
     });
 }
+
+$(document).ready(function() { 
+    listenToEvents();
+});

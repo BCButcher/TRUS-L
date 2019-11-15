@@ -121,6 +121,6 @@ function listenToEvents() {
     }
 }
 
-$(document).ready(function() { 
-    listenToEvents();
-});
+function populateMessage(bid) {
+    $('#offer').val(bid.message);
+}
