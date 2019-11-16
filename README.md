@@ -63,7 +63,7 @@ There is no automated test suite for this application. Instead, we ran the follo
       d. Dashboard > taken to dashboard page
     
 You can see this code live at 
-![Trusael](https://dashboard.heroku.com/apps/murmuring-cove-22350)
+![Trusael](https://murmuring-cove-22350.herokuapp.com/)
 
 ### Break down into end to end tests
 
@@ -79,7 +79,7 @@ The tests also demonstrate the navigation of the UI, deployment to Heroku, inter
 ## Deployment
 To deploy this on a live system, follow the instructions in "Getting Started" and "Installing". To view this code on a live system, look at ![Trusael](https://murmuring-cove-22350.herokuapp.com/) 
 
-## Built With
+## Built 
 *  [Visual Studio Code](https://code.visualstudio.com/docs/setup/setup-overview)
 *  [Visual Studio Code Extension "Open in Browser"] 
     * Open VS Code.
@@ -91,7 +91,7 @@ To deploy this on a live system, follow the instructions in "Getting Started" an
      * path
      * dotenv
      * mysql
-*  [Heroku](https://dashboard.heroku.com/apps/murmuring-cove-22350) - Deployed to Heroku, a cloud platform service (PaaS). It supports Node, MySQL, and more.
+*  [Heroku](https://www.heroku.com/) - Deployed to Heroku, a cloud platform service (PaaS). It supports Node, MySQL, and more.
 
 ## Contributing
 
