@@ -118,3 +118,10 @@ header {
     padding: 20px;
     border-right: none;
 }
+
+#listingsHeader{
+    text-align: center;
+}
+#bidsHeader{
+    text-align: center;
+}

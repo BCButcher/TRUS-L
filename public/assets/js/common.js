@@ -47,7 +47,7 @@ function getListingRowForConsumer(listing) {
      <div class="list-group" onClick="renderBidsForListing(${listing.id}, '${listing.property_address}')">
      <div class="card border-left-0 border-right-0"
        <a href="#bids">     
-         <div class="card-header font-weight-bolder"><i class="fas fa-map-marked-alt"></i> ${listing.property_address}</div> 
+         <div class="card-header bg-info font-weight-bolder"><i class="fas fa-map-marked-alt"></i> ${listing.property_address}, Toronto ,ON</div> 
          <hr> 
          <h5 class="card-title text-center"><i class="fas fa-dollar-sign"></i>${listing.estimated_value}</h5>
          <p class='text-center'>${listing.type_of_home}</p>
@@ -73,14 +73,19 @@ function getListingRowForAgent(listing) {
 
   let listingRow = 
   `<br>
-    <div class="list-group" onClick="renderOpenBidsForAgent()">
-      <a href="${url}" class="list-group-item">
+    <div class="card card border-left-0 border-right-0" onClick="renderOpenBidsForAgent()">
+      <a href="${url}">
+       
+        <div class="card-header bg-info text-dark font-weight-bolder"><i class="fas fa-map-marked-alt"></i> ${listing.property_address}, Toronto ,ON
+        </div>
+        <h5 class="card-title text-dark text-center">
+        <i class="fas fa-dollar-sign"></i>${listing.estimated_value}</h5>
+        <p class='text-center text-dark'>${listing.type_of_home}</p> 
         <div class="d-flex w-100 justify-content-between">
-          <h5 class="mb-1">${listing.property_address}</h5>
           <small>${listing.listing_status}</small>
         </div>
-        <li>${listing.type_of_home}</li>
-        <li>${listing.estimated_value}</li>
+        
+      
       </a>
     </div>
 `;
@@ -105,12 +110,16 @@ function getBidRowForAgent(bid) {
   let bidsRow = 
   `
     <br>
-    <div class="list-group">
+    <div class="card border-left-0 border-right-0">
+  
       <a href="${url}">
-      <div class="d-flex w-100 justify-content-between">
-        <h5 class="mb-1">${bid.property_address}</h5>
-        <small>${bid.estimated_value}</small>
-        <small>${bid.type_of_home}</small>
+      <div class="card-header bg-info text-dark font-weight-bolder"><i class="fas fa-map-marked-alt"></i>
+      ${bid.property_address}, Toronto ,ON</div>
+      <h5 class="card-title text-dark text-center">
+        <i class="fas fa-dollar-sign"></i>
+        ${bid.estimated_value}</h5>
+        <p class='text-center text-dark'>${bid.type_of_home}</p>
+        <div class="d-flex w-100 justify-content-between">
         <small>${bid.bid_status}</small>
       </div>
      </a>
