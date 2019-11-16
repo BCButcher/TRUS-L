@@ -1,6 +1,6 @@
 
 function createAgent() {
-    console.log("profileagent.js createAgent");
+    // console.log("profileagent.js createAgent");
 
     let newAgent = {
       license: $('#licenseNumber').val(),
@@ -19,8 +19,8 @@ function createAgent() {
       method: "POST",
       data: newAgent
     }).then(function(newAgent) {
-        console.log("profileagent.js after new agent created");
-        console.log(newAgent);
+        // console.log("profileagent.js after new agent created");
+        // console.log(newAgent);
 
         window.location.href = '/dashboard';
     });

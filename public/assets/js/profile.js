@@ -2,8 +2,6 @@
 // adding new listing
 function createListing(id) {
   try {
-    console.log(id);
-
     let newlisting = {
       poster_id: id,
       property_address: $("#buyer_location").val(),

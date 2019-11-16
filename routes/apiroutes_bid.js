@@ -115,7 +115,7 @@ router.delete('/api/bid/:id', async function (req, res) {
 // Update a bid's status
 router.put('/api/bid/:id/:status', async function (req, res) {
   try {
-    console.log("apiroutes_bids update bid status " + req.params.id + " " + req.params.status);
+    // console.log("apiroutes_bids update bid status " + req.params.id + " " + req.params.status);
     let row = await dbAccess.updateBidStatus(req.params.id, req.params.status);
 
     if (row) {
@@ -124,8 +124,8 @@ router.put('/api/bid/:id/:status', async function (req, res) {
       res.status(404); // HTML status 404 not found
     }
     // let bids = await dbAccess.getBidWithId(req.params.id);
-    console.log("apiroutes_bids update bid status ");
-    console.log(row);
+    // console.log("apiroutes_bids update bid status ");
+    // console.log(row);
     res.send(row);
   } catch (err) {
     // Internal error on the server side.
@@ -139,7 +139,7 @@ router.put('/api/bid/:id/:status', async function (req, res) {
 // Update a bid's status and options
 router.put('/api/bid/active/:id/:services/:message', async function (req, res) {
   try {
-    console.log("apiroutes_bids  /api/bid/active/" + req.params.id);
+    // console.log("apiroutes_bids  /api/bid/active/" + req.params.id);
     let row = await dbAccess.updateBidOptions(req.params.id, req.params.services, req.params.message);
 
     if (row) {
@@ -148,8 +148,8 @@ router.put('/api/bid/active/:id/:services/:message', async function (req, res) {
       res.status(404); // HTML status 404 not found
     }
     // let bids = await dbAccess.getBidWithId(req.params.id);
-    console.log("apiroutes_bids update bid status ");
-    console.log(row);
+    // console.log("apiroutes_bids update bid status ");
+    // console.log(row);
     res.send(row);
   } catch (err) {
     // Internal error on the server side.
@@ -163,7 +163,7 @@ router.put('/api/bid/active/:id/:services/:message', async function (req, res) {
 
 router.put('/api/bid/rejected/:id/:reason', async function (req, res) {
   try {
-    console.log("apiroutes_bid /api/bid/rejected/" + req.params.id + " " + req.params.reason);
+    // console.log("apiroutes_bid /api/bid/rejected/" + req.params.id + " " + req.params.reason);
     const success = await dbAccess.updateBidRejected(req.params.id, req.params.reason);
 
     if (success) {

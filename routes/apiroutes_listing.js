@@ -71,7 +71,7 @@ router.delete('/api/listing/:id', async function (req, res) {
 // Update a listings's status, not the entire listing
 router.put('/api/listing/:id/:status', async function (req, res) {
   try {
-    console.log("dbAccess put " + "/api/listing/" + req.params.id + "/" + req.params.status);
+    // console.log("dbAccess put " + "/api/listing/" + req.params.id + "/" + req.params.status);
     const success = await dbAccess.updateListingStatus(req.params.id, req.params.status);
 
     if (success) {
