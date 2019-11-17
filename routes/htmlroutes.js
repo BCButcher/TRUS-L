@@ -61,6 +61,11 @@ router.get('/contact', function (req, res) {
   res.sendFile(path.join(__dirname, '..', 'public', 'contact.html'));
 });
 
+// Static contact us information (Trusael)
+router.get('/contactconfirm', function (req, res) {
+  res.sendFile(path.join(__dirname, '..', 'public', 'contact-confirm.html'));
+});
+
 // Static blurb about Trusael
 router.get('/about', function (req, res) {
   res.sendFile(path.join(__dirname, '..', 'public', 'about.html'));
