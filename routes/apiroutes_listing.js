@@ -35,6 +35,22 @@ router.get('/api/listing/:id', async function (req, res) {
   return res;
 });
 
+// For a signed listing, return the agent who will be selling the property
+// The id is the listing_id
+router.get('/api/listing/agent/:id', async function (req, res) {
+  try {
+    res.status(200);
+    let rows = await dbAccess.getAgentForListing(req.params.id);
+    res.send(rows);
+  } catch (err) {
+    // Internal error on the server side.
+    console.log(err);
+    res.status(500);
+    res.send(err);
+  }
+  return res;
+});
+
 router.get('/api/listing/:id/:user_type', async function (req, res) {
   try {
     res.status(200);

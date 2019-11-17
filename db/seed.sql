@@ -19,7 +19,7 @@ INSERT INTO listings (poster_id, property_address, listing_status, estimated_val
 INSERT INTO listings (poster_id, property_address, listing_status, estimated_value, type_of_home) VALUES (2, "1 Smith St", "Active", 2000, "Semi");
 INSERT INTO listings (poster_id, property_address, listing_status, estimated_value, type_of_home) VALUES (3, "1 Yonge St", "Active", 3000, "Townhome");
 INSERT INTO listings (poster_id, property_address, listing_status, estimated_value, type_of_home) VALUES (3, "1 Sheppard Ave", "Active", 1800, "Condo");
-INSERT INTO listings (poster_id, property_address, listing_status, estimated_value, type_of_home) VALUES (3, "1 Bloor", "Signed", 2500, "Detached");
+INSERT INTO listings (poster_id, property_address, listing_status, estimated_value, type_of_home) VALUES (3, "1 Bloor", "Active", 2500, "Detached");
 INSERT INTO listings (poster_id, property_address, listing_status, estimated_value, type_of_home) VALUES (3, "1 College", "Signed", 3600, "Semi");
 INSERT INTO listings (poster_id, property_address, listing_status, estimated_value, type_of_home) VALUES (3, "1 Royal York", "Signed", 3500, "Townhome");
 

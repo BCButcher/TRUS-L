@@ -39,9 +39,16 @@ class DBAccess {
     return rows;
   }
 
-  async getAgentWithId(id) {
+  async getAgentWithId(user_id) {
     let query = 'SELECT users.id, users.first_name, users.last_name, users.display_name, users.email, agents.phone, agents.license, agents.title, agents.web_site from (users INNER JOIN agents ON users.agent_id = agents.id) WHERE users.id=?';
-    let args = [id];
+    let args = [user_id];
+    const rows = await this.db.query(query, args);
+    return rows;
+  }
+
+  async getAgentWithAgentId(agent_id) {
+    let query = 'SELECT users.id, users.first_name, users.last_name, users.display_name, users.email, agents.phone, agents.license, agents.title, agents.web_site from (users INNER JOIN agents ON users.agent_id = agents.id) WHERE agents.id=?';
+    let args = [agent_id];
     const rows = await this.db.query(query, args);
     return rows;
   }
@@ -340,6 +347,33 @@ class DBAccess {
     let args = [id];
     const rows = await this.db.query(query, args);
     return rows;
+  }
+
+  // Given a listing id, if the listing is signed, return the contact information
+  // of the agent who will process it.
+  async getAgentForListing(listing_id) {
+    let listings = await this.getListingsWithId(listing_id);
+    let listing = listings[0];
+    //console.log(listing);
+    if(listing.listing_status == 'Signed') {
+      let bids = await this.getBidsForListing(listing_id);
+      //console.log(bids);
+      for(let i=0; i<bids.length; i++) {
+        let bid = bids[i];
+        //console.log(bid);
+        if(bid.bid_status == 'Signed') {
+          let agent = await this.getAgentWithAgentId(bid.agent_id);
+          //console.log(agent);
+          return agent;
+        }
+      }
+      // No bids are signed. Should never happen.
+      console.log(`dbAccess getAgentForListing: Listing ${listing_id} is Signed but none of its bids are signed. Returning []`);
+      return [];
+    } else {
+      console.log(`dbAccess getAgentForListing: the named listing with id ${listing_id} is not signed, which means there is no agent to return.`);
+      return [];
+    }
   }
 
   // Called from the dashboard

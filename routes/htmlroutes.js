@@ -51,6 +51,11 @@ router.get('/clientdetails', function (req, res) {
   res.sendFile(path.join(__dirname, '..', 'public', 'clientdetails.html'));
 });
 
+// View agent contact information
+router.get('/agentdetails', function (req, res) {
+  res.sendFile(path.join(__dirname, '..', 'public', 'agentdetails.html'));
+});
+
 // Static contact us information (Trusael)
 router.get('/contact', function (req, res) {
   res.sendFile(path.join(__dirname, '..', 'public', 'contact.html'));
