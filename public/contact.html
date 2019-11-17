@@ -24,6 +24,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <title>Contact TrusÆL</title>
 </head>
+
 <body>
 
     <header></header>
@@ -95,11 +96,18 @@
                 <label for=" exampleFormControlTextarea1 " id=" message_label_contact ">Please enter the reason for your message:</label>
                 <textarea class=" form-control " id=" message_input_contact " rows=" 3 "></textarea>
             </div>
-            <button type=" submit " id=" submit_button_contact " class=" btn btn-primary ">Submit</button>
+            <button type="button " value="Open Window " id="submit_button_contact " class="btn btn-primary " onclick="openWin() ">Submit
+                <script>
+                    function openWin() {
+                    window.open("contact-confirm.html ");
+                    }
+                </script>
+            </button>
+            
         </form>
 
     </div>
-    <script src="/assets/js/common.js"></script>
+    <script src="/assets/js/common.js "></script>
 
 </body>
 
