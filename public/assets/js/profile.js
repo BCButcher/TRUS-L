@@ -63,3 +63,8 @@ function updateSlider() {
 }
 
 
+$( document ).ready(function() {
+  // Read the user_id from session storage
+  // If it isn't there, redirect to the login page to set it.
+  generateDisplayName();
+});

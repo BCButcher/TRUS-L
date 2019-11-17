@@ -27,6 +27,7 @@ function displayContactInfo() {
 
 
 $( document ).ready(function() {
-   displayContactInfo();
+    generateDisplayName();
+    displayContactInfo();
 });
   

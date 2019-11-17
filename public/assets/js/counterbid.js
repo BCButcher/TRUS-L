@@ -18,6 +18,7 @@ $( document ).ready(async function() {
     // Array(6) ["id", "1", "name", "foo", "address", "123%20Main%20St"]
     // In this page, we expect id=num, so get the value in the second position
     let ids = getParam(); // getParam is defined in common.js
+    generateDisplayName();
 
     let bids = await getBidWithIdIncludeAgentName(ids[1]);
     const bid = bids[0];

@@ -144,6 +144,7 @@ function renderBidButtons(bid) {
 
 function renderPage(bid) {
     // console.log("biddetails " + bidId);
+    generateDisplayName();
 
     // Render the bid title "bid from firstName lastName"
     // console.log(bid);

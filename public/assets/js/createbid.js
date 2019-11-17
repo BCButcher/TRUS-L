@@ -23,5 +23,6 @@ function createBid() {
 }
 
 $(document).ready(function() { 
+    generateDisplayName();
     listenToEvents();
 });

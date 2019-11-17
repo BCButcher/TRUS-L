@@ -180,6 +180,48 @@ function getParam() {
   return paramsArray;
 }
 
+function getNavDisplayName() {
+  let userInfo = getUserInfo();
+  if(userInfo.display_name) {
+    return `
+       <a class="navbar-brand" href="/dashboard" id="displayName">Hello, ${userInfo.display_name}</a>
+    `;
+  } else {
+    return `
+       <a class="navbar-brand" href="/login" id="displayName">Hello, Sign in</a>
+    `;
+  }
+}
+
+function generateDisplayName() {
+  const navDisplayName = $('#displayName').empty();
+  navDisplayName.append(getNavDisplayName());
+}
+
+function getNavLogout() {
+  return `
+      <a class="nav-link" href='/login?id=logout' id="logout">Logout</a>
+  `;
+}
+
+function getNavLogin() {
+  return `
+      <a class="nav-link" href='/login' id="logout">Login</a>
+  `;
+}
+
+function generateLoginLogout() {
+  let ids = getParam(); // ?id='logout'
+  const logoutName = $('#logout').empty();
+  if(ids[1] === 'logout') {
+    logoutName.append(getNavLogout());
+  } else {
+    logoutName.append(getNavLogin());
+  }
+}
 
 
+function logout() {
+  sessionStorage.clear();
+}
 

@@ -86,6 +86,7 @@ async function renderBidsForListing(listing_id, address) {
 $( document ).ready(function() {
   // Read the user_id from session storage
   // If it isn't there, redirect to the login page to set it.
+  generateDisplayName();
 
   if(!sessionStorage.user_id) {
     window.location = '/login';
