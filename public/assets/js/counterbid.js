@@ -1,14 +1,28 @@
 function createCounterBid() {
     let storedService = getServices();
     let listId = getParam()[1];
+    let offer = escape($('#offer').val());
     // console.log(bidInfo);
     $.ajax({
-        url: "/api/bid/active/" + listId + "/" + storedService + "/" + $('#offer').val(),
+        url: "/api/bid/active/" + listId + "/" + storedService + "/" + offer,
         method: "PUT"
     }).then(function() {
         // console.log('new bid posted')
         window.location.href='/dashboard';
     });
+}
+
+function populateRejectionReason(bid) {
+    if(bid.rejection_reason) {
+        let rejectionReason = `
+        <h5 class="pt-3">Your bid was rejected because</h5>
+        <div class="input-group">
+            <textarea class="form-control" aria-label="With textarea" id="rejectionReason">${bid.rejection_reason}</textarea>
+        </div>
+        `;
+        const rejectionReasonSection = $('#rejectionReasonSection').empty();
+        rejectionReasonSection.append(rejectionReason);
+    }
 }
 
 $( document ).ready(async function() {
@@ -26,4 +40,5 @@ $( document ).ready(async function() {
     listenToEvents();
     selectCheckboxes(bid);
     populateMessage(bid);
+    populateRejectionReason(bid);
   });

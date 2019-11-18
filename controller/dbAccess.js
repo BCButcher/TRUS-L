@@ -288,8 +288,9 @@ class DBAccess {
     return rows[0];
   }
 
-  async updateBidOptions(id, services, message) {
+  async updateBidOptions(id, services, encodedMessage) {
     // UPDATE bids SET bid_status="Booked" WHERE id=4;
+    let message = unescape(encodedMessage);
     let query = 'UPDATE bids SET bid_status="Active", services=?, message=? WHERE id=?';
     let args = [services, message, id];
     let rows = await this.db.query(query, args);
