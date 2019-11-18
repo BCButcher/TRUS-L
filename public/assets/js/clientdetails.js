@@ -14,7 +14,7 @@ function displayContactInfo() {
         <div class="list-group pt-3">
             <div>
                <h3 class="mb-1">${user.first_name} ${user.last_name}</h3>
-               <small><i>${user.display_name}</i></small>
+               <small><i><b>Display Name:</b> ${user.display_name}</i></small>
             </div>
             <p><b>Email:</b> ${user.email}</p>
         </div>

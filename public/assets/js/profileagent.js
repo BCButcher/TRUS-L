@@ -11,7 +11,7 @@ function createAgent() {
       web_site:$('#agentWebsite').val(),
       password:$('#agentPass').val(),
       title: $('#agentTitle').val(),
-      display_name: $('#displayName').val()
+      display_name: $('#profileDisplayName').val()
     };
 
     $.ajax({

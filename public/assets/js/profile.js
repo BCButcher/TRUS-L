@@ -26,10 +26,10 @@ function createListing(id) {
 
 function createUser() {
   event.preventDefault();
-  
+
   try {
     let newConsumer = {
-      display_name: $("#displayName").val(),
+      display_name: $("#profileDisplayName").val(),
       first_name: $("#firstName").val(),
       last_name: $("#lastName").val(),
       email: $("#email").val(),
