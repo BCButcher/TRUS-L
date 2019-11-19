@@ -7,7 +7,7 @@ function createBid() {
         listing_id: listId,
         bid_status: 'Active',
         services: storedService,
-        message: $('#offer').val() 
+        message: escape($('#offer').val())
     }
 
     //console.log(bidInfo);

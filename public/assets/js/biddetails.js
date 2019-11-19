@@ -95,7 +95,7 @@ async function updateBidRejected(bid_id, reason) {
 }
 
 function getRejectionReason() {
-    return $("#agent_bid_reject_message").val();
+    return escape($("#agent_bid_reject_message").val());
 }
 
 function rejectBid(bidId) {

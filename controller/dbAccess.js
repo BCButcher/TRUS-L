@@ -215,6 +215,7 @@ class DBAccess {
   async createBid(bidInfo) {
     // console.log(bidInfo);
     // INSERT INTO bids (agent_id, listing_id, bid_status, services, message)
+    let message = unescape(bidInfo.message);
     //    VALUES (2, 1, "Active", "f", "Hire me because I am your mother.");
     let query = 'INSERT INTO bids (agent_id, listing_id, bid_status, services, message) VALUES (?, ?, ?, ?, ?)';
     let args = [
@@ -222,7 +223,7 @@ class DBAccess {
       bidInfo.listing_id,
       bidInfo.bid_status,
       bidInfo.services,
-      bidInfo.message
+      message
     ];
     let rows = await this.db.query(query, args);
     // Number of rows affected isn't the created consumer. Return the new consumer.
@@ -305,9 +306,10 @@ class DBAccess {
   }
 
 
-  async updateBidRejected(id, rejectionReason) {
+  async updateBidRejected(id, encodedRejectionReason) {
     // console.log("dbAccess updateBidRejected " + id + " " + rejectionReason)
     // UPDATE bids SET bid_status="Booked" WHERE id=4;
+    let rejectionReason = unescape(encodedRejectionReason);
     let query = 'UPDATE bids SET rejection_reason=?, bid_status="Rejected" WHERE id=?';
     let args = [rejectionReason, id];
     let rows = await this.db.query(query, args);
