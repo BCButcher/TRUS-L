@@ -45,6 +45,7 @@ function displayContactInfo() {
 
 $( document ).ready(function() {
     generateDisplayName();
+    generateLoginLogout();
     displayContactInfo();
 });
   

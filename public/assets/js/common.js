@@ -215,20 +215,19 @@ function generateDisplayName() {
 
 function getNavLogout() {
   return `
-      <a class="nav-link" href='/login?id=logout' id="logout">Logout</a>
+      <a class="nav-link" href='/login' onClick="logout()">Logout</a>
   `;
 }
 
 function getNavLogin() {
   return `
-      <a class="nav-link" href='/login' id="logout">Login</a>
+      <a class="nav-link" href='/login' onClick="logout()">Login</a>
   `;
 }
 
 function generateLoginLogout() {
-  let ids = getParam(); // ?id='logout'
   const logoutName = $('#logout').empty();
-  if(ids[1] === 'logout') {
+  if(sessionStorage.user_id) {
     logoutName.append(getNavLogout());
   } else {
     logoutName.append(getNavLogin());

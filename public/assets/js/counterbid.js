@@ -33,6 +33,7 @@ $( document ).ready(async function() {
     // In this page, we expect id=num, so get the value in the second position
     let ids = getParam(); // getParam is defined in common.js
     generateDisplayName();
+    generateLoginLogout();
 
     let bids = await getBidWithIdIncludeAgentName(ids[1]);
     const bid = bids[0];

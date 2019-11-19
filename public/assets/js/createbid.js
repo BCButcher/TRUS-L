@@ -24,5 +24,6 @@ function createBid() {
 
 $(document).ready(function() { 
     generateDisplayName();
+    generateLoginLogout();
     listenToEvents();
 });
