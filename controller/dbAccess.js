@@ -54,14 +54,14 @@ class DBAccess {
   }
 
   async getUserWithId(id) {
-    let query = 'SELECT * FROM users WHERE users.id=?';
+    let query = 'SELECT id, display_name, first_name, last_name, email, agent_id, createdAt FROM users WHERE users.id=?';
     let args = [id];
     const rows = await this.db.query(query, args);
     return rows;
   }
 
   async getUsers() {
-    let query = 'SELECT * from users';
+    let query = 'SELECT  id, display_name, first_name, last_name, email, agent_id, createdAt from users';
     const rows = await this.db.query(query);
     return rows;
   }
@@ -147,11 +147,11 @@ class DBAccess {
   }
 
   hashPassword(salt, password) {
-      return CryptoJS.SHA3(salt + password);
+      return CryptoJS.SHA3(salt + password).toString();
   }
 
   isValidPassword(password, salt, dbHashedPassword) {
-      let newHash = this.hashPassword(passwordSalt, password);
+      let newHash = this.hashPassword(salt, password);
 
       return (newHash.toString() == dbHashedPassword.toString());
   }
@@ -161,7 +161,7 @@ class DBAccess {
   async createUser(consumerInfo) {
     // INSERT INTO consumers (display_name, first_name, last_name, email) VALUES
     // ("Sleepless_in_Toronto", "Annie", "Reed", "anniereed@fake.com");
-    let query = 'INSERT INTO users (display_name, first_name, last_name, email, salt, password) VALUES (?, ?, ?, ?, ?)';
+    let query = 'INSERT INTO users (display_name, first_name, last_name, email, salt, password) VALUES (?, ?, ?, ?, ?, ?)';
     
     let salt = this.generateRandomSalt();
     let hashedPassword = this.hashPassword(salt, consumerInfo.password);
@@ -183,7 +183,10 @@ class DBAccess {
     query = 'SELECT MAX(id) as id FROM users';
     rows = await this.db.query(query);
     const id = rows[0].id;
-    query = 'SELECT * FROM users WHERE id=?';
+
+    // TODO FIX
+    // Why did I wrap this in an object under user_id????
+    query = 'SELECT id, display_name, first_name, last_name, email, agent_id, createdAt FROM users WHERE id=?';
     args = [id];
     rows = await this.db.query(query, args);
     return { user_id: rows[0]};
@@ -212,7 +215,7 @@ class DBAccess {
 
 
     // To link the agent info to the user info, we need the agent's id
-    query = 'INSERT INTO users (display_name, first_name, last_name, email, password, agent_id) VALUES (?, ?, ?, ?, ?, ?)';
+    query = 'INSERT INTO users (display_name, first_name, last_name, email, salt, password, agent_id) VALUES (?, ?, ?, ?, ?, ?, ?)';
     let salt = this.generateRandomSalt();
     let hashedPassword = this.hashPassword(salt, agentInfo.password);
     args = [
@@ -226,6 +229,7 @@ class DBAccess {
     ];
     await this.db.query(query, args); // execute the query to insert it but we need to return all data, not just user data
 
+    // TODO FIX. Replace with call to this.getLastUserCreated()
     query = 'SELECT MAX(id) as id FROM users';
     rows = await this.db.query(query);
     const user_id = rows[0].id;
