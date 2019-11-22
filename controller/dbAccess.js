@@ -1,5 +1,5 @@
 require('dotenv').config();
-//const CryptoJS = require('crypto-js');
+const CryptoJS = require('crypto-js');
 let Database = require('./async-db');
 
 //  1. Post new consumer
@@ -122,30 +122,57 @@ class DBAccess {
     }
 
     let id = rows[0].id;
-    query = 'SELECT password, agent_id, display_name FROM users WHERE id=?';
+    query = 'SELECT salt, password, agent_id, display_name FROM users WHERE id=?';
     args = [id];
     rows = await this.db.query(query, args);
-    let cipher = this.encrypt(password);
-    let agent_id = (rows[0].agent_id == "null") ? null : rows[0].agent_id;
-    if (rows[0].password === cipher) {
+
+    // Retrieve the salt and hashed password from the database
+    let salt = rows[0].salt;
+    let dbHashedPassword = rows[0].password;
+
+    // Now with that salt, hash the new password.
+    let hashedPassword = this.hashPassword(salt, password);
+    
+    // Does the hashed password from the database match the new password? If so, it's the same password.
+    if (hashedPassword.toString() === dbHashedPassword.toString()) {
+      let agent_id = (rows[0].agent_id == "null") ? null : rows[0].agent_id;
       return {user_id: id, agent_id: agent_id, display_name: rows[0].display_name};
     } else {
       return {user_id: -1, agent_id: null, display_name: ""};
     }
   }
 
+  generateRandomSalt() {
+    return CryptoJS.lib.WordArray.random(128 / 8).toString();
+  }
+
+  hashPassword(salt, password) {
+      return CryptoJS.SHA3(salt + password);
+  }
+
+  isValidPassword(password, salt, dbHashedPassword) {
+      let newHash = this.hashPassword(passwordSalt, password);
+
+      return (newHash.toString() == dbHashedPassword.toString());
+  }
+
+
   //  1. Post new user
   async createUser(consumerInfo) {
     // INSERT INTO consumers (display_name, first_name, last_name, email) VALUES
     // ("Sleepless_in_Toronto", "Annie", "Reed", "anniereed@fake.com");
-    let query = 'INSERT INTO users (display_name, first_name, last_name, email, password) VALUES (?, ?, ?, ?, ?)';
-    let cipher = this.encrypt(consumerInfo.password);
+    let query = 'INSERT INTO users (display_name, first_name, last_name, email, salt, password) VALUES (?, ?, ?, ?, ?)';
+    
+    let salt = this.generateRandomSalt();
+    let hashedPassword = this.hashPassword(salt, consumerInfo.password);
+
     let args = [
       consumerInfo.display_name,
       consumerInfo.first_name,
       consumerInfo.last_name,
       consumerInfo.email,
-      cipher
+      salt,
+      hashedPassword
     ];
     let rows = await this.db.query(query, args);
 
@@ -160,13 +187,6 @@ class DBAccess {
     args = [id];
     rows = await this.db.query(query, args);
     return { user_id: rows[0]};
-  }
-
-  encrypt(password) {
-//    return CryptoJS.AES.encrypt(password, 'This should be random').toString();
-    // For some reason CryptoJS generates a different hash for the same password. It makes verifying
-    // the user's password impossible. Go back to plain text password storage for now and debug this later.
-    return password;
   }
 
   //  2. Post new agent
@@ -193,13 +213,15 @@ class DBAccess {
 
     // To link the agent info to the user info, we need the agent's id
     query = 'INSERT INTO users (display_name, first_name, last_name, email, password, agent_id) VALUES (?, ?, ?, ?, ?, ?)';
-    let cipher = this.encrypt(agentInfo.password);
+    let salt = this.generateRandomSalt();
+    let hashedPassword = this.hashPassword(salt, agentInfo.password);
     args = [
       agentInfo.display_name,
       agentInfo.first_name,
       agentInfo.last_name,
       agentInfo.email,
-      cipher,
+      salt,
+      hashedPassword,
       agent_id
     ];
     await this.db.query(query, args); // execute the query to insert it but we need to return all data, not just user data

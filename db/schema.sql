@@ -17,6 +17,7 @@ CREATE TABLE users (
     first_name VARCHAR(32) NOT NULL,
     last_name VARCHAR(32) NOT NULL,
     email VARCHAR(32) NOT NULL,
+    salt VARCHAR(256) NOT NULL,
     password VARCHAR (256) NOT NULL,
     agent_id INTEGER,
     FOREIGN KEY (agent_id) REFERENCES agents(id),
