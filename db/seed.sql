@@ -16,12 +16,12 @@ INSERT INTO users (display_name, first_name, last_name, email, salt, password, a
 INSERT INTO users (display_name, first_name, last_name, email, salt, password, agent_id) VALUES ("Fiona Smith", "Fiona", "Smith", "fionasmith@broker.ca", "c0aaab436e85d15dc64ce380973b8cd8", "797c3afbb2af6594af6ddf807a39bb119f0b35720ebe579f17fdf3d20e3a81a2f79361f81d05319f1c3e0d2c3b598586496a3b324bd44da5c29f9860d7389c6e", 5);
 
 INSERT INTO listings (poster_id, property_address, listing_status, estimated_value, type_of_home) VALUES (1, "1 Main St", "Active", 1000000, "Detached");
-INSERT INTO listings (poster_id, property_address, listing_status, estimated_value, type_of_home) VALUES (2, "1 Smith St", "Active", 2000, "Semi");
-INSERT INTO listings (poster_id, property_address, listing_status, estimated_value, type_of_home) VALUES (3, "1 Yonge St", "Active", 3000, "Townhome");
-INSERT INTO listings (poster_id, property_address, listing_status, estimated_value, type_of_home) VALUES (3, "1 Sheppard Ave", "Active", 1800, "Condo");
-INSERT INTO listings (poster_id, property_address, listing_status, estimated_value, type_of_home) VALUES (3, "1 Bloor", "Active", 2500, "Detached");
-INSERT INTO listings (poster_id, property_address, listing_status, estimated_value, type_of_home) VALUES (3, "1 College", "Signed", 3600, "Semi");
-INSERT INTO listings (poster_id, property_address, listing_status, estimated_value, type_of_home) VALUES (3, "1 Royal York", "Signed", 3500, "Townhome");
+INSERT INTO listings (poster_id, property_address, listing_status, estimated_value, type_of_home) VALUES (2, "1 Smith St", "Active", 800000, "Semi");
+INSERT INTO listings (poster_id, property_address, listing_status, estimated_value, type_of_home) VALUES (3, "1 Yonge St", "Active", 750000, "Townhome");
+INSERT INTO listings (poster_id, property_address, listing_status, estimated_value, type_of_home) VALUES (3, "1 Sheppard Ave", "Active", 650000, "Condo");
+INSERT INTO listings (poster_id, property_address, listing_status, estimated_value, type_of_home) VALUES (3, "1 Bloor", "Active", 2500000, "Detached");
+INSERT INTO listings (poster_id, property_address, listing_status, estimated_value, type_of_home) VALUES (3, "1 Old Forest Hill Road", "Signed", 3600000, "Semi");
+INSERT INTO listings (poster_id, property_address, listing_status, estimated_value, type_of_home) VALUES (3, "1 Royal York", "Signed", 799000, "Townhome");
 
 INSERT INTO bids (agent_id, listing_id, bid_status, services, message, rejection_reason) VALUES (1, 1, "Rejected", "abc", "Hire me because I am in the top 1% of all realtors in the area.", "I am rejecting your bid because I am hiring my mother.");
 INSERT INTO bids (agent_id, listing_id, bid_status, services, message) VALUES (2, 1, "Active", "f", "I will work tirelessly.");
