@@ -109,7 +109,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## Acknowledgments
 
-* Filipe Laborde - [codefreeze8](https://github.com/codefreeze8) Instructor at the U of T coding bootcamp who wrote async-db.js
+* Filipe Laborde - [codefreeze8](https://github.com/codefreeze8) Instructor at the U of T coding bootcamp who wrote the code in connection.js
 * David Bland = [thatdevguy1](https://github.com/thatdevguy1) Assistant instructor at the U of T coding bootcamp. This code would not have been deployed to Heroku without him. 
 
 

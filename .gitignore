@@ -3,3 +3,4 @@ package-lock.json
 .project
 .env
 lib/test.js
+todo.txt
