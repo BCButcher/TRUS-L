@@ -23,12 +23,12 @@ async function getListings() {
   const userInfo = getUserInfo();
   if(userInfo.agent_id == "null") {
     return $.ajax({
-      url: "/api/listing/" + userInfo.user_id + "/consumer",
+      url: "/api/listing/consumer/" + userInfo.user_id,
       method: "GET"
     });
   } else {    
     return $.ajax({
-      url: "/api/listing/" + userInfo.agent_id + "/agent",
+      url: "/api/listing/agent/" + userInfo.agent_id,
       method: "GET"
     });
   }

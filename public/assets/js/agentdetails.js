@@ -5,7 +5,7 @@ function displayContactInfo() {
 
     // AJAX Get call
     $.ajax({
-        url: "/api/listing/agent/" + listingId,
+        url: "/api/listing/agent/signed/" + listingId,
         method: "GET"
     }).then(function(users) {
         let user = users[0];

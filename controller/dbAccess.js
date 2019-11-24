@@ -354,7 +354,7 @@ class DBAccess {
 
   // Given a listing id, if the listing is signed, return the contact information
   // of the agent who will process it.
-  async getAgentForListing(listing_id) {
+  async getSignedAgentForListing(listing_id) {
     let listings = await this.getListingsWithId(listing_id);
     let listing = listings[0];
     //console.log(listing);
@@ -380,37 +380,36 @@ class DBAccess {
   }
 
   // Called from the dashboard
-  async getListingsForUser(user_id, user_type) {
-    if(user_type === 'agent') {
-      // If the user is an agent, we need to show them the listings where
-      // their bid is the accepted bid and any listings that they can bid on.
-      // SELECT listings.* from (bids INNER JOIN listings ON bids.listing_id = listings.id) WHERE bids.bid_status='Signed' AND bids.agent_id=1;
-      let query = "SELECT DISTINCT listings.* from (bids INNER JOIN listings ON bids.listing_id = listings.id) WHERE (bids.bid_status='Signed' AND bids.agent_id=?)";
-      let args = [user_id];
-      const bidRows = await this.connection.query(query, args);
+  async getListingsForAgent(user_id) {
+    // If the user is an agent, we need to show them the listings where
+    // their bid is the accepted bid and any listings that they can bid on.
+    // SELECT listings.* from (bids INNER JOIN listings ON bids.listing_id = listings.id) WHERE bids.bid_status='Signed' AND bids.agent_id=1;
+    let query = "SELECT DISTINCT listings.* from (bids INNER JOIN listings ON bids.listing_id = listings.id) WHERE (bids.bid_status='Signed' AND bids.agent_id=?)";
+    let args = [user_id];
+    const bidRows = await this.connection.query(query, args);
 
-      query = "SELECT DISTINCT * FROM listings WHERE listings.listing_status='Active'";
-      const listingRows = await this.connection.query(query);
+    query = "SELECT DISTINCT * FROM listings WHERE listings.listing_status='Active'";
+    const listingRows = await this.connection.query(query);
 
-      const rows = bidRows.concat(listingRows);
+    const rows = bidRows.concat(listingRows);
 
-      // console.log("dbAccess getListingsForUser");
-      // console.log(query);
-      // console.log("this works in SQL workbench");
-      // console.log("SELECT DISTINCT listings.* from (bids INNER JOIN listings ON bids.listing_id = listings.id) WHERE (bids.bid_status='Signed' AND bids.agent_id=?) OR listings.listing_status='Active'")
-      // console.log(rows);
+    // console.log("dbAccess getListingsForAgent");
+    // console.log(query);
+    // console.log("this works in SQL workbench");
+    // console.log("SELECT DISTINCT listings.* from (bids INNER JOIN listings ON bids.listing_id = listings.id) WHERE (bids.bid_status='Signed' AND bids.agent_id=?) OR listings.listing_status='Active'")
+    // console.log(rows);
 
-      return rows;
-    } else if(user_type === 'consumer') {
-      let query = 'SELECT * from listings where poster_id = ?';
-      let args = [user_id];
-      const rows = await this.connection.query(query, args);
-      return rows;
-    } else {
-      return [];
-    }
+    return rows;
   }
 
+  // Called from the dashboard
+  async getListingsForConsumer(user_id) {
+    let query = 'SELECT * from listings where poster_id = ?';
+    let args = [user_id];
+    const rows = await this.connection.query(query, args);
+    return rows;
+  }
+  
   async getBidsForAgentWithIdActiveOrRejected(agent_id) {
     // SELECT listings.*, bids.bid_status from (bids INNER JOIN listings ON bids.listing_id = listings.id) WHERE (bids.bid_status="Active" OR bids.bid_status="Rejected") AND bids.agent_id=?;
     let query = 'SELECT listings.*, bids.* from (bids INNER JOIN listings ON bids.listing_id = listings.id) WHERE (bids.bid_status="Active" OR bids.bid_status="Rejected") AND bids.agent_id=?;';
@@ -489,34 +488,6 @@ class DBAccess {
     let args = [listingId];
     const rows = await this.connection.query(query, args);
     return rows;
-  }
-
-  // These functions are convenience methods to convert the cryptic table column value
-  // into the actual value that the user chose. Only this class needs to use this method.
-  static convertTransactionType(transaction) {
-    // ENUM("Rent", "Buy", "Sell", "Rent out"),
-    let transactionArray = [];
-    if (transaction.indexOf('a') >= 0) {
-      // option a was selected
-      transactionArray.push('Rent');
-    }
-
-    if (transaction.indexOf('b') >= 0) {
-      // option b selected
-      transactionArray.push('Buy');
-    }
-
-    // Isn't there a way to declare an array with named indices?
-    if (transaction.indexOf('c') >= 0) {
-      // option b selected
-      transactionArray.push('Sell');
-    }
-
-    if (transaction.indexOf('d') >= 0) {
-      // option b selected
-      transactionArray.push('Rent out');
-    }
-    return transactionArray;
   }
 
   async close() {
