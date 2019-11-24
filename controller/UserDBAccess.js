@@ -118,10 +118,8 @@ class UserDBAccess {
     return rows[0];
   }
 
-
-
   async close() {
-    await this.connect.close();
+    await this.connection.close();
   }
 }
 

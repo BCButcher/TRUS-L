@@ -73,7 +73,7 @@ class AgentDBAccess extends UserDBAccess {
   }
 
   async close() {
-    await this.connection.close();
+    super.close();
   }
 }
 

@@ -2,7 +2,18 @@ function createCounterBid() {
     let storedService = getServices();
     let listId = getParam()[1];
     let offer = escape($('#offer').val());
-    // console.log(bidInfo);
+
+    // Test if the agent hasn't selected any checkboxes. Use a value that isn't an option so that the 
+    // URL works but won't select any checkboxes.
+    if(listId === "") {
+        listId = '1';
+    }
+
+    if(offer === "") {
+        offer = "No additional services."
+    }
+     
+    // console.log("/api/bid/active/" + listId + "/" + storedService + "/" + offer);
     $.ajax({
         url: "/api/bid/active/" + listId + "/" + storedService + "/" + offer,
         method: "PUT"
@@ -13,16 +24,15 @@ function createCounterBid() {
 }
 
 function populateRejectionReason(bid) {
-    if(bid.rejection_reason) {
-        let rejectionReason = `
-        <h5 class="pt-3">Your bid was rejected because</h5>
-        <div class="input-group">
-            <textarea class="form-control" aria-label="With textarea" id="rejectionReason">${bid.rejection_reason}</textarea>
-        </div>
-        `;
-        const rejectionReasonSection = $('#rejectionReasonSection').empty();
-        rejectionReasonSection.append(rejectionReason);
-    }
+    const reason = (bid.rejection_reason) ? bid.rejection_reason : "No reason given.";
+    let rejectionReason = `
+    <h5 class="pt-3">Your bid was rejected because</h5>
+    <div class="input-group">
+        <textarea class="form-control" aria-label="With textarea" id="rejectionReason">${reason}</textarea>
+    </div>
+    `;
+    const rejectionReasonSection = $('#rejectionReasonSection').empty();
+    rejectionReasonSection.append(rejectionReason);
 }
 
 $( document ).ready(async function() {
