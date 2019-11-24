@@ -20,22 +20,12 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Routes
-//require(path.join(__dirname, 'routes', 'apiRoutes_common'))(app);
-
-//app.use(bodyParser.urlencoded({extended: false}));
-
 app.use(apiRoutes_common);
 app.use(apiRoutes_bid);
 app.use(apiRoutes_listing);
 app.use(apiRoutes_agent);
 app.use(apiRoutes_consumer);
 app.use(htmlRoutes);
-
-// require(path.join(__dirname, './routes/apiRoutes_bid'))(app);
-// require(path.join(__dirname, './routes/apiRoutes_listing'))(app);
-// require(path.join(__dirname, './routes/apiRoutes_agent'))(app);
-// require(path.join(__dirname, './routes/apiRoutes_consumer'))(app);
-// require(path.join(__dirname, './routes/htmlRoutes'))(app);
 
 // Starts the server to begin listening
 // =============================================================

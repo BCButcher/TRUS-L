@@ -1,16 +1,14 @@
-let DBAccess = require('../controller/dbAccess');
-
-const dbAccess = new DBAccess();
-
 const express = require('express');
-
 const router = express.Router();
+const AgentDBAccess = require('../controller/AgentDBAccess');
+
+const agentDBAccess = new AgentDBAccess();
 
 // Retrieve all agents
 router.get('/api/agent', async function (req, res) {
   try {
     res.status(200);
-    res.send(await dbAccess.getAgents());
+    res.send(await agentDBAccess.getAgents());
   } catch (err) {
     // Internal error on the server side.
     console.log(err);
@@ -24,7 +22,7 @@ router.get('/api/agent', async function (req, res) {
 router.get('/api/agent/:id', async function (req, res) {
   try {
     res.status(200);
-    res.send(await dbAccess.getAgentWithId(req.params.id));
+    res.send(await agentDBAccess.getAgentWithId(req.params.id));
   } catch (err) {
     // Internal error on the server side.
     console.log(err);
@@ -37,14 +35,14 @@ router.get('/api/agent/:id', async function (req, res) {
 // Delete an agent
 router.delete('/api/agent/:id', async function (req, res) {
   try {
-    const success = await dbAccess.deleteAgent(req.params.id);
+    const success = await agentDBAccess.deleteAgent(req.params.id);
 
     if (success) {
       res.status(204); // HTML 204 request succeeded
     } else {
       res.status(404); // HTML status 404 not found
     }
-    res.send(await dbAccess.getAgents());
+    res.send(await agentDBAccess.getAgents());
   } catch (err) {
     // Internal error on the server side.
     console.log(err);
@@ -57,14 +55,14 @@ router.delete('/api/agent/:id', async function (req, res) {
 // Update an agent
 router.put('/api/agent/:id', async function (req, res) {
   try {
-    const success = await dbAccess.updateAgent(req.params.id, req.body);
+    const success = await agentDBAccess.updateAgent(req.params.id, req.body);
 
     if (success) {
       res.status(204); // HTML 204 request succeeded
     } else {
       res.status(404); // HTML status 404 not found
     }
-    res.send(await dbAccess.getAgents());
+    res.send(await agentDBAccess.getAgents());
   } catch (err) {
     // Internal error on the server side.
     console.log(err);
@@ -78,7 +76,7 @@ router.put('/api/agent/:id', async function (req, res) {
 router.post('/api/agent', async function (req, res) {
   try {
     res.status(201); // HTML status 201 creation successful
-    res.send(await dbAccess.createAgent(req.body));
+    res.send(await agentDBAccess.createAgent(req.body));
   } catch (err) {
     // Internal error on the server side.
     console.log(err);

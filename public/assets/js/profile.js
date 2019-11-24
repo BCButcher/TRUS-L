@@ -42,7 +42,7 @@ function createUser() {
       method: "POST",
       data: newConsumer
     }).then(async function(newConsumer) {
-      createListing(newConsumer.user_id.id);
+      createListing(newConsumer.id);
     }).catch(function(err) {
       console.log(err);
     });
