@@ -13,10 +13,10 @@ CREATE TABLE agents (
 
 CREATE TABLE users (
     id INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    display_name VARCHAR(32) NOT NULL,
+    display_name VARCHAR(32) NOT NULL UNIQUE,
     first_name VARCHAR(32) NOT NULL,
     last_name VARCHAR(32) NOT NULL,
-    email VARCHAR(32) NOT NULL,
+    email VARCHAR(32) NOT NULL UNIQUE,
     salt VARCHAR(256) NOT NULL,
     password VARCHAR (256) NOT NULL,
     agent_id INTEGER,
