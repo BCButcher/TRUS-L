@@ -1,8 +1,6 @@
 require('dotenv').config();
 
 let Connection = require('../config/connection');
-let AgentDBAccess = require('../controller/AgentDBAccess');
-let BidsDBAccess = require("../controller/BidsDBAccess");
 
 class ListingsDBAccess {
   constructor(connection) {
@@ -127,25 +125,15 @@ class ListingsDBAccess {
     let listings = await this.getListingsWithId(listing_id);
     let listing = listings[0];
     //console.log(listing);
-    if(listing.listing_status == 'Signed') {
-      let bids = await new BidsDBAccess(this.connection).getBidsForListing(listing_id);
-      //console.log(bids);
-      for(let i=0; i<bids.length; i++) {
-        let bid = bids[i];
-        //console.log(bid);
-        if(bid.bid_status == 'Signed') {
-          let agent = await new AgentDBAccess(this.connection).getAgentWithAgentId(bid.agent_id);
-          //console.log(agent);
-          return agent;
-        }
-      }
-      // No bids are signed. Should never happen.
-      console.log(`dbAccess getAgentForListing: Listing ${listing_id} is Signed but none of its bids are signed. Returning []`);
-      return [];
-    } else {
+    if(listing.listing_status != 'Signed') {
       console.log(`dbAccess getAgentForListing: the named listing with id ${listing_id} is not signed, which means there is no agent to return.`);
       return [];
     }
+
+    let query = 'SELECT DISTINCT users.first_name, users.last_name, users.display_name, users.email, agents.id, agents.title, agents.phone, agents.web_site from (((agents inner join bids on agents.id = bids.agent_id AND bids.bid_status="Signed") INNER JOIN listings ON bids.listing_id = ?) INNER JOIN users on users.agent_id = agents.id)';
+    let args = [listing_id];
+    const rows = await this.connection.query(query, args);
+    return rows;
   }
 
   async close() {
