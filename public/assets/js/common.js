@@ -44,7 +44,7 @@ async function getBidWithIdIncludeAgentName(bid_id) {
 function getListingRowForConsumer(listing) {
   let view_agent = "";
   if(listing.listing_status == 'Signed') {
-    console.log("listing is signed");
+    // console.log("listing is signed");
     view_agent = `
     <div class="d-flex w-100 justify-content-end">
        <small><a href="/agentdetails?id=${listing.id}" class='font-weight-bold'>View agent</a></small>
@@ -70,7 +70,7 @@ function getListingRowForConsumer(listing) {
        </div>
      </div>
  `;
- console.log(listingRow);
+ // console.log(listingRow);
  return listingRow;
 }
 

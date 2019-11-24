@@ -1,5 +1,3 @@
-let DBAccess = require('../controller/dbAccess');
-
 const express = require('express');
 const UserDBAccess = require('../controller/UserDBAccess');
 
