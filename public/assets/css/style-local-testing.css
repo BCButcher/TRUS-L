@@ -42,56 +42,79 @@ body, html {
     font-size: 1rem!important;
 }
 
-.dashboard-container-padding {
-    margin-right: 0;
-    padding-left: 0;
-    margin-left: 0;
+.dashboard-container {
+    margin: 0;
     width: 100%;
-    padding-top: 3rem;
-    padding-bottom: 3rem;
+    padding-right: 0!important;
+    padding-left: 0!important;
 }
 
-.dashboard-row-padding {
+.dashboard-row {
     padding-bottom: 3rem;
-    padding-left: 3rem;
+    padding-left: 1rem;
 }
 
-.dashboard-col-padding {
-    padding-right: 0;
+.dashboard-col {
+    padding: 0;
 }
 
 .dashboard-card-section {
-    padding: 0;
-    border: 0;
-    margin-top: 3rem;
+    padding: 0!important;
+    border: 0!important;
+    margin-top: 1rem;
 }
 
-.dashboard-card-section-header {
-    padding: 0;
+.dashboard-card-header {
+    padding: 0!important;
 }
 
-.dashboard-card-section-button, .dashboard-card-address-button {
-    /* background-color: #6c757d!important; */
-    display: flex;
+.dashboard-card-header-margin {
+    margin-bottom: 0;
+}
+
+.dashboard-card-button-signed, .dashboard-card-button-active {
+    font-weight: bold;
     color: white;
+    padding: .5rem;
+    border-radius: .25rem;
+}
+
+.dashboard-card-button-active {
+    background-color: #28a745;
+}
+
+.dashboard-card-button-signed {
+    background-color: #343a40;
+}
+
+.dashboard-card-button-section, .dashboard-card-button-address {
+    /* background-color: #6c757d!important; */
+    display: flex!important;
+    color: white!important;
     width: 100%;
     justify-content: space-between;
     align-items: center;
 }
 
-.dashboard-card-section-button {
+.dashboard-card-button-section {
     background-color: #6c757d!important;
 }
 
-.dashboard-card-address-button {
+.dashboard-card-button-address {
     background-color: #0083d0!important;
 }
 
 .dashboard-card-button-text {
-    padding: 2rem;
+    padding: 0.65rem;
 }
 
-.dashboard-card-address-body {
+.dashboard-card-address {
+    padding: 0 0 0 1rem!important;
+    border: 0;
+    background-color: lightgray!important;
+}
+
+.dashboard-card-body {
     display: flex;
     justify-content: space-between;
     background-color: #f8f9fa!important;
