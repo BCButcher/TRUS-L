@@ -13,11 +13,7 @@ header {
     color: #0083d0!important;
 }
 
-body {
-    background-color: lightgray!important;
-}
-
-.bg-bodyBackground {
+body, .bg-bodyBackground {
     background-color: lightgray!important;
 }
 
@@ -33,7 +29,7 @@ body, html {
     height: 100%;
 
     /* Center and scale the image nicely */
-    background-position: center;
+    background-position: center 75%;
     background-repeat: no-repeat;
     background-size: cover;
 }
