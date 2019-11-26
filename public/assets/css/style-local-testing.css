@@ -88,12 +88,12 @@ body, html {
 }
 
 .dashboard-card-button-section, .dashboard-card-button-address {
-    /* background-color: #6c757d!important; */
     display: flex!important;
     color: white!important;
     width: 100%;
     justify-content: space-between;
     align-items: center;
+    padding: .2rem!important;
 }
 
 .dashboard-card-button-section {
