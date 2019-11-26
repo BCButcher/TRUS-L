@@ -21,8 +21,80 @@ body {
     background-color: lightgray!important;
 }
 
+body, html {
+  height: 100%;
+}
+
+.bg {
+    /* The image used */
+    background-image: url("../images/brown-and-white-concrete-building-2727483.jpg");
+
+    /* Full height */
+    height: 100%;
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
 .font-size-sm {
     font-size: 1rem!important;
+}
+
+.dashboard-container-padding {
+    margin-right: 0;
+    padding-left: 0;
+    margin-left: 0;
+    width: 100%;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+}
+
+.dashboard-row-padding {
+    padding-bottom: 3rem;
+    padding-left: 3rem;
+}
+
+.dashboard-col-padding {
+    padding-right: 0;
+}
+
+.dashboard-card-section {
+    padding: 0;
+    border: 0;
+    margin-top: 3rem;
+}
+
+.dashboard-card-section-header {
+    padding: 0;
+}
+
+.dashboard-card-section-button, .dashboard-card-address-button {
+    /* background-color: #6c757d!important; */
+    display: flex;
+    color: white;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.dashboard-card-section-button {
+    background-color: #6c757d!important;
+}
+
+.dashboard-card-address-button {
+    background-color: #0083d0!important;
+}
+
+.dashboard-card-button-text {
+    padding: 2rem;
+}
+
+.dashboard-card-address-body {
+    display: flex;
+    justify-content: space-between;
+    background-color: #f8f9fa!important;
 }
 
 #frontJumbo{
