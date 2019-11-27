@@ -100,8 +100,8 @@ This project is not open to contributions.
 ## Authors
 
 * **Brian C Butcher** - *Bootstrap, CSS, JavaScript* - [BCButcher](https://github.com/BCButcher)
-* **Ruth Lee** - *MySQL (including dotenv), deploytment to Heroku, server (Node, Express), JavaScript, jQuery, and Bootstrap* - [ruthtech](https://github.com/ruthtech)
-* **Chris Pong** - *Bootstrap, JavaScript, jQuery, AJAX, and testing* - [cheachster](https://github.com/cheachster)
+* **Ruth Lee** - *MySQL (including dotenv), deploytment to Heroku, server (Node, Express), JavaScript, jQuery, CSS, and Bootstrap* - [ruthtech](https://github.com/ruthtech)
+* **Chris Pong** - *Bootstrap, JavaScript, jQuery, and AJAX* - [cheachster](https://github.com/cheachster)
 
 ## License
 
@@ -111,5 +111,5 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 * Filipe Laborde - [codefreeze8](https://github.com/codefreeze8) Instructor at the U of T coding bootcamp who wrote the code in connection.js
 * David Bland = [thatdevguy1](https://github.com/thatdevguy1) Assistant instructor at the U of T coding bootcamp. This code would not have been deployed to Heroku without him. 
-
+* ![Photo by Jeffrey Czum from Pexels](https://www.pexels.com/photo/brown-and-white-concrete-building-2727483/)
 
