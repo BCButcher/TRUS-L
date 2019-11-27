@@ -66,7 +66,8 @@ body, html {
 }
 
 .bg {
-    background-image: url("../images/brown-and-white-concrete-building-2727483.jpg");
+    background-image: url("../images/merged2.jpg");
+    /* background-image: linear-gradient(lightgray, grey); */
     height: 100%;
     background-position: center 75%;
     background-repeat: no-repeat;
