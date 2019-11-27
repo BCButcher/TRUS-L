@@ -19,16 +19,54 @@ body, .bg-bodyBackground {
 
 body, html {
   height: 100%;
+  width: 100%;
+}
+
+/* On screens that are 768px or more (bootstrap medium) */
+@media screen and (min-width: 768px) {
+    div > img {
+      background: url('../images/TRUSÆL.png') no-repeat left;
+      min-width: 196px;
+      min-height: 75px;
+  }
+
+    nav {
+        background-color: lightgray!important;
+        color: black;
+        min-width: 196px;
+        min-height: 75px;
+      }
+
+    
+    .font-color {
+        color: black!important;
+    }
+
+    /* <img src="./assets/images/TRUSÆL-sm.png" alt="Trusael logo"> */
+}
+
+@media screen and (max-width: 767px) {
+    div > img  {
+        background: url('../images/TRUSÆL-sm.png') no-repeat left;
+        min-width: 131px;
+        min-height: 50px;
+    }  
+
+    nav {
+        background-color: #0083d0!important;
+        color: white!important;
+        min-width: 131px;
+        min-height: 50px;
+    }
+
+    .font-color {
+        color: white!important;
+    }
 }
 
 .bg {
-    /* The image used */
     background-image: url("../images/brown-and-white-concrete-building-2727483.jpg");
-
-    /* Full height */
     height: 100%;
-
-    /* Center and scale the image nicely */
     background-position: center 75%;
     background-repeat: no-repeat;
     background-size: cover;

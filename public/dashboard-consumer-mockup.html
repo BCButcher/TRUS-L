@@ -23,50 +23,52 @@
 </head>
 <body>
     <!-- <header></header> -->
+
     <!--Navbar-->
-    <nav class="navbar navbar-light bg-trusael lighten-4 sticky-top" id="navbar">
-        <img src="./assets/images/TRUSÆL-sm.png" alt="Trusael logo">
+    <nav class="navbar navbar-light lighten-4 sticky-top navbar-expand-md" id="navbar">
+      <div class="navbar-header">
+        <!-- Navbar brand -->
+        <a class="navbar-brand font-size-sm" href="/" id="logo">
+          <div><img /></div>
+        </a>
+      </div>
+      <a class="navbar-text font-color align-bottom" href="/login" id="displayName">Hello, Cindy</a>
 
-        <div>
-          <!-- Navbar brand -->
-          <a class="navbar-brand text-white font-size-sm" href="/login" id="displayName">Hello, Cindy</a>
+        <!-- Collapse button -->
+        <button class="navbar-toggler font-color" 
+                type="button" 
+                data-toggle="collapse" 
+                data-target="#navbarSupportedContent1" 
+                aria-controls="navbarSupportedContent1" 
+                aria-expanded="false" 
+                aria-label="Toggle navigation"><i class="fas fa-bars fa-1x"></i></button>
 
-          <!-- Collapse button -->
-          <button class="navbar-toggler" 
-                  type="button" 
-                  data-toggle="collapse" 
-                  data-target="#navbarSupportedContent1" 
-                  aria-controls="navbarSupportedContent1" 
-                  aria-expanded="false" 
-                  aria-label="Toggle navigation"><span class="text-white"><i class="fas fa-bars fa-1x"></i></span></button>
+        <!-- Collapsible content -->
+        <div class="collapse navbar-collapse" id="navbarSupportedContent1">
 
-          <!-- Collapsible content -->
-          <div class="collapse navbar-collapse" id="navbarSupportedContent1">
+            <!-- Links -->
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link font-color" href="/">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link font-color" href="/about">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link font-color" href='/contact'>Contact</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link font-color font-weight-bold" href='/dashboard'>Dashboard <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item" id="logout">
+                </li>
+            </ul>
+            <!-- Links -->
 
-              <!-- Links -->
-              <ul class="navbar-nav mr-auto">
-                  <li class="nav-item">
-                      <a class="nav-link text-white" href="/">Home</a>
-                  </li>
-                  <li class="nav-item">
-                      <a class="nav-link text-white" href="/about">About</a>
-                  </li>
-                  <li class="nav-item">
-                      <a class="nav-link text-white" href='/contact'>Contact</a>
-                  </li>
-                  <li class="nav-item active">
-                      <a class="nav-link text-white font-weight-bold" href='/dashboard'>Dashboard <span class="sr-only">(current)</span></a>
-                  </li>
-                  <li class="nav-item text-white" id="logout">
-                  </li>
-              </ul>
-              <!-- Links -->
-
-          </div>
-          <!-- Collapsible content -->
         </div>
-
-    </nav>
+        <!-- Collapsible content -->
+      </div>
+  </nav>
 
     <div class="container-fluid dashboard-container">
         <div class="row dashboard-row">
