@@ -2,7 +2,7 @@ async function renderPage() {
     let listings = await getListings();
     if(listings.length == 0) {
       $('#listings' ).append(`<li>No listings yet</li>`);
-      renderBidsForListing(null);
+//      renderBidsForListing(null);
       return;
     }
 
@@ -11,25 +11,44 @@ async function renderPage() {
     if(userInfo.agent_id == "null") {
       // If it's a consumer, their posted listings are at the top of the page
       // and the open bids on that listing are on the bottom
-      const listingsHeader = $('#listingsHeader').empty();
-      listingsHeader.append(`<h1>Listings</h1>`);
+      // const listingsHeader = $('#listingsHeader').empty();
+      // listingsHeader.append(`<h1>Listings</h1>`);
+      const listingSectionStart = `
+      <div class="container-fluid dashboard-container">
+        <div class="row dashboard-row">
+          <div class="col dashboard-col">
+            <div id="accordion">
+      `;
+      $('#listings').append(listingSectionStart);
+   
+      const listingSectionEnd = `
+            </div>
+          </div>
+        </div>
+      </div>
+      `;
  
-      for(const listing of listings) {
-        let listingRow = getListingRowForConsumer(listing);
+      for(let i=0; i<listings.length; i++) {
+        const listing = listings[i];
+        let listingRow = getListingRowForConsumer(listing, i);
         $('#listings').append(listingRow);
       }
-      renderBidsForListing(listings[0].id, listings[0].property_address);
+      $('#listings').append(listingSectionEnd);
+
+//      renderBidsForListing(listings[0].id, listings[0].property_address);
     } else {
       // If it's an agent, the listed bids are the open/active ones
-      const listingsHeader = $('#listingsHeader').empty();
-      listingsHeader.append(`<h1>Signed Listings</h1>`);
+      // const listingsHeader = $('#listingsHeader').empty();
+      // listingsHeader.append(`<h1>Signed Listings</h1>`);
       for(const listing of listings) {
         let listingRow = getListingRowForAgent(listing);
         $('#listings').append(listingRow);
       }
-      renderOpenBidsForAgent();
+//      renderOpenBidsForAgent();
     }
 }
+
+
 
 async function renderOpenBidsForAgent() {
   try {

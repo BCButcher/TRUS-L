@@ -41,34 +41,44 @@ async function getBidWithIdIncludeAgentName(bid_id) {
   });
 }
 
-function getListingRowForConsumer(listing) {
-  let view_agent = "";
-  if(listing.listing_status == 'Signed') {
-    // console.log("listing is signed");
-    view_agent = `
-    <div class="d-flex w-100 justify-content-end">
-       <small><a href="/agentdetails?id=${listing.id}" class='font-weight-bold'>View agent</a></small>
-    </div>
+function getListingRowForConsumer(listing, index) {
+  let view;
+  let statusButton;
+  if(listing.listing_status === 'Active') {
+    view = `
+       <a href="/viewbids?id=${listing.id}">View Bids</a>
+    `; 
+    statusButton = `<span class='dashboard-card-button-active'>${listing.listing_status}</span>`;
+  } else if(listing.listing_status === 'Signed') {
+    view = `
+       <a href="/agentdetails?id=${listing.id}">View Agent</a>
     `;
+    statusButton = `<span class='dashboard-card-button-signed'>${listing.listing_status}</span>`;
+  } else {
+    // Should never happen. Consumer should not see the bids that they rejected.
+    console.log("Unknown listing status ", listing.listing_status);
   }
 
-  let listingRow = 
-   `<br>
-     <div class="list-group" onClick="renderBidsForListing(${listing.id}, '${listing.property_address}')">
-     <div class="card border-left-0 border-right-0"
-       <a href="#bids">     
-         <div class="card-header bg-info font-weight-bolder"><i class="fas fa-map-marked-alt"></i> ${listing.property_address}, Toronto ,ON</div> 
-         <hr> 
-         <h5 class="card-title text-center"><i class="fas fa-dollar-sign"></i>${listing.estimated_value}</h5>
-         <p class='text-center'>${listing.type_of_home}</p>
-         <div class="d-flex w-100 justify-content-between">
-         <small class='font-weight-bold'>id:${listing.poster_id}</small>
-         <small class='font-weight-bold text-success'>${listing.listing_status}</small>
-         </div>
-         ${view_agent}
-       </a>
-       </div>
-     </div>
+  const headingId = `heading${index}`;
+  const collapseId = `collapse${index}`;
+  let listingRow = `
+    <div class="card dashboard-card-section">
+      <div class="card-header dashboard-card-header" id="${headingId}">
+        <h5 class="mb-0">
+          <button class="btn btn-link dashboard-card-button-address" data-toggle="collapse" data-target="#${collapseId}" aria-expanded="true" aria-controls="${collapseId}">
+            ${statusButton}
+            <span class="dashboard-card-button-text"><i class="fas fa-map-marked-alt"></i>${listing.property_address}</span>
+            <span><i class="fas fa-chevron-right"></i></span>
+          </button>
+        </h5>
+      </div>
+      <div id="${collapseId}" class="collapse" aria-labelledby="heading1" data-parent="#accordion">
+        <div class="card-body dashboard-card-body">
+          <span>${listing.type_of_home}</span>
+          <span>${listing.estimated_value}</span>
+          ${view}
+        </div>
+      </div>
  `;
  // console.log(listingRow);
  return listingRow;

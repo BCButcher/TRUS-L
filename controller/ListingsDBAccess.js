@@ -69,7 +69,7 @@ class ListingsDBAccess {
 
   // Called from the dashboard
   async getListingsForConsumer(user_id) {
-    let query = 'SELECT * from listings where poster_id = ?';
+    let query = 'SELECT * from listings where poster_id = ? ORDER BY listing_status';
     let args = [user_id];
     const rows = await this.connection.query(query, args);
     return rows;
