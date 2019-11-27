@@ -28,18 +28,18 @@ body, html {
       background: url('../images/TRUSÆL.png') no-repeat left;
       min-width: 196px;
       min-height: 75px;
-  }
+    }
 
     nav {
-        background-color: lightgray!important;
-        color: black;
-        min-width: 196px;
-        min-height: 75px;
-      }
+      background-color: lightgray!important;
+      color: black;
+      min-width: 196px;
+      min-height: 75px;
+    }
 
     
     .font-color {
-        color: black!important;
+      color: black!important;
     }
 
     /* <img src="./assets/images/TRUSÆL-sm.png" alt="Trusael logo"> */
@@ -47,16 +47,17 @@ body, html {
 
 @media screen and (max-width: 767px) {
     div > img  {
-        background: url('../images/TRUSÆL-sm.png') no-repeat left;
-        min-width: 131px;
-        min-height: 50px;
+      background: url('../images/TRUSÆL-sm.png') no-repeat left;
+      min-width: 131px;
+      min-height: 50px;
     }  
 
     nav {
-        background-color: #0083d0!important;
-        color: white!important;
-        min-width: 131px;
-        min-height: 50px;
+      background-color: #0083d0!important;
+      color: white!important;
+      min-width: 131px;
+      min-height: 50px;
+      margin-bottom: 1rem;
     }
 
     .font-color {
@@ -95,7 +96,8 @@ body, html {
 .dashboard-card-section {
     padding: 0!important;
     border: 0!important;
-    margin-top: 1rem;
+    margin-top: 0;
+    margin-bottom: 1rem;
 }
 
 .dashboard-card-header {
