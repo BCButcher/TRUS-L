@@ -28,41 +28,49 @@
 
 <body>
     <!--Navbar-->
-    <nav class="navbar navbar-light bg-info lighten-4 sticky-top" id="navbar">
-
-        <!-- Navbar brand -->
-        <a class="navbar-brand" href="/login" id="displayName">Hello, Sign in</a>
-
+    <nav class="navbar navbar-light lighten-4 sticky-top navbar-expand-md" id="navbar">
+        <div class="navbar-header">
+            <!-- Navbar brand -->
+            <a class="navbar-brand font-size-sm" href="/" id="logo">
+                <div><img class="logo" /></div>
+            </a>
+        </div>
+        <a class="navbar-text font-color align-bottom" href="/login" id="displayName">Hello, Cindy</a>
+        
         <!-- Collapse button -->
-        <button class="navbar-toggler toggler-example" type="button" data-toggle="collapse" data-target="#navbarSupportedContent1" aria-controls="navbarSupportedContent1" aria-expanded="false" aria-label="Toggle navigation"><span class="dark-blue-text"><i
-                            class="fas fa-bars fa-1x"></i></span></button>
-
+        <button class="navbar-toggler font-color" 
+            type="button" 
+            data-toggle="collapse" 
+            data-target="#navbarSupportedContent1" 
+            aria-controls="navbarSupportedContent1" 
+            aria-expanded="false" 
+            aria-label="Toggle navigation"><i class="fas fa-bars fa-1x"></i></button>
+        
         <!-- Collapsible content -->
         <div class="collapse navbar-collapse" id="navbarSupportedContent1">
-
+        
             <!-- Links -->
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="/">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/about">About</a>
-                </li>
-                <li class="nav-item active">
-                    <a class="nav-link" href='/contact'>Contact <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href='/dashboard'>Dashboard</a>
-                </li>
-                <li class="nav-item" id="logout">
-                </li>    
+            <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link font-color" href="/">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link font-color" href="/about">About</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link font-color" href='/contact'>Contact</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link font-color font-weight-bold" href='/dashboard'>Dashboard <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item" id="logout">
+            </li>
             </ul>
-            <!-- Links -->
-
+            <!-- Links -->     
         </div>
         <!-- Collapsible content -->
-
     </nav>
+
     <div class="container" style="text-align: center; display: flex; flex-flow: column; margin-top: 175px">
         <p>Thank You for contacting</p>
         <p style="font-family: audiowide; color: #086697; font-weight: bold; font-size: 54px">TRUSAEL</p>
