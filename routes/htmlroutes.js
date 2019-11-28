@@ -6,7 +6,11 @@ const router = express.Router();
 
 // View the home page
 router.get('/', function (req, res) {
-  res.sendFile(path.join(__dirname, '..', 'public', 'index.html'));
+  res.sendFile(path.join(__dirname, '..', 'public', 'index-consumer.html'));
+});
+
+router.get('/index-agent', function (req, res) {
+  res.sendFile(path.join(__dirname, '..', 'public', 'index-agent.html'));
 });
 
 // Login screen
