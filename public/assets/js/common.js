@@ -64,11 +64,11 @@ function getListingRowForConsumer(listing, index) {
   const listingRow = `
     <div class="card dashboard-card-section">
       <div class="card-header dashboard-card-header" id="${headingId}">
-        <h5 class="mb-0">
+        <h5 class="dashboard-card-header-margin">
           <button class="btn btn-link dashboard-card-button-address" data-toggle="collapse" data-target="#${collapseId}" aria-expanded="true" aria-controls="${collapseId}">
             ${statusButton}
             <span class="dashboard-card-button-text"><i class="fas fa-map-marked-alt"></i>${listing.property_address}</span>
-            <span><i class="fas fa-chevron-right"></i></span>
+            <span class="ml-auto"><i class="fas fa-chevron-right"></i></span>
           </button>
         </h5>
       </div>
@@ -79,6 +79,7 @@ function getListingRowForConsumer(listing, index) {
           ${view}
         </div>
       </div>
+    </div>
  `;
  // console.log(listingRow);
  return listingRow;
@@ -116,7 +117,7 @@ function getListingRowForAgent(sectionName, listing, index, collapsedAccordionId
             <h5 class="dashboard-card-header-margin">
               <button class="btn btn-link dashboard-card-button-address" data-toggle="collapse" data-target="#${collapsedListingId}" aria-expanded="true" aria-controls="${collapsedListingId}">
                 <span class="dashboard-card-button-text"><i class="fas fa-map-marked-alt"></i>${listing.property_address}</span>
-                <span><i class="fas fa-chevron-right"></i></span>
+                <span class="ml-auto"><i class="fas fa-chevron-right"></i></span>
               </button>
             </h5>
           </div>
@@ -257,11 +258,11 @@ function getNavDisplayName() {
   let userInfo = getUserInfo();
   if(userInfo.display_name) {
     return `
-       <a class="navbar-brand" href="/dashboard" id="displayName">Hello, ${userInfo.display_name}</a>
+       <a class="navbar-text font-color" href="/dashboard" id="displayName">Hello, ${userInfo.display_name}</a>
     `;
   } else {
     return `
-       <a class="navbar-brand" href="/login" id="displayName">Hello, Sign in</a>
+       <a class="navbar-text font-color" href="/login" id="displayName">Hello, Sign in</a>
     `;
   }
 }
@@ -273,13 +274,13 @@ function generateDisplayName() {
 
 function getNavLogout() {
   return `
-      <a class="nav-link" href='/login' onClick="logout()">Logout</a>
+      <a class="nav-link font-color" href='/login' onClick="logout()">Logout</a>
   `;
 }
 
 function getNavLogin() {
   return `
-      <a class="nav-link" href='/login' onClick="logout()">Login</a>
+      <a class="nav-link font-color" href='/login' onClick="logout()">Login</a>
   `;
 }
 

@@ -8,27 +8,19 @@ async function renderPage() {
     let userInfo = getUserInfo();
     if(userInfo.agent_id == "null") {
       // If it's a consumer, only active and signed listings are shown.
-      const listingSectionStart = `
-      <div class="container-fluid dashboard-container">
-        <div class="row dashboard-row">
-          <div class="col dashboard-col">
+      let listingSection = `
             <div id="accordion">
       `;
-      $('#listings').append(listingSectionStart);
  
       for(let i=0; i<listings.length; i++) {
         const listing = listings[i];
-        let listingRow = getListingRowForConsumer(listing, i);
-        $('#listings').append(listingRow);
+        listingSection += getListingRowForConsumer(listing, i);
       }
 
-      const listingSectionEnd = `
+      listingSection += `
             </div>
-          </div>
-        </div>
-      </div>
       `;
-      $('#listings').append(listingSectionEnd);
+      $('#listings').append(listingSection);
 
     } else {
       // All we know is that the list is sorted by bid_status.
@@ -61,7 +53,7 @@ function getListingSectionHeader(sectionName, parentHeaderId, collapsedId) {
               <h5 class="dashboard-card-header-margin">
                 <button class="btn btn-link dashboard-card-button-section" data-toggle="collapse" data-target="#${collapsedId}" aria-expanded="true" aria-controls="${collapsedId}">
                   <span class="dashboard-card-button-text">${sectionName} Listings</span>
-                  <span><i class="fas fa-chevron-right"></i></span>
+                  <span class="ml-auto"><i class="fas fa-chevron-right"></i></span>
                 </button>
               </h5>
             </div>

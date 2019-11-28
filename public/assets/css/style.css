@@ -1,6 +1,6 @@
 header {
     text-align: center;
-    background: url('../images/TRUSÆL.png') no-repeat left;
+    background: url('/assets/images/TRUSÆL.png') no-repeat left;
     padding-top: 50px;
     padding-bottom: 30px;
 }
@@ -25,7 +25,7 @@ body, html {
 /* On screens that are 768px or more (bootstrap medium) */
 @media screen and (min-width: 768px) {
     div > img {
-      background: url('../images/TRUSÆL.png') no-repeat left;
+      background: url('/assets/images/TRUSÆL.png') no-repeat left;
       min-width: 196px;
       min-height: 75px;
     }
@@ -47,7 +47,7 @@ body, html {
 
 @media screen and (max-width: 767px) {
     div > img  {
-      background: url('../images/TRUSÆL-sm.png') no-repeat left;
+      background: url('/assets/images/TRUSÆL-sm.png') no-repeat left;
       min-width: 131px;
       min-height: 50px;
     }  
@@ -83,6 +83,7 @@ body, html {
     width: 100%;
     padding-right: 0!important;
     padding-left: 0!important;
+    padding-bottom: 0!important;
 }
 
 .dashboard-row {
@@ -128,7 +129,7 @@ body, html {
     display: flex!important;
     color: white!important;
     width: 100%;
-    justify-content: space-between;
+    /* justify-content: space-between; */
     align-items: center;
     padding: .2rem!important;
 }
