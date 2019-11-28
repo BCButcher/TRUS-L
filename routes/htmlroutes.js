@@ -50,6 +50,11 @@ router.get('/biddetails', function (req, res) {
   res.sendFile(path.join(__dirname, '..', 'public', 'biddetails.html'));
 });
 
+// View all bids for a listing.
+router.get('/viewbids', function (req, res) {
+  res.sendFile(path.join(__dirname, '..', 'public', 'viewbids.html'));
+});
+
 // View client contact information
 router.get('/clientdetails', function (req, res) {
   res.sendFile(path.join(__dirname, '..', 'public', 'clientdetails.html'));

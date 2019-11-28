@@ -19,7 +19,7 @@ router.get('/api/bid', async function (req, res) {
 });
 
 // Get the bids with the given bid id
-router.get('/api/bid/:id?', async function (req, res) {
+router.get('/api/bid/:id', async function (req, res) {
   try {
     res.status(200);
     res.send(await bidsDBAccess.getBidWithId(req.params.id));
@@ -46,12 +46,11 @@ router.get('/api/bid/consumer/:id', async function (req, res) {
   return res;
 });
 
-// Get the bids and listings for the agent, with the given id, but only
-// if the bid is Active or Rejected. We don't need Signed or Closed bids.
-router.get('/api/bid/agent/open/:id', async function (req, res) {
+// Get the bids and listings for the agent, with the given agent id.
+router.get('/api/bid/agent/all/:id', async function (req, res) {
   try {
     res.status(200);
-    res.send(await bidsDBAccess.getBidsForAgentWithIdActiveOrRejected(req.params.id));
+    res.send(await bidsDBAccess.getBidsForAgentWithId(req.params.id));
   } catch (err) {
     // Internal error on the server side.
     console.log(err);

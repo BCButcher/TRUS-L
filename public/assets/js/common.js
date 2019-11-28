@@ -5,9 +5,9 @@ async function getBidsForListing(listing_id) {
   });
 }
 
-async function getOpenBidsForAgent(agent_id) {
+async function getBidsForAgent(agent_id) {
   return $.ajax({
-    url: "/api/bid/agent/open/" + agent_id,
+    url: "/api/bid/agent/all/" + agent_id,
     method: "GET"
   });
 }
@@ -131,40 +131,6 @@ function getListingRowForAgent(sectionName, listing, index, collapsedAccordionId
         </div>
   `;
   return row;
-}
-
-function getListingRowForAgentOld(listing) {
-  let url = "";
-  let view_consumer = "";
-  if(listing.listing_status === 'Signed') {
-    url = `/clientdetails?id=${listing.poster_id}`;
-    view_consumer = `
-    <div class="d-flex w-100 justify-content-end">
-       <small><a href="/clientdetails?id=${listing.poster_id}" class='font-weight-bold'>View client</a></small>
-    </div>
-    `;
-  } else {
-    url = `/createbid?id=${listing.id}`;
-  }
-
-  let listingRow = 
-  `<br>
-    <div class="card card border-left-0 border-right-0" onClick="renderOpenBidsForAgent()">
-      <a href="${url}">
-        <div class="card-header bg-info text-dark font-weight-bolder"><i class="fas fa-map-marked-alt"></i> ${listing.property_address}, Toronto ,ON
-        </div>
-        <h5 class="card-title text-dark text-center">
-        <i class="fas fa-dollar-sign"></i>${listing.estimated_value}</h5>
-        <p class='text-center text-dark'>${listing.type_of_home}</p> 
-        <div class="d-flex w-100 justify-content-end">
-           <small class='font-weight-bold text-success'>${listing.listing_status}</small>
-        </div>
-        ${view_consumer}      
-      </a>
-    </div>
-`;
-//console.log(listingRow);
-  return listingRow;
 }
 
 function getBidRowForAgent(bid) {

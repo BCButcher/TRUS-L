@@ -155,9 +155,9 @@ class BidsDBAccess {
     return rows;
   }
 
-  async getBidsForAgentWithIdActiveOrRejected(agent_id) {
+  async getBidsForAgentWithId(agent_id) {
     // SELECT listings.*, bids.bid_status from (bids INNER JOIN listings ON bids.listing_id = listings.id) WHERE (bids.bid_status="Active" OR bids.bid_status="Rejected") AND bids.agent_id=?;
-    let query = 'SELECT listings.*, bids.* from (bids INNER JOIN listings ON bids.listing_id = listings.id) WHERE (bids.bid_status="Active" OR bids.bid_status="Rejected") AND bids.agent_id=?;';
+    let query = 'SELECT listings.*, bids.* from (bids INNER JOIN listings ON bids.listing_id = listings.id) WHERE bids.agent_id=?;';
     let args = [agent_id];
     const rows = await this.connection.query(query, args);
     return rows;
