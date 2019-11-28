@@ -61,6 +61,8 @@ There is no automated test suite for this application. Instead, we ran the follo
       b. About > taken to about page
       c. Contact > taken to contact page
       d. Dashboard > taken to dashboard page
+      e. Logout > user logged out, taken to login page
+      e2. Login > user taken to login page
     
 You can see this code live at 
 ![Trusael](https://murmuring-cove-22350.herokuapp.com/)

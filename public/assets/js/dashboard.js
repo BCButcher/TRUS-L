@@ -7,39 +7,52 @@ async function renderPage() {
 
     let userInfo = getUserInfo();
     if(userInfo.agent_id == "null") {
-      // If it's a consumer, only active and signed listings are shown.
-      let listingSection = `
-            <div id="accordion">
-      `;
- 
-      for(let i=0; i<listings.length; i++) {
-        const listing = listings[i];
-        listingSection += getListingRowForConsumer(listing, i);
-      }
-
-      listingSection += `
-            </div>
-      `;
-      $('#listings').append(listingSection);
-
+      renderPageForConsumer(listings);
     } else {
-      // All we know is that the list is sorted by bid_status.
-      // First, filter on Signed
-      // Second, filter on Rejected
-      // Third, filter on Active
-      // 
-      // This order because Active will be the largest of the three sections, and the agent may not want to interact with it at all if they have enough business.
-      const signedSection = getListingSection('Signed', listings, 1);
-      const rejectedSection = getListingSection('Rejected', listings, 2);
-      const activeSection = getListingSection('Active', listings, 3);
-      $('#listings').append(
-        signedSection + 
-        rejectedSection +
-        activeSection
-      );
+      renderPageForAgent(listings);
+    }
+}
 
+async function renderPageForConsumer(listings) {
+    // If it's a consumer, only active and signed listings are shown.
+    let listingSection = `
+          <div id="accordion">
+    `;
+
+    for(let i=0; i<listings.length; i++) {
+      const listing = listings[i];
+      listingSection += getListingRowForConsumer(listing, i);
+    }
+
+    listingSection += `
+          </div>
+    `;
+    $('#listings').append(listingSection);
+}
+
+async function renderPageForAgent(listings) {
+    // All we know is that the list is sorted by bid_status and also contains active listings for which this agent has no bid.
+    // Listings where the bid_id = '' are ones where this agent can bid on them. 
+
+    // First, filter on Signed
+    // Second, filter on Rejected
+    // Third, filter on Active
+    // 
+    // This order because Active will be the largest of the three sections, and the agent may not want to interact with it at all if they have enough business.
+    const signedSection = getListingSection('Signed', listings, 1);
+    const rejectedSection = getListingSection('Rejected', listings, 2);
+    const activeSection = getListingSection('Active', listings, 3);
+    $('#listings').append(
+      signedSection + 
+      rejectedSection +
+      activeSection
+    );
+
+    // If the agent has made at least one bid
+    const bids = getBidsForAgent(getUserInfo().agent_id);
+    if(bids.length > 0) {
       const viewBidsButton = `
-         <button type="button" onClick="window.location.href='/viewbids?agent_id=${userInfo.agent_id}'" class="btn btn-trusael">View all bids</button>
+          <button type="button" onClick="window.location.href='/viewbids?agent_id=${userInfo.agent_id}'" class="btn btn-trusael">View all bids</button>
       `;
       $('#listings').append(
         viewBidsButton
@@ -94,6 +107,13 @@ function getListingSectionEnd() {
 }
 
 function getListingSection(sectionName, listings, index) {
+  const filteredListings = listings.filter( row => { return row.bid_status === sectionName; } );
+  if(filteredListings.length === 0) {
+    // Do not show a section without content
+    console.log("No listings for ", sectionName);
+    return "";
+  }
+
   let collapsedId = `collapse${sectionName}${index}`;
   const accordionParentId = sectionName + "Accordion";
   const parentHeaderId = `heading${sectionName}`;
@@ -101,7 +121,6 @@ function getListingSection(sectionName, listings, index) {
   listingRow += getListingSectionHeader(sectionName, parentHeaderId, collapsedId);
   listingRow += getListingSectionCollapsedAccordionStart(collapsedId, parentHeaderId, accordionParentId);
   
-  const filteredListings = listings.filter( row => { return row.bid_status === sectionName; } );
 
   for(let i=0; i<filteredListings.length; i++) {
     const listing = filteredListings[i];

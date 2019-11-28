@@ -104,13 +104,17 @@ class ListingsDBAccess {
     // 3. If Rejected, the agent can counter the bid (or delete if the listing was signed to another agent)
     let query = "SELECT DISTINCT listings.*, bids.bid_status, bids.rejection_reason, bids.id as bids_id from (bids INNER JOIN listings ON bids.listing_id = listings.id) WHERE bids.agent_id=? order by bid_status";
     let args = [user_id];
-    const rows = await this.connection.query(query, args);
+    const agentRows = await this.connection.query(query, args);
 
+    query = `SELECT DISTINCT listings.*, "Active" as bid_status, "" as rejection_reason, "" as bids_id from listings WHERE listings.listing_status="Active"`;
+    const activeRows = await this.connection.query(query);
+
+    const allRows = agentRows.concat(activeRows); // Not only do we need to see the listings that this agent has bid on, we need to see any active listings that this agent has not bid on yet.
     // console.log("dbAccess getListingsForAgent");
     // console.log(query);
     // console.log(rows);
 
-    return rows;
+    return allRows;
   }
 
   // Given a listing id, if the listing is signed, return the contact information

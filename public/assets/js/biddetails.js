@@ -10,8 +10,8 @@ function getRejectionReasonRow(bidId) {
                 <label for="agent_bid_reject_message" id="agent_bid_reject_label">Please briefly explain your reason for rejecting the agents bid</label>
                 <textarea class="form-control" id="agent_bid_reject_message" rows="3 "></textarea>
             </div>
-            <button type="button" id="submit_reject_reason_button" class="btn btn-primary" onClick="save(${bidId});">Submit</button>
-            <button type="button" id="skip_reject_reason_button" class="btn btn-primary" onClick="skip(${bidId})">Skip</button>
+            <button type="button" id="submit_reject_reason_button" class="btn btn-trusael" onClick="save(${bidId});">Submit</button>
+            <button type="button" id="skip_reject_reason_button" class="btn btn-trusael" onClick="skip(${bidId})">Skip</button>
         </form>
      </div>
    </div>
@@ -135,7 +135,7 @@ function renderBidDetailTitle(bid) {
 function renderBidButtons(bid) {
     // console.log("renderBidButtons");
     let buttonRow = `
-        <button type="button" class="btn btn-primary btn-lg" onClick="acceptBid(${bid.id})">Accept</button>
+        <button type="button" class="btn btn-trusael btn-lg" onClick="acceptBid(${bid.id})">Accept</button>
         <button type="button" class="btn btn-secondary btn-lg" onClick="rejectBid(${bid.id})">Reject</button>
     `;
     $('#bidButtons').append(buttonRow);
