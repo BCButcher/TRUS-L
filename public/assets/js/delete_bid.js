@@ -1,7 +1,7 @@
 function generateButton() {
     let bidId = getParam()[1];
     let buttonRow = `
-       <button type="button" class="btn btn-info btn-lg" id="viewbids" onclick="deleteBid(${bidId})">Delete</button>
+       <button type="button" class="btn btn-trusael btn-lg" id="viewbids" onclick="deleteBid(${bidId})">Delete</button>
     `;
 
     const buttonSection = $("#buttonSection").empty();

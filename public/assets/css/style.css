@@ -9,6 +9,11 @@ header {
     background-color: #0083d0!important;
 }
 
+.btn-trusael {
+    background-color: #0083d0!important;
+    color: white!important;
+}
+
 .text-trusael {
     color: #0083d0!important;
 }
@@ -20,6 +25,10 @@ body, .bg-bodyBackground {
 body, html {
   height: 100%;
   width: 100%;
+}
+
+.active {
+    font-weight: bold;
 }
 
 /* On screens that are 768px or more (bootstrap medium) */
