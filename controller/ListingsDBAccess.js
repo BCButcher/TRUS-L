@@ -98,22 +98,16 @@ class ListingsDBAccess {
 
   // Called from the dashboard
   async getListingsForAgent(user_id) {
-    // If the user is an agent, we need to show them the listings where
-    // their bid is the accepted bid and any listings that they can bid on.
-    // SELECT listings.* from (bids INNER JOIN listings ON bids.listing_id = listings.id) WHERE bids.bid_status='Signed' AND bids.agent_id=1;
-    let query = "SELECT DISTINCT listings.* from (bids INNER JOIN listings ON bids.listing_id = listings.id) WHERE (bids.bid_status='Signed' AND bids.agent_id=?)";
+    // If the user is an agent, we need to show them the listings where they can do the following:
+    // 1. If Active, the agent can bid on the listing
+    // 2. If Signed, the agent can view their customer's contact information
+    // 3. If Rejected, the agent can counter the bid (or delete if the listing was signed to another agent)
+    let query = "SELECT DISTINCT listings.*, bids.bid_status, bids.rejection_reason, bids.id as bids_id from (bids INNER JOIN listings ON bids.listing_id = listings.id) WHERE bids.agent_id=? order by bid_status";
     let args = [user_id];
-    const bidRows = await this.connection.query(query, args);
-
-    query = "SELECT DISTINCT * FROM listings WHERE listings.listing_status='Active'";
-    const listingRows = await this.connection.query(query);
-
-    const rows = bidRows.concat(listingRows);
+    const rows = await this.connection.query(query, args);
 
     // console.log("dbAccess getListingsForAgent");
     // console.log(query);
-    // console.log("this works in SQL workbench");
-    // console.log("SELECT DISTINCT listings.* from (bids INNER JOIN listings ON bids.listing_id = listings.id) WHERE (bids.bid_status='Signed' AND bids.agent_id=?) OR listings.listing_status='Active'")
     // console.log(rows);
 
     return rows;

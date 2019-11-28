@@ -61,7 +61,7 @@ function getListingRowForConsumer(listing, index) {
 
   const headingId = `heading${index}`;
   const collapseId = `collapse${index}`;
-  let listingRow = `
+  const listingRow = `
     <div class="card dashboard-card-section">
       <div class="card-header dashboard-card-header" id="${headingId}">
         <h5 class="mb-0">
@@ -72,10 +72,10 @@ function getListingRowForConsumer(listing, index) {
           </button>
         </h5>
       </div>
-      <div id="${collapseId}" class="collapse" aria-labelledby="heading1" data-parent="#accordion">
+      <div id="${collapseId}" class="collapse" aria-labelledby="${headingId}" data-parent="#accordion">
         <div class="card-body dashboard-card-body">
           <span>${listing.type_of_home}</span>
-          <span>${listing.estimated_value}</span>
+          <span>$${listing.estimated_value}</span>
           ${view}
         </div>
       </div>
@@ -84,7 +84,55 @@ function getListingRowForConsumer(listing, index) {
  return listingRow;
 }
 
-function getListingRowForAgent(listing) {
+function getListingRowForAgent(sectionName, listing, index, collapsedAccordionId) {
+  // const collapsedAccordionId = `accordion${sectionName}${index}`;
+  const collapsedListingId = `collapseSub${sectionName}${index}`;
+  const collapsedHeadingId = `heading${sectionName}${index}`;
+  let view;
+  if(listing.bid_status === 'Signed') {
+    view = `<a href="/clientdetails?id=${listing.poster_id}">View customer</a>`;
+  } else if (listing.bid_status === 'Rejected') {
+      if(listing.rejection_reason === 'Another agent has been awarded the contract.') {
+        // can only delete
+        view = `<a href="/deletebid?id=${listing.bids_id}">Delete bid</a>`;
+      } else {
+        // can counter bid
+        view = `<a href="/counterbid?id=${listing.bids_id}">Edit bid</a>`;
+      }
+      // view = `<a href="/biddetails?id=${listing.poster_id}">Bid</a>`;
+  } else if (listing.bid_status === 'Active') {
+    view = `<a href="/createbid?id=${listing.id}">Bid</a>`;
+  } else {
+    // Should never happen
+    console.log("Error. Unknown bid status ", listing);
+    return;
+  }
+
+    // <div id="${collapsedId}" class="collapse" aria-labelledby="${collapsedHeadingId}" data-parent="#${sectionName}Accordion">
+    //   <div id="${collapsedAccordionId}">
+    const row = `
+        <div class="card dashboard-card-address">
+          <div class="card-header dashboard-card-header" id="${collapsedHeadingId}">
+            <h5 class="dashboard-card-header-margin">
+              <button class="btn btn-link dashboard-card-button-address" data-toggle="collapse" data-target="#${collapsedListingId}" aria-expanded="true" aria-controls="${collapsedListingId}">
+                <span class="dashboard-card-button-text"><i class="fas fa-map-marked-alt"></i>${listing.property_address}</span>
+                <span><i class="fas fa-chevron-right"></i></span>
+              </button>
+            </h5>
+          </div>
+          <div id="${collapsedListingId}" class="collapse" aria-labelledby="${collapsedHeadingId}" data-parent="#${collapsedAccordionId}">
+            <div class="card-body dashboard-card-body">
+              <span>${listing.type_of_home}</span>
+              <span>$${listing.estimated_value}</span>
+              ${view}
+            </div>
+          </div>
+        </div>
+  `;
+  return row;
+}
+
+function getListingRowForAgentOld(listing) {
   let url = "";
   let view_consumer = "";
   if(listing.listing_status === 'Signed') {

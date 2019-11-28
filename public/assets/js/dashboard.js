@@ -2,17 +2,12 @@ async function renderPage() {
     let listings = await getListings();
     if(listings.length == 0) {
       $('#listings' ).append(`<li>No listings yet</li>`);
-//      renderBidsForListing(null);
       return;
     }
 
-    // Default the list of bids to the first listing in the list
     let userInfo = getUserInfo();
     if(userInfo.agent_id == "null") {
-      // If it's a consumer, their posted listings are at the top of the page
-      // and the open bids on that listing are on the bottom
-      // const listingsHeader = $('#listingsHeader').empty();
-      // listingsHeader.append(`<h1>Listings</h1>`);
+      // If it's a consumer, only active and signed listings are shown.
       const listingSectionStart = `
       <div class="container-fluid dashboard-container">
         <div class="row dashboard-row">
@@ -20,35 +15,107 @@ async function renderPage() {
             <div id="accordion">
       `;
       $('#listings').append(listingSectionStart);
-   
-      const listingSectionEnd = `
-            </div>
-          </div>
-        </div>
-      </div>
-      `;
  
       for(let i=0; i<listings.length; i++) {
         const listing = listings[i];
         let listingRow = getListingRowForConsumer(listing, i);
         $('#listings').append(listingRow);
       }
+
+      const listingSectionEnd = `
+            </div>
+          </div>
+        </div>
+      </div>
+      `;
       $('#listings').append(listingSectionEnd);
 
-//      renderBidsForListing(listings[0].id, listings[0].property_address);
     } else {
-      // If it's an agent, the listed bids are the open/active ones
-      // const listingsHeader = $('#listingsHeader').empty();
-      // listingsHeader.append(`<h1>Signed Listings</h1>`);
-      for(const listing of listings) {
-        let listingRow = getListingRowForAgent(listing);
-        $('#listings').append(listingRow);
-      }
-//      renderOpenBidsForAgent();
+      // All we know is that the list is sorted by bid_status.
+      // First, filter on Signed
+      // Second, filter on Rejected
+      // Third, filter on Active
+      // 
+      // This order because Active will be the largest of the three sections, and the agent may not want to interact with it at all if they have enough business.
+      const signedSection = getListingSection('Signed', listings, 1);
+      const rejectedSection = getListingSection('Rejected', listings, 2);
+      const activeSection = getListingSection('Active', listings, 3);
+      $('#listings').append(
+        signedSection + 
+        rejectedSection +
+        activeSection
+      );
     }
 }
 
+function getListingSectionAccordion(sectionName, accordionParentId) {
+  let sectionRow = `
+        <div id="${accordionParentId}">
+          <div class="card dashboard-card-section">`;
+  return sectionRow;
+}
 
+function getListingSectionHeader(sectionName, parentHeaderId, collapsedId) {
+  const sectionHeader = `
+            <div class="card-header dashboard-card-header" id="${parentHeaderId}">
+              <h5 class="dashboard-card-header-margin">
+                <button class="btn btn-link dashboard-card-button-section" data-toggle="collapse" data-target="#${collapsedId}" aria-expanded="true" aria-controls="${collapsedId}">
+                  <span class="dashboard-card-button-text">${sectionName} Listings</span>
+                  <span><i class="fas fa-chevron-right"></i></span>
+                </button>
+              </h5>
+            </div>
+`;
+return sectionHeader;
+}
+
+
+function getListingSectionCollapsedAccordionStart(collapsedId, parentHeaderId, accordionParentId) {
+  const collapsedAccordion = `
+  <div id="${collapsedId}" class="collapse" aria-labelledby="${parentHeaderId}" data-parent="#${accordionParentId}">
+    <div id="${accordionParentId}Collapsed">`;
+  return collapsedAccordion;
+}
+
+function getListingSectionCollapsedAccordionEnd() {
+  const sectionEnd = `
+    </div>
+  </div>
+  `;
+  return sectionEnd;
+}
+
+function getListingSectionEnd() {
+  const sectionEnd = `
+      </div>
+    </div>
+  </div>
+  `;
+  return sectionEnd;
+}
+
+function getListingSection(sectionName, listings, index) {
+  let collapsedId = `collapse${sectionName}${index}`;
+  const accordionParentId = sectionName + "Accordion";
+  const parentHeaderId = `heading${sectionName}`;
+  let listingRow = getListingSectionAccordion(sectionName, accordionParentId);
+  listingRow += getListingSectionHeader(sectionName, parentHeaderId, collapsedId);
+  listingRow += getListingSectionCollapsedAccordionStart(collapsedId, parentHeaderId, accordionParentId);
+  
+  const filteredListings = listings.filter( row => { return row.bid_status === sectionName; } );
+
+  for(let i=0; i<filteredListings.length; i++) {
+    const listing = filteredListings[i];
+    listingRow += getListingRowForAgent(sectionName, listing, i, collapsedId);
+  }
+
+  listingRow += getListingSectionEnd();
+
+  listingRow += getListingSectionCollapsedAccordionEnd();
+  listingRow += getListingSectionEnd();
+
+  return listingRow;
+}
 
 async function renderOpenBidsForAgent() {
   try {
