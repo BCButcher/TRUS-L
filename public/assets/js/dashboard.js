@@ -41,24 +41,15 @@ async function renderPageForAgent(listings) {
     // This order because Active will be the largest of the three sections, and the agent may not want to interact with it at all if they have enough business.
     const signedSection = getListingSection('Signed', listings, 1);
     const rejectedSection = getListingSection('Rejected', listings, 2);
-    const activeSection = getListingSection('Active', listings, 3);
+    const pendingSection = getPendingListingSection("Pending", listings, 3)
+    const activeSection = getActiveListingSection('Active', listings, 4);
+
     $('#listings').append(
       signedSection + 
       rejectedSection +
+      pendingSection +
       activeSection
     );
-
-    // If the agent has made at least one bid
-    const userInfo = getUserInfo();
-    const bids = await getBidsForAgent(userInfo.agent_id);
-    if(bids.length > 0) {
-      const viewBidsButton = `
-          <button type="button" onClick="window.location.href='/viewbids?agent_id=${userInfo.agent_id}'" class="btn btn-trusael">View all bids</button>
-      `;
-      $('#listings').append(
-        viewBidsButton
-      );
-    }
 }
 
 function getListingSectionAccordion(sectionName, accordionParentId) {
@@ -109,6 +100,24 @@ function getListingSectionEnd() {
 
 function getListingSection(sectionName, listings, index) {
   const filteredListings = listings.filter( row => { return row.bid_status === sectionName; } );
+  return getFilteredListingSection(sectionName, filteredListings, index);
+}
+
+function getActiveListingSection(sectionName, listings, index) {
+  // If it's Active and there is a bids_id, the agent has submitted a bid on it.
+  // If it's Active and there is no bids_id, the agent has not submitted a bid on it. 
+  const filteredListings = listings.filter( row => { return ((row.bids_id === "") && (row.bid_status === "Active")); } );
+  return getFilteredListingSection(sectionName, filteredListings, index);
+}
+
+function getPendingListingSection(sectionName, listings, index) {
+  // If it's Active and there is a bids_id, the agent has submitted a bid on it.
+  // If it's Active and there is no bids_id, the agent has not submitted a bid on it. 
+  const filteredListings = listings.filter( row => { return ((row.bids_id != "") && (row.bid_status === "Active")); } );
+  return getFilteredListingSection(sectionName, filteredListings, index);
+}
+
+function getFilteredListingSection(sectionName, filteredListings, index) {
   if(filteredListings.length === 0) {
     // Do not show a section without content
     console.log("No listings for ", sectionName);
