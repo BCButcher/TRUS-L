@@ -20,6 +20,7 @@ function selectCheckboxes(bid) {
 
     
     const storedService = bid.services;
+    const isDisabled = getUserInfo().agent_id === "null";
 
     $('#in_person_tours').prop('checked', (storedService.indexOf('a')>=0));
     $('#open_houses').prop('checked', (storedService.indexOf('i')>=0));
@@ -51,6 +52,37 @@ function selectCheckboxes(bid) {
     $('#staging').prop('checked', (storedService.indexOf('f')>=0));
     $('#virtual_tours').prop('checked', (storedService.indexOf('g')>=0));
     $('#buy_house').prop('checked', (storedService.indexOf('h')>=0));
+
+    $('#in_person_tours').prop('disabled', isDisabled);
+    $('#open_houses').prop('disabled', isDisabled);
+    $('#vr_tours').prop('disabled', isDisabled);
+    $('#have_own_website').prop('disabled', isDisabled);
+    $('#progress_meetings').prop('disabled', isDisabled);
+    $('#in_person_reports').prop('disabled', isDisabled);
+    $('#phone').prop('disabled', isDisabled);
+    $('#video_conferencing').prop('disabled', isDisabled);
+    $('#daily').prop('disabled', isDisabled);
+    $('#twice_per_week').prop('disabled', isDisabled);
+    $('#bi_weekly').prop('disabled', isDisabled);
+    $('#weekly').prop('disabled', isDisabled);
+    $('#references').prop('disabled', isDisabled);
+    $('#social_media').prop('disabled', isDisabled);
+    $('#facebook').prop('disabled', isDisabled);
+    $('#instagram').prop('disabled', isDisabled);
+    $('#pinterest').prop('disabled', isDisabled);
+    $('#twitter').prop('disabled', isDisabled);
+    $('#pro_videography').prop('disabled', isDisabled);
+    $('#pro_drone_videography').prop('disabled', isDisabled);
+    $('#drone_indoor').prop('disabled', isDisabled);
+    $('#drone_outdoor').prop('disabled', isDisabled);
+    $('#pro_photography').prop('disabled', isDisabled);
+    $('#online_advertising').prop('disabled', isDisabled);
+    $('#painting').prop('disabled', isDisabled);
+    $('#brochures').prop('disabled', isDisabled);
+    $('#print_advertising').prop('disabled', isDisabled);
+    $('#staging').prop('disabled', isDisabled);
+    $('#virtual_tours').prop('disabled', isDisabled);
+    $('#buy_house').prop('disabled', isDisabled);
 }
 
 function listenToEvents() {
