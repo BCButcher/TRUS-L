@@ -110,11 +110,72 @@ class ListingsDBAccess {
     const activeRows = await this.connection.query(query);
 
     const allRows = agentRows.concat(activeRows); // Not only do we need to see the listings that this agent has bid on, we need to see any active listings that this agent has not bid on yet.
+
+    // Now remove any duplicates
+    //
+    // Why are there duplicates? Because we have to run two queries:
+    //   1. All listings that have bids from this agent
+    //   2. All active listings (includes those with bids and without bids from this agent)
+    // 
+    // We need to run the second query because we need to be able to
+    // bid on a property even if it doesn't have bids yet.
+    // 
+    // But that means if the agent has bid on a property, and the customer
+    // hasn't signed with an agent yet, then the listing will be both in 
+    // the first query (this agent has bid on it) and in the second query
+    // (the listing is active). 
+    // 
+    // We cannot use the standard JavaScript filter on the arrays because
+    // the objects from the first query will have bid information in them
+    // and the objects from the second query will have dummy bid information 
+    // in them. The objects aren't equal even though they refer to the same
+    // listing.
+    // 
+    // What is the same is the listing's id (primary key). Thus, filterUnique
+    // looks at the primary key of the rows and removes any duplicates.
+    const uniqueRows = this.filterUnique(allRows); 
     // console.log("dbAccess getListingsForAgent");
     // console.log(query);
     // console.log(rows);
 
-    return allRows;
+    return uniqueRows;
+  }
+
+  // Can't use the typical JavaScript Set or filter to compare the objects in
+  // the above method (getListingsForAgent) because some of the records are 
+  // retrieved from their bids but some listings won't have bids, and thus need
+  // to be retrieved as listings alone. This means that any Active listings that
+  // have bids will be in both arrays but will be represented as different 
+  // Objects. The item that is the same across both Objects is the listing's id.
+  // 
+  // This method looks at an Object's id and if that id is already in a list, removes
+  // the duplicate.
+  filterUnique( rows ) {
+    rows.sort(
+      function(a, b) {
+        return a.id - b.id;
+      }
+    );
+
+    for(let i=0; i<rows.length; i++) {
+      let j=i+1;
+      if(j>=rows.length) {
+        break;
+      }
+
+      let row1 = rows[i];
+      let row2 = rows[j];
+      
+      if(row1.id === row2.id) {
+        // Remove the row without the bid information. We need that information
+        // in order to edit the bid. 
+        let index = (row1.bids_id === "") ? i : j;
+        rows.splice(index, 1); // remove the i-th element in the array
+        i = i-1; // need to compare the previous element with the next element
+      }
+    }
+
+    return rows;
   }
 
   // Given a listing id, if the listing is signed, return the contact information

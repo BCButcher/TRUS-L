@@ -77,7 +77,7 @@ body, html {
 }
 
 .bg {
-    background-image: url("../images/merged2.jpg");
+    background-image: url("/assets/images/merged2-BW.jpg");
     /* background-image: linear-gradient(lightgray, grey); */
     height: 100%;
     background-position: center 75%;
@@ -170,17 +170,22 @@ body, html {
 }
 
 #frontJumbo{
-    height: 40vh;
+    height: 30vh;
     font-family: 'Roboto', sans-serif;
-    background: url('../images/TRUSÆL.png') no-repeat center center; 
+    background: url('/assets/images/TRUSÆL.png') no-repeat center; 
     -webkit-background-size: contain;
     -moz-background-size: contain;
     -o-background-size: contain;
-    border: black 5px solid ;
-   }
+}
 
-.container2 {
-    text-align: center;
+.frontButton {
+    width: 35%;
+    margin-bottom: 1rem;
+}
+
+.frontSlogan {
+    font-weight: bold;
+    font-size: 2em;
 }
 
 .fa-1x {

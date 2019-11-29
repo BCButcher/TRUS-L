@@ -102,7 +102,13 @@ function getListingRowForAgent(sectionName, listing, index, collapsedAccordionId
       }
       // view = `<a href="/biddetails?id=${listing.poster_id}">Bid</a>`;
   } else if (listing.bid_status === 'Active') {
-    view = `<a href="/createbid?id=${listing.id}">Bid</a>`;
+    if(listing.bids_id === "") {
+      // No bid has been created
+      view = `<a href="/createbid?id=${listing.id}">Bid</a>`;
+    } else {
+      // Edit the bid that was created
+      view = `<a href="/biddetails?id=${listing.bids_id}">Edit Bid</a>`;
+    }
   } else {
     // Should never happen
     console.log("Error. Unknown bid status ", listing);

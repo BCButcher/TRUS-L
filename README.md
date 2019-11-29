@@ -41,8 +41,8 @@ There is no automated test suite for this application. Instead, we ran the follo
 ### Manual tests
 #### USER
     1. New user clicks "Sell a house" > creates a profile and listing > redirected to login > redirected to dashboard.
-      a. Seeing dashboard for first time, user sees their listing on the top and no bids below.
-    2. Existing user logs in, sees the dashboard. They have bids. They click on a bid > taken to biddetails > They accept or reject the bid.
+      a. Seeing dashboard for first time, user sees their listing.
+    2. Existing user logs in, sees the dashboard. When they click on a listing they can see the bids for that listing. They view bid > taken to a page where they see the bid > they accept or reject the bid.
       a. If reject, they are prompted for a reason. Whether they provide one or not, the bid is rejected in the database. User is taken back to the dashboard.
       b. If accept, this bid is updated to Signed, every other bid on the listing is rejected with automatic reason "Awarded to another agent" and the listing is updated to Signed. User is taken back to the dashboard.
 

@@ -49,7 +49,8 @@ async function renderPageForAgent(listings) {
     );
 
     // If the agent has made at least one bid
-    const bids = getBidsForAgent(getUserInfo().agent_id);
+    const userInfo = getUserInfo();
+    const bids = await getBidsForAgent(userInfo.agent_id);
     if(bids.length > 0) {
       const viewBidsButton = `
           <button type="button" onClick="window.location.href='/viewbids?agent_id=${userInfo.agent_id}'" class="btn btn-trusael">View all bids</button>
