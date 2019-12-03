@@ -5,6 +5,20 @@ async function getBidsForListing(listing_id) {
   });
 }
 
+async function getAgentWithId(agent_id) {
+  return $.ajax({
+    url: "/api/agent/" + agent_id,
+    method: "GET"
+  });
+}
+
+async function getReviews(agent_id) {
+  return $.ajax({
+    url: "/api/reviews/" + agent_id,
+    method: "GET"
+  });
+}
+
 async function getBidsForAgent(agent_id) {
   return $.ajax({
     url: "/api/bid/agent/all/" + agent_id,
@@ -173,7 +187,31 @@ function getBidRowForAgent(bid) {
   return bidsRow;
 }
 
-function getBidRowForUser(bid) {
+function getStars(starsAverage) {
+  let stars = [];
+  for(let i=0; i<Math.floor(starsAverage); i++) {
+    stars.push('<i class="fas fa-star"></i>');
+  }
+  if(parseInt(starsAverage) < starsAverage) {
+    stars.push('<i class="fas fa-star-half-alt"></i>'); 
+  }
+
+  let remainingStars = 5 - stars.length;
+  for(let i=0; i<remainingStars; i++){
+      stars.push('<i class="far fa-star"></i>');
+  }
+  return stars.join('').toString();  
+}
+
+function getStarsAverage(rows) {
+  let starsCount = rows.reduce((a, b) => a + b, 0);
+  // console.log(starsCount);
+  let starsAverage = (starsCount / rows.length).toFixed(1);
+  // console.log(starsAverage);
+  return starsAverage;
+}
+
+async function getBidRowForUser(bid) {
   if(bid.bid_status !== 'Active') {
     // The user does not have anything else to do if it's Rejected. The agent can counter 
     // but that's it for the user.
@@ -183,6 +221,10 @@ function getBidRowForUser(bid) {
     return;
   }
 
+  let review = await getReviews(bid.agent_id);
+  let rows = review.map( (row) => {return row.stars;});
+  let starsAverage = getStarsAverage(rows);
+  let stars = getStars(starsAverage);
   let bidsRow = 
   `
     <br>
@@ -193,13 +235,38 @@ function getBidRowForUser(bid) {
       ${bid.first_name} ${bid.last_name}</h5>
       <div class="d-flex w-100 justify-content-between">
         <p class='text-info'><i class="fas fa-quote-left"></i> ${bid.message} <i class="fas fa-quote-right"></i></p>
-        <small class="text-success font-weight-bold">${bid.bid_status}</small>
+      </div>
+      <div class="d-flex w-100 justify-content-between">
+        <small class="text-success font-weight-bold">Rating ${stars} (${starsAverage} out of 5) </small>
+        <a href="/viewreviews?id=${bid.agent_id}">View reviews</a>
       </div>
      </a>
     </div>
     
    `;
   return bidsRow;
+}
+
+async function getReviewRows(agent_id) {
+  let reviews = await getReviews(agent_id);
+
+  let reviewRows = "";
+  for(review of reviews){
+    let stars = getStars(review.stars);
+    reviewRows += `
+      <div class="card border-left-0 border-right-0 mt-3">
+        <div class="d-flex w-100 justify-content-between">
+          <small class="text-success font-weight-bold">Rating ${stars} (${review.stars} out of 5) </small>
+        </div>
+        <div class="d-flex w-100 justify-content-between mt-3">
+          <p class='text-info'><i class="fas fa-quote-left"></i> ${review.review} <i class="fas fa-quote-right"></i></p>
+        </div>
+        <h6 class="card-title text-dark"> --<i class="fas fa-user-tie"></i> ${review.first_name} </h6>
+      </div>
+    `;
+  }
+
+  return reviewRows;
 }
 
 function getUserInfo() {

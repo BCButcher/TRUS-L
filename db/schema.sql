@@ -48,6 +48,13 @@ CREATE TABLE bids (
    createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
--- ENUM("Rent", "Buy", "Sell", "Rent out"),
--- ENUM("In-person tours", "Online advertising", "Paint", "Print brochures", "Print advertising", "Staging", "Virtual tours", "Buy your house if you can't sell it"),
+CREATE TABLE reviews (
+    id INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    agent_id INTEGER NOT NULL,
+    poster_id INTEGER NOT NULL,
+    review VARCHAR(500),
+    stars INTEGER NOT NULL,
+    FOREIGN KEY (agent_id) REFERENCES agents(id),
+    createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+)
 

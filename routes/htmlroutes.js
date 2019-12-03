@@ -51,6 +51,11 @@ router.get('/viewbids', function (req, res) {
   res.sendFile(path.join(__dirname, '..', 'public', 'viewbids.html'));
 });
 
+// View all reviews for an agent.
+router.get('/viewreviews', function (req, res) {
+  res.sendFile(path.join(__dirname, '..', 'public', 'viewreviews.html'));
+});
+
 // View client contact information
 router.get('/clientdetails', function (req, res) {
   res.sendFile(path.join(__dirname, '..', 'public', 'clientdetails.html'));

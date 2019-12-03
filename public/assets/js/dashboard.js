@@ -145,58 +145,6 @@ function getFilteredListingSection(sectionName, filteredListings, index) {
   return listingRow;
 }
 
-// async function renderOpenBidsForAgent() {
-//   try {
-//     const bidsList = $('#bids').empty();
-
-
-//     let userInfo = getUserInfo();
-//     let bids = await getOpenBidsForAgent(userInfo.agent_id);
-//     if(bids.length == 0) {
-//        bidsList.append(`<p>You have no open bids</p>`);
-//        return;
-//     }
-
-//      const bidsHeader = $('#bidsHeader').empty();
-//      bidsHeader.append(`<h1>Open Bids</h1>`);
- 
-//       for(const bid of bids) {
-//           let bidsRow = getBidRowForAgent(bid);
-//           bidsList.append(bidsRow);
-//         } 
-//     } catch(err) {
-//         console.log(err);
-//     };
-// }
-
-
-// // Show the bids for the listing with the current id
-// async function renderBidsForListing(listing_id, address) {
-//   try {
-//     const bidsList = $('#bids').empty();
-//     if(listing_id === null) {
-//        // no listing has been selected yet
-//        bidsList.append(`<li>Select a listing to see its bids</li>`);
-//        return;
-//      }
-
-//      let bids = await getBidsForListing(listing_id);
-//      if(bids.length == 0) {
-//           bidsList.append(`<li>No bids for this listing yet</li>`);
-//      }
-
-//      const bidsHeader = $('#bidsHeader').empty();
-//      bidsHeader.append(`<h1>Bids For <i>${address}</i></h1>`);
- 
-//       for(const bid of bids) {
-//           let bidsRow = getBidRowForUser(bid);
-//           bidsList.append(bidsRow);
-//         } 
-//     } catch(err) {
-//         console.log(err);
-//     };
-// }
-
 $( document ).ready(function() {
   // Read the user_id from session storage
   // If it isn't there, redirect to the login page to set it.

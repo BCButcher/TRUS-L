@@ -15,7 +15,7 @@ class AgentDBAccess extends UserDBAccess {
   }
 
   async getAgentWithId(user_id) {
-    let query = 'SELECT users.id, users.first_name, users.last_name, users.display_name, users.email, agents.phone, agents.license, agents.title, agents.web_site from (users INNER JOIN agents ON users.agent_id = agents.id) WHERE users.id=?';
+    let query = 'SELECT users.id, users.first_name, users.last_name, users.display_name, users.email, agents.phone, agents.license, agents.title, agents.web_site from (users INNER JOIN agents ON users.agent_id = agents.id) WHERE agents.id=?';
     let args = [user_id];
     const rows = await this.connection.query(query, args);
     return rows;
@@ -70,6 +70,15 @@ class AgentDBAccess extends UserDBAccess {
     const user_id = userPart.id;
     rows = await this.getAgentWithId(user_id);
     return rows[0];
+  }
+
+  async getReviews(agentId) {
+    let query = 'SELECT stars, review, users.first_name from (users INNER JOIN reviews ON reviews.poster_id = users.id) WHERE reviews.agent_id=?';
+    const args = [
+      agentId
+    ];
+    const rows = await this.connection.query(query, args);
+    return rows;
   }
 
   async close() {

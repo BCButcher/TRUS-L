@@ -1,22 +1,22 @@
 header {
     text-align: center;
-    background: url('/assets/images/TRUSÆL.png') no-repeat left;
+    background: url('/assets/images/trusael.svg') no-repeat left;
     padding-top: 50px;
     padding-bottom: 30px;
     border: 0;
 }
 
 .bg-trusael {
-    background-color: #0083d0!important;
+    background-color: #383838!important;
 }
 
 .btn-trusael {
-    background-color: #0083d0!important;
+    background-color: #383838!important;
     color: white!important;
 }
 
 .text-trusael {
-    color: #0083d0!important;
+    color: #383838!important;
 }
 
 body, .bg-bodyBackground {
@@ -35,21 +35,21 @@ body, html {
 /* On screens that are 768px or more (bootstrap medium) */
 @media screen and (min-width: 768px) {
     img.logo {
-      background: url('/assets/images/TRUSÆL.png') no-repeat left;
-      min-width: 196px;
-      min-height: 75px;
+      background: url('/assets/images/TRUSÆL-sm.png') no-repeat left;
+      min-width: 131px;
+      min-height: 50px;
       border: 0;
     }
 
     nav {
-      background-color: lightgray!important;
-      color: black;
-      min-width: 196px;
-      min-height: 75px;
+      background-color: #383838!important;
+      color: white!important;
+      min-width: 131px;
+      min-height: 50px;
     }
     
     .font-color {
-      color: black!important;
+      color: white!important;
     }
 
     /* <img src="./assets/images/TRUSÆL-sm.png" alt="Trusael logo"> */
@@ -64,7 +64,7 @@ body, html {
     }  
 
     nav {
-      background-color: #0083d0!important;
+      background-color: #383838!important;
       color: white!important;
       min-width: 131px;
       min-height: 50px;
@@ -78,7 +78,6 @@ body, html {
 
 .bg {
     background-image: url("/assets/images/merged2-BW.jpg");
-    /* background-image: linear-gradient(lightgray, grey); */
     height: 100%;
     background-position: center 75%;
     background-repeat: no-repeat;
@@ -150,7 +149,7 @@ body, html {
 }
 
 .dashboard-card-button-address {
-    background-color: #0083d0!important;
+    background-color: #adb3b8!important;
 }
 
 .dashboard-card-button-text {

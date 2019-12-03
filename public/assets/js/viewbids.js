@@ -28,7 +28,7 @@ async function renderPageForConsumer(listing_id) {
 
   for(let i=0; i<bids.length; i++) {
     const bid = bids[i];
-    bidSection += getBidRowForUser(bid, i);
+    bidSection += await getBidRowForUser(bid);
   }
 
   bidSection += `
