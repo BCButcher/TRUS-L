@@ -101,7 +101,7 @@ This project is not open to contributions.
 
 ## Authors
 
-* **Brian C Butcher** - *Bootstrap, CSS, JavaScript* - [BCButcher](https://github.com/BCButcher)
+* **Brian C Butcher** - *Bootstrap, CSS, JavaScript, Google Analytics code* - [BCButcher](https://github.com/BCButcher)
 * **Ruth Lee** - *MySQL (including dotenv), deploytment to Heroku, server (Node, Express), JavaScript, jQuery, CSS, and Bootstrap* - [ruthtech](https://github.com/ruthtech)
 * **Chris Pong** - *Bootstrap, JavaScript, jQuery, and AJAX* - [cheachster](https://github.com/cheachster)
 
