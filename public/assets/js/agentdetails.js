@@ -1,6 +1,5 @@
 
-function displayContactInfo() {
-    const listingId = getParam()[1];
+function displayContactInfoAndReviewButton(listingId) {
     const listingsList = $('#contact').empty();
 
     // AJAX Get call
@@ -11,6 +10,7 @@ function displayContactInfo() {
         let user = users[0];
 
         if(user == undefined) {
+            console.log("Should not happen. Signed listing but no agent. Listing id is " + listingId);
             listingsList.append(
                 `
                 <div class="list-group pt-3">
@@ -36,16 +36,23 @@ function displayContactInfo() {
             </div>
             `
             );
+
+            const reviewButton = $('#review').empty();
+            const button = `
+                <button type="button" class="btn-secondary" onClick="window.location.href='/submitreview?id=${user.id}'">Review agent</button>
+            `;
+            reviewButton.append(button);
         }
     }).catch(function(err) {
         console.log(err);
     })
 }
 
-
 $( document ).ready(function() {
+    const listingId = getParam()[1];
+
     generateDisplayName();
     generateLoginLogout();
-    displayContactInfo();
+    displayContactInfoAndReviewButton(listingId);
 });
   

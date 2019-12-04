@@ -42,6 +42,20 @@ class AgentDBAccess extends UserDBAccess {
     return rows;
   }
 
+  async createReview(agent_id, poster_id, stars, review) {
+    const unescapedReview = unescape(review);
+
+    let query = 'INSERT INTO reviews (agent_id, poster_id, stars, review) VALUES (?, ?, ?, ?)';
+    let args = [
+      agent_id,
+      poster_id,
+      stars,
+      unescapedReview
+    ];
+    let rows = await this.connection.query(query, args);
+    return rows[0];
+  }
+
   //  2. Post new agent
   async createAgent(agentInfo) {
     // INSERT INTO agents (license, first_name, last_name, email, phone, web_site)

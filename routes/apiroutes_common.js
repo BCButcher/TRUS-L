@@ -33,4 +33,18 @@ router.get('/api/reviews/:agent_id', async function (req, res) {
   return res;
 });
 
+router.post('/api/reviews/:agent_id/:poster_id/:stars/:review', async function (req, res) {
+  try {
+    res.status(200);
+    res.send(await agentDBAccess.createReview(req.params.agent_id, req.params.poster_id, req.params.stars, req.params.review));
+  } catch (err) {
+    // Internal error on the server side.
+    console.log(err);
+    res.status(500);
+    res.send(err);
+  }
+  return res;
+});
+
+
 module.exports = router;

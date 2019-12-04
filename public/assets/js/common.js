@@ -237,8 +237,8 @@ async function getBidRowForUser(bid) {
         <p class='text-info'><i class="fas fa-quote-left"></i> ${bid.message} <i class="fas fa-quote-right"></i></p>
       </div>
       <div class="d-flex w-100 justify-content-between">
-        <small class="text-success font-weight-bold">Rating ${stars} (${starsAverage} out of 5) </small>
-        <a href="/viewreviews?id=${bid.agent_id}">View reviews</a>
+        <small class="text-warning font-weight-bold">Rating ${stars} (${starsAverage} out of 5) </small>
+        <small><a href="/viewreviews?id=${bid.agent_id}">View reviews</a></small>
       </div>
      </a>
     </div>
@@ -256,7 +256,7 @@ async function getReviewRows(agent_id) {
     reviewRows += `
       <div class="card border-left-0 border-right-0 mt-3">
         <div class="d-flex w-100 justify-content-between">
-          <small class="text-success font-weight-bold">Rating ${stars} (${review.stars} out of 5) </small>
+          <small class="text-warning font-weight-bold">Rating ${stars} (${review.stars} out of 5) </small>
         </div>
         <div class="d-flex w-100 justify-content-between mt-3">
           <p class='text-info'><i class="fas fa-quote-left"></i> ${review.review} <i class="fas fa-quote-right"></i></p>
