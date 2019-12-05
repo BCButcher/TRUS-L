@@ -19,58 +19,57 @@ header {
     color: #383838!important;
 }
 
-body, .bg-bodyBackground {
+body,
+.bg-bodyBackground {
     background-color: lightgray!important;
 }
 
-body, html {
-  height: 100%;
-  width: 100%;
+body,
+html {
+    height: 100%;
+    width: 100%;
 }
 
 .active {
     font-weight: bold;
 }
 
+
 /* On screens that are 768px or more (bootstrap medium) */
+
 @media screen and (min-width: 768px) {
     img.logo {
-      background: url('/assets/images/TRUSÆL-sm.png') no-repeat left;
-      min-width: 131px;
-      min-height: 50px;
-      border: 0;
+        background: url('/assets/images/TRUSÆL-sm.png') no-repeat left;
+        min-width: 131px;
+        min-height: 50px;
+        border: 0;
     }
-
     nav {
-      background-color: #383838!important;
-      color: white!important;
-      min-width: 131px;
-      min-height: 50px;
+        background-color: #383838!important;
+        color: white!important;
+        min-width: 131px;
+        min-height: 50px;
     }
-    
     .font-color {
-      color: white!important;
+        color: white!important;
     }
-
     /* <img src="./assets/images/TRUSÆL-sm.png" alt="Trusael logo"> */
 }
 
 @media screen and (max-width: 767px) {
-    img.logo  {
-      background: url('/assets/images/TRUSÆL-sm.png') no-repeat left;
-      min-width: 131px;
-      min-height: 50px;
-      border: 0;
-    }  
-
-    nav {
-      background-color: #383838!important;
-      color: white!important;
-      min-width: 131px;
-      min-height: 50px;
-      margin-bottom: 1rem;
+    img.logo {
+        background: url('/assets/images/TRUSÆL-sm.png') no-repeat left;
+        min-width: 131px;
+        min-height: 50px;
+        border: 0;
     }
-
+    nav {
+        background-color: #383838!important;
+        color: white!important;
+        min-width: 131px;
+        min-height: 50px;
+        margin-bottom: 1rem;
+    }
     .font-color {
         color: white!important;
     }
@@ -120,7 +119,8 @@ body, html {
     margin-bottom: 0;
 }
 
-.dashboard-card-button-signed, .dashboard-card-button-active {
+.dashboard-card-button-signed,
+.dashboard-card-button-active {
     font-weight: bold;
     color: white;
     padding: .5rem;
@@ -135,7 +135,8 @@ body, html {
     background-color: #343a40;
 }
 
-.dashboard-card-button-section, .dashboard-card-button-address {
+.dashboard-card-button-section,
+.dashboard-card-button-address {
     display: flex!important;
     color: white!important;
     width: 100%;
@@ -168,10 +169,10 @@ body, html {
     background-color: #f8f9fa!important;
 }
 
-#frontJumbo{
+#frontJumbo {
     height: 30vh;
     font-family: 'Roboto', sans-serif;
-    background: url('/assets/images/TRUSÆL.png') no-repeat center; 
+    background: url('/assets/images/TRUSÆL.png') no-repeat center;
     -webkit-background-size: contain;
     -moz-background-size: contain;
     -o-background-size: contain;
@@ -183,8 +184,9 @@ body, html {
 }
 
 .frontSlogan {
+    font-family: Nothing you could do;
     font-weight: bold;
-    font-size: 2em;
+    font-size: 3em;
 }
 
 .fa-1x {
@@ -272,23 +274,22 @@ body, html {
     display: inline-block;
 }
 
-
 .custom-checkbox {
-    display: inline-block; 
+    display: inline-block;
     justify-content: space-around;
     flex-wrap: wrap;
     min-width: 8em;
 }
 
-
-.card{
+.card {
     padding: 20px;
     border-right: none;
 }
 
-#listingsHeader{
+#listingsHeader {
     text-align: center;
 }
-#bidsHeader{
+
+#bidsHeader {
     text-align: center;
 }
