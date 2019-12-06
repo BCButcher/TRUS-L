@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
-    <link rel="stylesheet" type="text/css" href="/public/assets/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="./assets/css/style.css" />
     <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
@@ -18,10 +18,9 @@
     <title>TRUSÆL</title>
 </head>
 
-<body>
-    <div class="container-fluid bg text-center">
-        <div id="frontJumbo"></div>
-
+<body id="home_page">
+    <div class="container-fluid bg text-center" id="head_div">
+        <img src="../public/assets/images/TRUSÆL-LG-ALL3D.svg" id="home_page_logo">
         <div class="row pt-3 pb-3">
             <div class="col">
                 <p class="frontSlogan">Real Estate, Reinvented</p>
@@ -30,23 +29,22 @@
 
         <div class="row">
             <div class="col">
-                <button type="button" class="btn btn-secondary frontButton" onClick="window.location.href='/profile/consumer'">
+                <button type="button" class="btn btn-primary frontButton" onClick="window.location.href='/profile/consumer'" id="hp_consumer_btn">
               I'm a Buyer
             </button>
             </div>
         </div>
         <div class="row">
             <div class="col">
-                <button type="button" class="btn btn-secondary frontButton" onClick="window.location.href='/profile/agent'">
+                <button type="button" class="btn btn-primary frontButton" onClick="window.location.href='/profile/agent'" id="hp_agent_btn">
                 I'm an Agent
              </button>
             </div>
         </div>
-        <div class="row">
-            <div class="col">
-                <button onclick="window.location.href='/login' " type="button" class="btn btn-secondary pt-1 pb-1">
-                Login
-              </button>
+        <div class="row ">
+            <div class="col ">
+                <button onclick="window.location.href='/login' " type="button " class="btn btn-primary pt-1 pb-1" id="hp_login_btn"> Login
+                </button>
             </div>
         </div>
     </div>
