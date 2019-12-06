@@ -16,7 +16,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" type="text/css" href="/assets/css/style.css">
+    <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=EB+Garamond|Lato|Audiowide|Nothing+You+Could+Do+Display+SC&display=swap">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -24,60 +25,56 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <title>View Bids</title>
 </head>
+
 <body>
     <!--Navbar-->
     <nav class="navbar navbar-light lighten-4 sticky-top navbar-expand-md" id="navbar">
         <div class="navbar-header">
-          <!-- Navbar brand -->
-          <a class="navbar-brand font-size-sm" href="/" id="logo">
-              <div><img class="logo" /></div>
-          </a>
+            <!-- Navbar brand -->
+            <a class="navbar-brand font-size-sm" href="/" id="logo">
+                <div><img class="logo" /></div>
+            </a>
         </div>
         <a class="navbar-text font-color align-bottom" href="/login" id="displayName">Hello, Cindy</a>
-      
+
         <!-- Collapse button -->
-        <button class="navbar-toggler font-color" 
-          type="button" 
-          data-toggle="collapse" 
-          data-target="#navbarSupportedContent1" 
-          aria-controls="navbarSupportedContent1" 
-          aria-expanded="false" 
-          aria-label="Toggle navigation"><i class="fas fa-bars fa-1x"></i></button>
-      
+        <button class="navbar-toggler font-color" type="button" data-toggle="collapse" data-target="#navbarSupportedContent1" aria-controls="navbarSupportedContent1" aria-expanded="false" aria-label="Toggle navigation"><i class="fas fa-bars fa-1x"></i></button>
+
         <!-- Collapsible content -->
         <div class="collapse navbar-collapse" id="navbarSupportedContent1">
-      
-          <!-- Links -->
-          <ul class="navbar-nav ml-auto">
-          <li class="nav-item">
-              <a class="nav-link font-color" href="/">Home</a>
-          </li>
-          <li class="nav-item">
-              <a class="nav-link font-color" href="/about">About</a>
-          </li>
-          <li class="nav-item">
-              <a class="nav-link font-color" href='/contact'>Contact</a>
-          </li>
-          <li class="nav-item">
-              <a class="nav-link font-color" href='/dashboard'>Dashboard <span class="sr-only">(current)</span></a>
-          </li>
-          <li class="nav-item" id="logout">
-          </li>
-          </ul>
-          <!-- Links -->     
-        </div>
-    <!-- Collapsible content -->
-     </nav>
-  
-    <div class="container-fluid dashboard-container">
-        <div class="row dashboard-row">
-          <div class="col dashboard-col" id="bids">
-          </div>
-        </div>
-     </div>
 
-    <script src="/assets/js/common.js"></script>
-    <script src="/assets/js/viewbids.js"></script>
+            <!-- Links -->
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link font-color" href="/">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link font-color" href="/about">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link font-color" href='/contact'>Contact</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link font-color" href='/dashboard'>Dashboard <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item" id="logout">
+                </li>
+            </ul>
+            <!-- Links -->
+        </div>
+        <!-- Collapsible content -->
+    </nav>
+
+    <div class="container-fluid dashboard-container">
+        <h1 class="text-center" id="page_title_text"> VIEW BIDS </h1>
+        <div class="row dashboard-row">
+            <div class="col dashboard-col" id="bids">
+            </div>
+        </div>
+    </div>
+
+    <script src="./assets/js/common.js"></script>
+    <script src="./assets/js/viewbids.js"></script>
 
 </body>
 

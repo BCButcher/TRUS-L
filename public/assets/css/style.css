@@ -1,27 +1,13 @@
-header {
+/* SITE WIDE CSS START*/
+
+head {
     text-align: center;
-    background: url('/assets/images/trusael.svg') no-repeat left;
+    background: url('/public/assets/images/TRUSÆL-LG-3DREND.png') no-repeat left;
     padding-top: 50px;
     padding-bottom: 30px;
     border: 0;
-}
-
-.bg-trusael {
-    background-color: #383838!important;
-}
-
-.btn-trusael {
-    background-color: #383838!important;
-    color: white!important;
-}
-
-.text-trusael {
-    color: #383838!important;
-}
-
-body,
-.bg-bodyBackground {
-    background-color: lightgray!important;
+    width: 700px;
+    height: auto;
 }
 
 body,
@@ -30,16 +16,12 @@ html {
     width: 100%;
 }
 
-.active {
-    font-weight: bold;
-}
-
 
 /* On screens that are 768px or more (bootstrap medium) */
 
 @media screen and (min-width: 768px) {
     img.logo {
-        background: url('/assets/images/TRUSÆL-sm.png') no-repeat left;
+        background: url('../images/TRUSÆL-sm.png') no-repeat left;
         min-width: 131px;
         min-height: 50px;
         border: 0;
@@ -58,7 +40,7 @@ html {
 
 @media screen and (max-width: 767px) {
     img.logo {
-        background: url('/assets/images/TRUSÆL-sm.png') no-repeat left;
+        background: url('../images/TRUSÆL-sm.png') no-repeat left;
         min-width: 131px;
         min-height: 50px;
         border: 0;
@@ -75,17 +57,164 @@ html {
     }
 }
 
-.bg {
-    background-image: url("/assets/images/merged2-BW.jpg");
-    height: 100%;
-    background-position: center 75%;
+#page_title_text {
+    margin-top: 20px;
+    font-family: nothing you could do;
+    font-weight: bold;
+    font-size: 3em;
+}
+
+
+/* SITE WIDE CSS END */
+
+
+/*------------------------------------------------------------------------------*/
+
+
+/* HOME PAGE CSS START */
+
+#home_page::after {
+    content: "";
+    background-image: url(https://www.angiemcmonigal.com/site_v2/wp-content/uploads/2017/09/Angie-McMonigal-Photography-7955-Edit-Edit-1-1024x683.jpg);
     background-repeat: no-repeat;
     background-size: cover;
+    opacity: 0.5;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    z-index: -1;
+}
+
+#head_div {
+    margin-top: 150px;
+}
+
+#home_page_logo {
+    width: 400px;
+    height: auto;
+}
+
+#hp_consumer_btn {
+    width: 130px;
+    background-color: #1570C1;
+}
+
+#hp_agent_btn {
+    width: 130px;
+    background-color: #1F9EED;
+}
+
+#hp_login_btn {
+    width: 130px;
+    background-color: #1F9EED;
+}
+
+
+/* HOME PAGE CSS END */
+
+
+/*------------------------------------------------------------------------------*/
+
+
+/* ABOUT PAGE CSS START */
+
+#about_para_one {}
+
+#about_para_two {}
+
+#about_para_three {
+    font-weight: bold;
+}
+
+#image10 {
+    width: 350px;
+    height: auto;
+    padding: 0 15px;
+    float: left;
+}
+
+#image11 {
+    width: 450px;
+    height: auto;
+    padding: 0 15px;
+    float: right;
+}
+
+
+/* ABOUT PAGE CSS END */
+
+
+/*------------------------------------------------------------------------------*/
+
+
+/* AGENT DETAILS PAGE CSS START */
+
+
+/* AGENT DETAILS PAGE CSS END */
+
+
+/*------------------------------------------------------------------------------*/
+
+
+/* BID DETAILS PAGE CSS START */
+
+#bid_details .bg-trusael {
+    background-color: #383838!important;
+}
+
+.btn-trusael {
+    background-color: #383838!important;
+    color: white!important;
+}
+
+.text-trusael {
+    color: #383838!important;
+}
+
+.active {
+    font-weight: bold;
 }
 
 .font-size-sm {
     font-size: 1rem!important;
 }
+
+
+/*--------------------------------------------------------------------------*/
+
+
+/* CONTACT CONFIRM PAGE CSS START */
+
+#contact_thanks {
+    display: flex;
+    flex-flow: column;
+    margin-top: 175px;
+    text-align: center;
+}
+
+#contact_trusael_text {
+    font-family: audiowide;
+    color: #1570C1;
+    font-weight: bold;
+    font-size: 54px;
+}
+
+#contact_thx_text,
+#contact_custsvc_text {
+    font-weight: bold;
+    font-size: 25px;
+}
+
+
+/* CONTACT CONFIRM PAGE CSS END */
+
+
+/*-------------------------------------------------------------*/
+
+
+/* DASHBOARD PAGE CSS START */
 
 .dashboard-container {
     margin: 0;
@@ -169,14 +298,100 @@ html {
     background-color: #f8f9fa!important;
 }
 
-#frontJumbo {
-    height: 30vh;
-    font-family: 'Roboto', sans-serif;
-    background: url('/assets/images/TRUSÆL.png') no-repeat center;
-    -webkit-background-size: contain;
-    -moz-background-size: contain;
-    -o-background-size: contain;
+
+/* DASHBOARD PAGE CSS END */
+
+
+/*--------------------------------------------------------------------------*/
+
+
+/* DELETE BID PAGE CSS START */
+
+#delete_bid_btn {
+    color: #1570C1;
 }
+
+
+/* DELETE BID PAGE CSS END */
+
+
+/*--------------------------------------------------------------------------*/
+
+
+/* LOGIN PAGE CSS START */
+
+#email_login_input,
+#password_login_input {
+    display: flex;
+    align-content: center;
+    width: 350px;
+}
+
+
+/* LOGIN PAGE CSS END */
+
+
+/*---------------------------------------------------------------------------*/
+
+
+/* PROFILE A PAGE CSS START */
+
+#agentName,
+#agentLast,
+#agentTitle,
+#profileDisplayName,
+#licenseNumber,
+#agentPhone,
+#agentEmail,
+#agentPass {
+    width: 350px;
+}
+
+#cons_prof_save_btn {
+    background-color: #1570C1!important;
+    width: 250px;
+}
+
+#page_title_text {
+    margin-bottom: 20px;
+}
+
+
+/* PROFILE A PAGE CSS END */
+
+
+/*---------------------------------------------------------------------------*/
+
+
+/* PROFILE C PAGE CSS START */
+
+#firstName,
+#lastName,
+#profileDisplayNameCons,
+#email,
+#password {
+    width: 100px;
+}
+
+
+/* PROFILE C PAGE CSS END */
+
+
+/*----------------------------------------------------------------------------*/
+
+
+/* SUBMIT REVIEW PAGE CSS START */
+
+#review,
+#review_text {
+    width: 500px;
+}
+
+
+/* SUBMIT REVIEW PAGE CSS END */
+
+
+/*----------------------------------------------------------------------------*/
 
 .frontButton {
     width: 35%;
