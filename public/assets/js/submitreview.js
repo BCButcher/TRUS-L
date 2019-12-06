@@ -1,6 +1,9 @@
 function submitReview() {
     let agent_id = getParam()[1];
     let review = $("#review").val().trim();
+    if(review === "") {
+        review = "The stars say it all."
+    }
     let escapedReview = escape(review);
     let stars = $("#stars").val().trim();
     let poster_id = getUserInfo().user_id;

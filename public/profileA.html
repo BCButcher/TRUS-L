@@ -29,6 +29,7 @@
 <body>
     <!--Navbar-->
     <nav class="navbar navbar-light lighten-4 sticky-top navbar-expand-md" id="navbar">
+<<<<<<< HEAD
         <div class="navbar-header">
             <!-- Navbar brand -->
             <a class="navbar-brand font-size-sm" href="/" id="logo">
@@ -63,44 +64,93 @@
             <!-- Links -->
         </div>
         <!-- Collapsible content -->
+=======
+      <div class="navbar-header">
+        <!-- Navbar brand -->
+        <a class="navbar-brand font-size-sm" href="/" id="logo">
+            <div><img class="logo" alt="logo" src="/assets/images/placeholder.png" /></div>
+        </a>
+      </div>
+      <a class="navbar-text font-color align-bottom" href="/login" id="displayName">Hello, Sign In</a>
+    
+      <!-- Collapse button -->
+      <button class="navbar-toggler font-color" 
+        type="button" 
+        data-toggle="collapse" 
+        data-target="#navbarSupportedContent1" 
+        aria-controls="navbarSupportedContent1" 
+        aria-expanded="false" 
+        aria-label="Toggle navigation"><i class="fas fa-bars fa-1x"></i></button>
+    
+      <!-- Collapsible content -->
+      <div class="collapse navbar-collapse" id="navbarSupportedContent1">
+    
+        <!-- Links -->
+        <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+            <a class="nav-link font-color" href="/">Home</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link font-color" href="/about">About</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link font-color" href='/contact'>Contact</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link font-color" href='/dashboard'>Dashboard <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item" id="logout">
+        </li>
+        </ul>
+        <!-- Links -->     
+      </div>
+    <!-- Collapsible content -->
+>>>>>>> 0dbc34b20ed28b356eafc2f91e10311e9fb98aec
     </nav>
 
 
     <div class="container-fluid p-3">
         <div class="row">
             <div class="col">
+<<<<<<< HEAD
                 <h1 class="text-center" id="page_title_text"> CREATE YOUR PROFILE </h1>
                 <div class="form-group mt-2" id="cons_prof_input_sec">
                     <label for="agentName">First Name:</label>
                     <input type="name" class="form-control" id="agentName" aria-describedby="emailHelp" placeholder="Please enter your first name">
+=======
+                <h1 class="text-center">Create Agent Profile</h1>
+                <div class="form-group mt-2">
+                    <label id="agentHelp" for="agentName">First Name:</label>
+                    <input type="text" class="form-control" id="agentName" aria-describedby="agentHelp" placeholder="Please enter your first name">
+>>>>>>> 0dbc34b20ed28b356eafc2f91e10311e9fb98aec
                 </div>
                 <div class="form-group mt-2">
-                    <label for="agentLast">Last Name:</label>
-                    <input type="name" class="form-control" id="agentLast" aria-describedby="emailHelp" placeholder="Please enter your last name">
+                    <label id="surnameHelp" for="agentLast">Last Name:</label>
+                    <input type="text" class="form-control" id="agentLast" aria-describedby="surnameHelp" placeholder="Please enter your last name">
                 </div>
                 <div class="form-group mt-2">
-                    <label for="agentTitle">Title:</label>
-                    <input type="name" class="form-control" id="agentTitle" aria-describedby="emailHelp" placeholder="Please enter your working title">
+                    <label id="titleHelp" for="agentTitle">Title:</label>
+                    <input type="text" class="form-control" id="agentTitle" aria-describedby="titleHelp" placeholder="Please enter your working title">
                 </div>
                 <div class="form-group mt-2">
-                    <label for="profileDisplayName">Display Name</label>
-                    <input type="name" class="form-control" id="profileDisplayName" aria-describedby="emailHelp" placeholder="Please enter your working title">
+                    <label id="displayHelp" for="profileDisplayName">Display Name</label>
+                    <input type="text" class="form-control" id="profileDisplayName" aria-describedby="displayHelp" placeholder="Please enter your working title">
                 </div>
                 <div class="form-group mt-2">
-                    <label for="licenseNumber">CREA License Number:</label>
-                    <input type="name" class="form-control" id="licenseNumber" aria-describedby="emailHelp" placeholder="Please enter your CREA License #">
+                    <label id="licenseHelp" for="licenseNumber">CREA License Number:</label>
+                    <input type="text" class="form-control" id="licenseNumber" aria-describedby="licenseHelp" placeholder="Please enter your CREA License #">
                 </div>
                 <div class="form-group mt-2">
-                    <label for="agentPhone">Phone Number:</label>
-                    <input type="name" class="form-control" id="agentPhone" aria-describedby="emailHelp" placeholder="Please enter your phone #">
+                    <label id="phoneHelp" for="agentPhone">Phone Number:</label>
+                    <input type="text" class="form-control" id="agentPhone" aria-describedby="phoneHelp" placeholder="Please enter your phone #">
                 </div>
                 <div class="form-group mt-2">
-                    <label for="agentEmail">Email Address:</label>
-                    <input type="name" class="form-control" id="agentEmail" aria-describedby="emailHelp" placeholder="Please enter your email address">
+                    <label id="emailHelp" for="agentEmail">Email Address:</label>
+                    <input type="text" class="form-control" id="agentEmail" aria-describedby="emailHelp" placeholder="Please enter your email address">
                 </div>
                 <div class="form-group mt-2">
-                    <label for="agentPass">Password:</label>
-                    <input type="password" class="form-control" id="agentPass" aria-describedby="emailHelp" placeholder="Please enter your password">
+                    <label id="passwordHelp" for="agentPass">Password:</label>
+                    <input type="password" class="form-control" id="agentPass" aria-describedby="passwordHelp" placeholder="Please enter your password">
                 </div>
                 <button onClick="createAgent()" type="button" class="btn btn-trusael btn-lg btn-block" id="cons_prof_save_btn">Save</button>
             </div>

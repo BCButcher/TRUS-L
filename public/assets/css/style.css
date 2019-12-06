@@ -24,17 +24,20 @@ html {
         background: url('../images/TRUSÆL-sm.png') no-repeat left;
         min-width: 131px;
         min-height: 50px;
+        max-height: 50px;
         border: 0;
     }
     nav {
-        background-color: #383838!important;
-        color: white!important;
-        min-width: 131px;
-        min-height: 50px;
+      background-color: #383838!important;
+      color: white!important;
+      min-width: 131px;
+      min-height: 50px;
+      margin-bottom: 1rem;
     }
     .font-color {
         color: white!important;
     }
+
     /* <img src="./assets/images/TRUSÆL-sm.png" alt="Trusael logo"> */
 }
 
@@ -43,6 +46,7 @@ html {
         background: url('../images/TRUSÆL-sm.png') no-repeat left;
         min-width: 131px;
         min-height: 50px;
+        max-height: 50px;
         border: 0;
     }
     nav {
@@ -54,6 +58,19 @@ html {
     }
     .font-color {
         color: white!important;
+    }
+    .frontSlogan {
+        font-family: "Nothing you could do", serif;
+        font-weight: bold;
+        font-size: 2em;
+    }
+}
+
+@media screen and (min-width: 576px) {
+    .frontSlogan {
+        font-family: "Nothing you could do", serif;
+        font-weight: bold;
+        font-size: 3em;
     }
 }
 
@@ -396,12 +413,6 @@ html {
 .frontButton {
     width: 35%;
     margin-bottom: 1rem;
-}
-
-.frontSlogan {
-    font-family: Nothing you could do;
-    font-weight: bold;
-    font-size: 3em;
 }
 
 .fa-1x {

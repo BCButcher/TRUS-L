@@ -29,6 +29,7 @@
 <body>
     <!--Navbar-->
     <nav class="navbar navbar-light lighten-4 sticky-top navbar-expand-md" id="navbar">
+<<<<<<< HEAD
         <div class="navbar-header">
             <!-- Navbar brand -->
             <a class="navbar-brand font-size-sm" href="/" id="logo">
@@ -63,11 +64,54 @@
             <!-- Links -->
         </div>
         <!-- Collapsible content -->
+=======
+      <div class="navbar-header">
+        <!-- Navbar brand -->
+        <a class="navbar-brand font-size-sm" href="/" id="logo">
+            <div><img class="logo" alt="logo" src="/assets/images/placeholder.png" /></div>
+        </a>
+      </div>
+      <a class="navbar-text font-color align-bottom" href="/login" id="displayName">Hello, Sign In</a>
+        
+      <!-- Collapse button -->
+      <button class="navbar-toggler font-color" 
+        type="button" 
+        data-toggle="collapse" 
+        data-target="#navbarSupportedContent1" 
+        aria-controls="navbarSupportedContent1" 
+        aria-expanded="false" 
+        aria-label="Toggle navigation"><i class="fas fa-bars fa-1x"></i></button>
+    
+      <!-- Collapsible content -->
+      <div class="collapse navbar-collapse" id="navbarSupportedContent1">
+    
+        <!-- Links -->
+        <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+            <a class="nav-link font-color" href="/">Home</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link font-color" href="/about">About</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link font-color" href='/contact'>Contact</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link font-color" href='/dashboard'>Dashboard <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item" id="logout">
+        </li>
+        </ul>
+        <!-- Links -->     
+      </div>
+    <!-- Collapsible content -->
+>>>>>>> 0dbc34b20ed28b356eafc2f91e10311e9fb98aec
     </nav>
 
     <div class="container-fluid p-3">
         <div class="row">
             <div class="col">
+<<<<<<< HEAD
                 <h1 class="text-center" id="page_title_text"> CREATE YOUR PROFILE </h1>
                 <div class="form-group mt-2" id="agt_prof_input_sec">
                     <label for=" firstName ">First Name:</label>
@@ -88,6 +132,28 @@
                 <div class="form-group ">
                     <label for="password ">Password:</label>
                     <input type="password " class="form-control " id="password " aria-describedby="consPassword" placeholder="Please enter your password">
+=======
+                <h1 class="text-center mt-3">Create Your Profile</h1>
+                <div class="form-group mt-2">
+                    <label id="firstNameHelp" for="firstName">First Name:</label>
+                    <input type="text" class="form-control" id="firstName" aria-describedby="firstNameHelp" placeholder="Please enter your name">
+                </div>
+                <div class="form-group">
+                    <label id="surnameHelp" for="lastName">Last Name:</label>
+                    <input type="text" class="form-control" id="lastName" aria-describedby="surnameHelp" placeholder="Please enter your name">
+                </div>
+                <div class="form-group">
+                    <label id="displayHelp" for="profileDisplayName">Display Name:</label>
+                    <input type="text" class="form-control" id="profileDisplayName" aria-describedby="displayHelp" placeholder="Please enter your name">
+                </div>
+                <div class="form-group">
+                    <label id="emailHelp" for="email">Email:</label>
+                    <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Please enter your name">
+                </div>
+                <div class="form-group">
+                    <label id="passwordHelp" for="password">Password:</label>
+                    <input type="password" class="form-control" id="password" aria-describedby="passwordHelp" placeholder="Please enter your name">
+>>>>>>> 0dbc34b20ed28b356eafc2f91e10311e9fb98aec
                 </div>
             </div>
         </div>
