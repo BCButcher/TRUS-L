@@ -16,7 +16,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" type="text/css" href="/assets/css/style.css">
+    <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=EB+Garamond|Lato|Audiowide|Nothing+You+Could+Do+Display+SC&display=swap">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -24,6 +25,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <title>Delete Bid</title>
 </head>
+
 <body>
     <!--Navbar-->
     <nav class="navbar navbar-light lighten-4 sticky-top navbar-expand-md" id="navbar">
@@ -34,53 +36,50 @@
             </a>
         </div>
         <a class="navbar-text font-color align-bottom" href="/login" id="displayName">Hello, Cindy</a>
-        
+
         <!-- Collapse button -->
-        <button class="navbar-toggler font-color" 
-            type="button" 
-            data-toggle="collapse" 
-            data-target="#navbarSupportedContent1" 
-            aria-controls="navbarSupportedContent1" 
-            aria-expanded="false" 
-            aria-label="Toggle navigation"><i class="fas fa-bars fa-1x"></i></button>
-        
+        <button class="navbar-toggler font-color" type="button" data-toggle="collapse" data-target="#navbarSupportedContent1" aria-controls="navbarSupportedContent1" aria-expanded="false" aria-label="Toggle navigation"><i class="fas fa-bars fa-1x"></i></button>
+
         <!-- Collapsible content -->
         <div class="collapse navbar-collapse" id="navbarSupportedContent1">
-        
+
             <!-- Links -->
             <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-                <a class="nav-link font-color" href="/">Home</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link font-color" href="/about">About</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link font-color" href='/contact'>Contact</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link font-color" href='/dashboard'>Dashboard <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item" id="logout">
-            </li>
+                <li class="nav-item">
+                    <a class="nav-link font-color" href="/">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link font-color" href="/about">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link font-color" href='/contact'>Contact</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link font-color" href='/dashboard'>Dashboard <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item" id="logout">
+                </li>
             </ul>
-            <!-- Links -->     
+            <!-- Links -->
         </div>
         <!-- Collapsible content -->
     </nav>
-      
+
     <form>
-        <div class="container">
+        <div class="container-fluid p-3">
+            <h1 class="text-center" id="page_title_text"> OUR APOLOGIES... </h1>
             <div class="jumbotron">
                 <h1 class="display-4"></h1>
-                <p>Unfortunately, the seller signed with another agent. Please delete your bid.</p>
+                <h5 class="display mt-3 p-3">Unfortunately, the client has signed with another agent. No worries though, there are still plenty of clients available. Hey, you can't win them all but, you can't win any if you don't try! Please delete your bid, then go get that next
+                    client!
+                </h5>
                 <div id="buttonSection"></div>
             </div>
         </div>
     </form>
 
-    <script src="/assets/js/common.js"></script>
-    <script src="/assets/js/delete_bid.js"></script>
+    <script src="./assets/js/common.js"></script>
+    <script src="./assets/js/delete_bid.js"></script>
 </body>
 
 </html>
