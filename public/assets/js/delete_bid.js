@@ -1,7 +1,7 @@
 function generateButton() {
     let bidId = getParam()[1];
     let buttonRow = `
-       <button type="button" class="btn btn-trusael btn-lg" id="viewbids" onclick="deleteBid(${bidId})">Delete</button>
+       <button type="button" class="btn btn-trusael btn-lg" id="viewbids" onclick="buttonSection(${bidId})">Get the Next One</button>
     `;
 
     const buttonSection = $("#buttonSection").empty();
@@ -13,14 +13,14 @@ function deleteBid(bidId) {
         url: "/api/bid/" + bidId,
         method: "DELETE"
     }).then(function() {
-        window.location.href='/dashboard';
+        window.location.href = '/dashboard';
     }).catch(function(err) {
         console.log(err);
     });
 
 }
 
-$( document ).ready(function() {
+$(document).ready(function() {
     // Read the user_id from session storage
     // If it isn't there, redirect to the login page to set it.
     generateDisplayName();

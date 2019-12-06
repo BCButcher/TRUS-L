@@ -16,7 +16,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" type="text/css" href="/assets/css/style.css">
+    <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=EB+Garamond|Lato|Audiowide|Nothing+You+Could+Do+Display+SC&display=swap">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
@@ -24,118 +25,113 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <title>Create a Profile</title>
 </head>
+
 <body>
     <!--Navbar-->
     <nav class="navbar navbar-light lighten-4 sticky-top navbar-expand-md" id="navbar">
-      <div class="navbar-header">
-        <!-- Navbar brand -->
-        <a class="navbar-brand font-size-sm" href="/" id="logo">
-            <div><img class="logo" /></div>
-        </a>
-      </div>
-      <a class="navbar-text font-color align-bottom" href="/login" id="displayName">Hello, Cindy</a>
-        
-      <!-- Collapse button -->
-      <button class="navbar-toggler font-color" 
-        type="button" 
-        data-toggle="collapse" 
-        data-target="#navbarSupportedContent1" 
-        aria-controls="navbarSupportedContent1" 
-        aria-expanded="false" 
-        aria-label="Toggle navigation"><i class="fas fa-bars fa-1x"></i></button>
-    
-      <!-- Collapsible content -->
-      <div class="collapse navbar-collapse" id="navbarSupportedContent1">
-    
-        <!-- Links -->
-        <ul class="navbar-nav ml-auto">
-        <li class="nav-item">
-            <a class="nav-link font-color" href="/">Home</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link font-color" href="/about">About</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link font-color" href='/contact'>Contact</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link font-color" href='/dashboard'>Dashboard <span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item" id="logout">
-        </li>
-        </ul>
-        <!-- Links -->     
-      </div>
-    <!-- Collapsible content -->
+        <div class="navbar-header">
+            <!-- Navbar brand -->
+            <a class="navbar-brand font-size-sm" href="/" id="logo">
+                <div><img class="logo" /></div>
+            </a>
+        </div>
+        <a class="navbar-text font-color align-bottom" href="/login" id="displayName">Hello, Cindy</a>
+
+        <!-- Collapse button -->
+        <button class="navbar-toggler font-color" type="button" data-toggle="collapse" data-target="#navbarSupportedContent1" aria-controls="navbarSupportedContent1" aria-expanded="false" aria-label="Toggle navigation"><i class="fas fa-bars fa-1x"></i></button>
+
+        <!-- Collapsible content -->
+        <div class="collapse navbar-collapse" id="navbarSupportedContent1">
+
+            <!-- Links -->
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link font-color" href="/">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link font-color" href="/about">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link font-color" href='/contact'>Contact</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link font-color" href='/dashboard'>Dashboard <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item" id="logout">
+                </li>
+            </ul>
+            <!-- Links -->
+        </div>
+        <!-- Collapsible content -->
     </nav>
-      
-    <div class="container">
+
+    <div class="container-fluid p-3">
         <div class="row">
             <div class="col">
-                <h1 class="text-center mt-3">Create Your Profile</h1>
-                <div class="form-group mt-2>
-                    <label for="firstName">First Name:</label>
-                    <input type="name" class="form-control" id="firstName" aria-describedby="emailHelp" placeholder="Please enter your name">
+                <h1 class="text-center" id="page_title_text"> CREATE YOUR PROFILE </h1>
+                <div class="form-group mt-2" id="agt_prof_input_sec">
+                    <label for=" firstName ">First Name:</label>
+                    <input type="name " class="form-control " id="firstName " aria-describedby="consFirstName" placeholder="Please enter your first name ">
                 </div>
-                <div class="form-group">
-                    <label for="lastName">Last Name:</label>
-                    <input type="name" class="form-control" id="lastName" aria-describedby="emailHelp" placeholder="Please enter your name">
+                <div class="form-group ">
+                    <label for="lastName ">Last Name:</label>
+                    <input type="name " class="form-control " id="lastName " aria-describedby="consLastName" placeholder="Please enter your last name ">
                 </div>
-                <div class="form-group">
-                    <label for="profileDisplayName">Display Name:</label>
-                    <input type="text" class="form-control" id="profileDisplayName" aria-describedby="emailHelp" placeholder="Please enter your name">
+                <div class="form-group ">
+                    <label for="profileDisplayName ">Display Name:</label>
+                    <input type="text " class="form-control " id="profileDisplayNameCons " aria-describedby="consProfileDisplayName" placeholder="Please enter a display name ">
                 </div>
-                <div class="form-group">
-                    <label for="email">Email:</label>
-                    <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Please enter your name">
+                <div class="form-group ">
+                    <label for="email ">Email:</label>
+                    <input type="email " class="form-control " id="email " aria-describedby="consEmail" placeholder="Please enter your email">
                 </div>
-                <div class="form-group">
-                    <label for="password">Password:</label>
-                    <input type="password" class="form-control" id="password" aria-describedby="emailHelp" placeholder="Please enter your name">
+                <div class="form-group ">
+                    <label for="password ">Password:</label>
+                    <input type="password " class="form-control " id="password " aria-describedby="consPassword" placeholder="Please enter your password">
                 </div>
             </div>
         </div>
-        <div class="column">
-            <h1 class="text-center mt-3">Listing Info</h1>
-            <div class="container">
-                <div class="row">
-                    <div class="col text-center p-3">
+        <div class="column ">
+            <h1 class="text-center mt-3 ">Listing Info</h1>
+            <div class="container ">
+                <div class="row ">
+                    <div class="col text-center p-3 ">
                         Hook us up with your property info so we can hook you up with a great agent.
                     </div>
                 </div>
             </div>
-            <div class="container-fluid pb-3">
-                <div class="row">
-                    <div class="col">
-                        <form id="profilec_Form">
-                            <div class="form-group w-100">
-                                <label for="buyer_location">Location:</label>
-                                <input type="text" class="form-control w-100" id="buyer_location" placeholder="Please enter your location">
+            <div class="container-fluid pb-3 ">
+                <div class="row ">
+                    <div class="col ">
+                        <form id="profilec_Form ">
+                            <div class="form-group w-100 ">
+                                <label for="buyer_location ">Location:</label>
+                                <input type="text " class="form-control w-100 " id="buyer_location " placeholder="Please enter your location ">
                             </div>
-                            <div class="form-group w-100">
-                                <label for="propertyType">Property Type:</label>
-                                <select class="form-control" id="propertyType">
-                                  <option value="a">House</option>
-                                  <option value="b">Row/Townhouse</option>
-                                  <option value="c">Duplex</option>
-                                  <option value="d">Triplex</option>
-                                  <option value="e">Condo/Strata</option>
+                            <div class="form-group w-100 ">
+                                <label for="propertyType ">Property Type:</label>
+                                <select class="form-control " id="propertyType ">
+                                  <option value="a ">House</option>
+                                  <option value="b ">Row/Townhouse</option>
+                                  <option value="c ">Duplex</option>
+                                  <option value="d ">Triplex</option>
+                                  <option value="e ">Condo/Strata</option>
                                 </select>
                             </div>
-                            <div class="form-group w-100" id="buyer_value_estimate">
-                                <label for="buyer_value_slider">Estimated Value:</label>$<span id="value">0</span>
-                                <input type="range" class="form-control-range w-100" onInput="updateSlider()" min="100000" max="10000000" value="100000" step="10000" id="buyer_value_slider">
+                            <div class="form-group w-100 " id="buyer_value_estimate ">
+                                <label for="buyer_value_slider ">Estimated Value:</label>$<span id="value ">0</span>
+                                <input type="range " class="form-control-range w-100 " onInput="updateSlider() " min="100000 " max="10000000 " value="100000 " step="10000 " id="buyer_value_slider ">
                             </div>
-                            <button onClick="createUser();" type="button" class="btn btn-trusael" id="loginBtn_fp">Submit</button>
+                            <button onClick="createUser(); " type="button " class="btn btn-trusael " id="loginBtn_fp ">Submit</button>
                         </form>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <script src="/assets/js/common.js"></script>
-    <script src="/assets/js/profile.js"></script>
-    <script src="/assets/js/validate-profile.js"></script>
+    <script src="./assets/js/common.js "></script>
+    <script src="./assets/js/profile.js "></script>
+    <script src="./assets/js/validate-profile.js "></script>
 </body>
 
 </html>
