@@ -16,14 +16,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" type="text/css" href="/assets/css/style.css">
+    <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=EB+Garamond|Lato|Nothing+You+Could+Do+Display+SC&display=swap">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <title>Bid Detail</title>
 </head>
+
 <body>
     <!--Navbar-->
     <nav class="navbar navbar-light lighten-4 sticky-top navbar-expand-md" id="navbar">
@@ -34,179 +36,173 @@
             </a>
         </div>
         <a class="navbar-text font-color align-bottom" href="/login" id="displayName">Hello, Cindy</a>
-        
+
         <!-- Collapse button -->
-        <button class="navbar-toggler font-color" 
-            type="button" 
-            data-toggle="collapse" 
-            data-target="#navbarSupportedContent1" 
-            aria-controls="navbarSupportedContent1" 
-            aria-expanded="false" 
-            aria-label="Toggle navigation"><i class="fas fa-bars fa-1x"></i></button>
-        
+        <button class="navbar-toggler font-color" type="button" data-toggle="collapse" data-target="#navbarSupportedContent1" aria-controls="navbarSupportedContent1" aria-expanded="false" aria-label="Toggle navigation"><i class="fas fa-bars fa-1x"></i></button>
+
         <!-- Collapsible content -->
         <div class="collapse navbar-collapse" id="navbarSupportedContent1">
-        
+
             <!-- Links -->
             <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-                <a class="nav-link font-color" href="/">Home</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link font-color" href="/about">About</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link font-color" href='/contact'>Contact</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link font-color" href='/dashboard'>Dashboard <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item" id="logout">
-            </li>
+                <li class="nav-item">
+                    <a class="nav-link font-color" href="/">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link font-color" href="/about">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link font-color" href='/contact'>Contact</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link font-color" href='/dashboard'>Dashboard <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item" id="logout">
+                </li>
             </ul>
-            <!-- Links -->     
+            <!-- Links -->
         </div>
         <!-- Collapsible content -->
     </nav>
-      
+
     <div class="container-fluid p-3">
+        <h1 class="text-center" id="page_title_text"> BID DETAILS </h1>
         <div class="jumbotron jumbotron-fluid p-0 pt-3">
             <div class="row">
                 <div class="col">
-                
-                <h1 class="display-4 text-center" id="bidDetailTitle"></h1>
-                <div class="row mt-3 p-3">
-                    <div class="col ml-3">
-                        <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" value="a" id="in_person_tours">
-                            <label class="custom-control-label" for="in_person_tours">In-person tours</label>
-                        </div>
-                        <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" value="i" id="open_houses">
-                            <label class="custom-control-label" for="open_houses">Open Houses</label>
-                        </div>
-                        <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" value="j" id="vr_tours">
-                            <label class="custom-control-label" for="vr_tours">VR Tours</label>
-                        </div>
-                        <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" value="k" id="have_own_website">
-                            <label class="custom-control-label" for="have_own_website">Have own Website</label>
-                        </div>
-                        <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" value="l" id="progress_meetings">
-                            <label class="custom-control-label" for="progress_meetings">Progress Meetings</label>
-                        </div>
-                        <div class="custom-control custom-checkbox ml-3">
-                            <input type="checkbox" class="custom-control-input" value="m" id="in_person_reports">
-                            <label class="custom-control-label" for="in_person_reports">In-person</label>
-                        </div>
-                        <div class="custom-control custom-checkbox ml-3">
-                            <input type="checkbox" class="custom-control-input" value="n" id="phone">
-                            <label class="custom-control-label" for="phone">Phone</label>
-                        </div>
-                        <div class="custom-control custom-checkbox ml-3">
-                            <input type="checkbox" class="custom-control-input" value="o" id="video_conferencing">
-                            <label class="custom-control-label" for="video_conferencing">Video Conferencing</label>
-                        </div>
-                        <div class="custom-control custom-checkbox ml-3">
-                            <input type="checkbox" class="custom-control-input" value="p" id="daily">
-                            <label class="custom-control-label" for="daily">Daily</label>
-                        </div>
-                        <div class="custom-control custom-checkbox ml-3">
-                            <input type="checkbox" class="custom-control-input" value="q" id="twice_per_week">
-                            <label class="custom-control-label" for="twice_per_week">Twice per Week</label>
-                        </div>
-                        <div class="custom-control custom-checkbox ml-3">
-                            <input type="checkbox" class="custom-control-input" value="r" id="bi_weekly">
-                            <label class="custom-control-label" for="bi_weekly">Bi-weekly</label>
-                        </div>
-                        <div class="custom-control custom-checkbox ml-3">
-                            <input type="checkbox" class="custom-control-input" value="s" id="weekly">
-                            <label class="custom-control-label" for="weekly">Weekly</label>
-                        </div>
-                        <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" value="t" id="references">
-                            <label class="custom-control-label" for="references">References Available</label>
-                        </div>
-                        <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" value="u" id="social_media">
-                            <label class="custom-control-label" for="social_media">Social Media
+                    <h1 class="display-4 text-center" id="bidDetailTitle"></h1>
+                    <div class="row mt-3 p-3">
+                        <div class="col ml-3">
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" value="a" id="in_person_tours">
+                                <label class="custom-control-label" for="in_person_tours">In-person tours</label>
+                            </div>
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" value="i" id="open_houses">
+                                <label class="custom-control-label" for="open_houses">Open Houses</label>
+                            </div>
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" value="j" id="vr_tours">
+                                <label class="custom-control-label" for="vr_tours">VR Tours</label>
+                            </div>
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" value="k" id="have_own_website">
+                                <label class="custom-control-label" for="have_own_website">Have own Website</label>
+                            </div>
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" value="l" id="progress_meetings">
+                                <label class="custom-control-label" for="progress_meetings">Progress Meetings</label>
+                            </div>
+                            <div class="custom-control custom-checkbox ml-3">
+                                <input type="checkbox" class="custom-control-input" value="m" id="in_person_reports">
+                                <label class="custom-control-label" for="in_person_reports">In-person</label>
+                            </div>
+                            <div class="custom-control custom-checkbox ml-3">
+                                <input type="checkbox" class="custom-control-input" value="n" id="phone">
+                                <label class="custom-control-label" for="phone">Phone</label>
+                            </div>
+                            <div class="custom-control custom-checkbox ml-3">
+                                <input type="checkbox" class="custom-control-input" value="o" id="video_conferencing">
+                                <label class="custom-control-label" for="video_conferencing">Video Conferencing</label>
+                            </div>
+                            <div class="custom-control custom-checkbox ml-3">
+                                <input type="checkbox" class="custom-control-input" value="p" id="daily">
+                                <label class="custom-control-label" for="daily">Daily</label>
+                            </div>
+                            <div class="custom-control custom-checkbox ml-3">
+                                <input type="checkbox" class="custom-control-input" value="q" id="twice_per_week">
+                                <label class="custom-control-label" for="twice_per_week">Twice per Week</label>
+                            </div>
+                            <div class="custom-control custom-checkbox ml-3">
+                                <input type="checkbox" class="custom-control-input" value="r" id="bi_weekly">
+                                <label class="custom-control-label" for="bi_weekly">Bi-weekly</label>
+                            </div>
+                            <div class="custom-control custom-checkbox ml-3">
+                                <input type="checkbox" class="custom-control-input" value="s" id="weekly">
+                                <label class="custom-control-label" for="weekly">Weekly</label>
+                            </div>
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" value="t" id="references">
+                                <label class="custom-control-label" for="references">References Available</label>
+                            </div>
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" value="u" id="social_media">
+                                <label class="custom-control-label" for="social_media">Social Media
                                 Marketing</label>
+                            </div>
+                            <div class="custom-control custom-checkbox ml-3">
+                                <input type="checkbox" class="custom-control-input" value="v" id="facebook">
+                                <label class="custom-control-label" for="facebook">Facebook</label>
+                            </div>
+                            <div class="custom-control custom-checkbox ml-3">
+                                <input type="checkbox" class="custom-control-input" value="w" id="instagram">
+                                <label class="custom-control-label" for="instagram">Instagram</label>
+                            </div>
+                            <div class="custom-control custom-checkbox ml-3">
+                                <input type="checkbox" class="custom-control-input" value="x" id="pinterest">
+                                <label class="custom-control-label" for="pinterest">Pinterest</label>
+                            </div>
+                            <div class="custom-control custom-checkbox ml-3">
+                                <input type="checkbox" class="custom-control-input" value="y" id="twitter">
+                                <label class="custom-control-label" for="twitter">Twitter</label>
+                            </div>
                         </div>
-                        <div class="custom-control custom-checkbox ml-3">
-                            <input type="checkbox" class="custom-control-input" value="v" id="facebook">
-                            <label class="custom-control-label" for="facebook">Facebook</label>
-                        </div>
-                        <div class="custom-control custom-checkbox ml-3">
-                            <input type="checkbox" class="custom-control-input" value="w" id="instagram">
-                            <label class="custom-control-label" for="instagram">Instagram</label>
-                        </div>
-                        <div class="custom-control custom-checkbox ml-3">
-                            <input type="checkbox" class="custom-control-input" value="x" id="pinterest">
-                            <label class="custom-control-label" for="pinterest">Pinterest</label>
-                        </div>
-                        <div class="custom-control custom-checkbox ml-3">
-                            <input type="checkbox" class="custom-control-input" value="y" id="twitter">
-                            <label class="custom-control-label" for="twitter">Twitter</label>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" value="z" id="pro_videography">
-                            <label class="custom-control-label" for="pro_videography">Professional
+                        <div class="col">
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" value="z" id="pro_videography">
+                                <label class="custom-control-label" for="pro_videography">Professional
                                 Videography</label>
-                        </div>
-                        <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" value="A" id="pro_drone_videography">
-                            <label class="custom-control-label" for="pro_drone_videography">Professional Drone
+                            </div>
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" value="A" id="pro_drone_videography">
+                                <label class="custom-control-label" for="pro_drone_videography">Professional Drone
                                 Videography</label>
-                        </div>
-                        <div class="custom-control custom-checkbox ml-3">
-                            <input type="checkbox" class="custom-control-input" value="B" id="drone_indoor">
-                            <label class="custom-control-label" for="drone_indoor">Indoor</label>
-                        </div>
-                        <div class="custom-control custom-checkbox ml-3">
-                            <input type="checkbox" class="custom-control-input" value="C" id="drone_outdoor">
-                            <label class="custom-control-label" for="drone_outdoor">Outdoor</label>
-                        </div>
-                        <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" value="D" id="pro_photography">
-                            <label class="custom-control-label" for="pro_photography">Professional
+                            </div>
+                            <div class="custom-control custom-checkbox ml-3">
+                                <input type="checkbox" class="custom-control-input" value="B" id="drone_indoor">
+                                <label class="custom-control-label" for="drone_indoor">Indoor</label>
+                            </div>
+                            <div class="custom-control custom-checkbox ml-3">
+                                <input type="checkbox" class="custom-control-input" value="C" id="drone_outdoor">
+                                <label class="custom-control-label" for="drone_outdoor">Outdoor</label>
+                            </div>
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" value="D" id="pro_photography">
+                                <label class="custom-control-label" for="pro_photography">Professional
                                 Photography</label>
-                        </div>
-                        <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" value="b" id="online_advertising">
-                            <label class="custom-control-label" for="online_advertising">Online advertising</label>
-                        </div>
-                        <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" value="c" id="painting">
-                            <label class="custom-control-label" for="painting">Painting</label>
-                        </div>
-                        <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" value="d" id="brochures">
-                            <label class="custom-control-label" for="brochures">Brochures</label>
-                        </div>
-                        <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" value="e" id="print_advertising">
-                            <label class="custom-control-label" for="print_advertising">Print advertising</label>
-                        </div>
-                        <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" value="f" id="staging">
-                            <label class="custom-control-label" for="staging">Staging</label>
-                        </div>
-                        <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" value="g" id="virtual_tours">
-                            <label class="custom-control-label" for="virtual_tours">Virtual tours</label>
-                        </div>
-                        <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" value="h" id="buy_house">
-                            <label class="custom-control-label" for="buy_house">Buy your house if you can't
+                            </div>
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" value="b" id="online_advertising">
+                                <label class="custom-control-label" for="online_advertising">Online advertising</label>
+                            </div>
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" value="c" id="painting">
+                                <label class="custom-control-label" for="painting">Painting</label>
+                            </div>
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" value="d" id="brochures">
+                                <label class="custom-control-label" for="brochures">Brochures</label>
+                            </div>
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" value="e" id="print_advertising">
+                                <label class="custom-control-label" for="print_advertising">Print advertising</label>
+                            </div>
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" value="f" id="staging">
+                                <label class="custom-control-label" for="staging">Staging</label>
+                            </div>
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" value="g" id="virtual_tours">
+                                <label class="custom-control-label" for="virtual_tours">Virtual tours</label>
+                            </div>
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" value="h" id="buy_house">
+                                <label class="custom-control-label" for="buy_house">Buy your house if you can't
                                 sell it</label>
+                            </div>
                         </div>
                     </div>
-                 </div>
-              </div>
+                </div>
             </div>
             <div class="row p-3">
                 <div class="col">
@@ -215,7 +211,7 @@
                         <textarea class="form-control" aria-label="With textarea" id="offer"></textarea>
                     </div>
                 </div>
-            </div>        
+            </div>
             <div class="row p-3 text-right">
                 <div class="col" id="bidButtons">
                 </div>
@@ -226,9 +222,9 @@
     </div>
 
 
-    <script src="/assets/js/common.js"></script>
-    <script src="/assets/js/bidoptions.js"></script>
-    <script src="/assets/js/biddetails.js"></script>
+    <script src="./assets/js/common.js"></script>
+    <script src="./assets/js/bidoptions.js"></script>
+    <script src="./assets/js/biddetails.js"></script>
 </body>
 
 </html>
