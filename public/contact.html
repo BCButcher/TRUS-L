@@ -16,7 +16,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
+    <link rel="stylesheet" type="text/css" href="/assets/css/style.css">
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=EB+Garamond|Lato|Audiowide|Nothing+You+Could+Do+Display+SC&display=swap">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -65,45 +65,53 @@
         <!-- Collapsible content -->
     </nav>
 
-    <div class="container-fluid p-3">
+    <div class="container-fluid">
         <h1 class="text-center" id="page_title_text"> CONTACT US </h1>
-        <form>
-            <div class="form-group">
-                <label for="name_input_contact">Name:</label>
-                <input type="text" class="form-control" id="name_input_contact" placeholder="Please enter your name">
-            </div>
-            <div class="form-group">
-                <label for="email_input_contact">Email:</label>
-                <input type="email" class="form-control" id="email_input_contact" placeholder="Please enter your email address">
-                <small id="email_message_contact" class="form-text text-muted">We'll never share your email with anyone
-                    else.</small>
-            </div>
-            <div class="form-group">
-                <label for="phone_input_contact">Phone Number:</label>
-                <input type="text" class="form-control" id="phone_input_contact" placeholder="Please enter your phone number (optional)">
-                <small class="form-text text-muted">We'll never share your phone number with
+        <center>
+            <form>
+                <div class="form-group">
+                    <label for="name_input_contact" id="name_label_contact">Name:
+                        <input type="text" class="form-control" id="name_input_contact" placeholder="Please enter your name">
+                    </label>
+                </div>
+                <div class="form-group">
+                    <label for="email_input_contact" id="email_label_contact">Email:
+                        <input type="email" class="form-control" id="email_input_contact" placeholder="Please enter your email address">
+                    <small id="email_message_contact" class="form-text text-muted">We'll never share your email with anyone
+                    else.
+                    </small>
+                    </label>
+                </div>
+                <div class="form-group">
+                    <label for="phone_input_contact" id="phone_label_contact">Phone Number:
+                        <input type="text" class="form-control" id="phone_input_contact" placeholder="Please enter your phone number (optional)">
+                    <small class="form-text text-muted">We'll never share your phone number with
                     anyone else.</small>
-            </div>
-            <label>What is your preferred method of contact?</label>
-            <div class="custom-control custom-radio custom-control-inline">
-                <input type="radio" id="email_choice_input_contact" name="customRadioInline1" class="custom-control-input">
-                <label class="custom-control-label" id="email_choice_label_contact" for="email_choice_input_contact">Email</label>
-            </div>
-            <div class=" custom-control custom-radio custom-control-inline ">
-                <input type="radio" id="phone-choice_input_contact" name="customRadioInline1" class="custom-control-input">
-                <label class="custom-control-label" for="phone-choice_input_contact">Phone</label>
-            </div>
-            <div class=" form-group ">
-                <label for="message_input_contact" id="message_label_contact">Please enter the reason for your message:</label>
-                <textarea class="form-control" id="message_input_contact" rows="3"></textarea>
-            </div>
-            <button type="button" value="Open Window" id="submit_button_contact" class="btn btn-trusael" onclick="window.location.href='/contactconfirm'">Submit</button>
-
-        </form>
+                    </label>
+                </div>
+                <div class=" form-group ">
+                    <label for="message_input_contact" id="message_label_contact">Please enter the reason for your message:
+                        <textarea class="form-control" id="message_input_contact" rows="3" onkeyup="countChar(this)"></textarea>
+                        <div id="charNum"></div>
+                    </label>
+                </div>
+                <label>What is your preferred method of contact?</label>
+                <div class="custom-control custom-radio custom-control-inline">
+                    <input type="radio" id="email_choice_input_contact" name="customRadioInline1" class="custom-control-input">
+                    <label class="custom-control-label" id="email_choice_label_contact" for="email_choice_input_contact">Email</label>
+                </div>
+                <div class=" custom-control custom-radio custom-control-inline ">
+                    <input type="radio" id="phone-choice_input_contact" name="customRadioInline1" class="custom-control-input">
+                    <label class="custom-control-label" for="phone-choice_input_contact">Phone</label>
+                </div>
+                <div>
+                    <button type="button" value="Open Window" id="submit_button_contact" class="btn btn-trusael" onclick="window.location.href='/contactconfirm'">Submit</button>
+                </div>
+            </form>
 
     </div>
-    <script src="./assets/js/common.js "></script>
-    <script src="./assets/js/contact.js "></script>
+    <script src="/assets/js/common.js "></script>
+    <script src="/assets/js/contact.js "></script>
 </body>
 
 </html>
