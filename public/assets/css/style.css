@@ -1,12 +1,10 @@
 /* SITE WIDE CSS START*/
 
 head {
-    text-align: center;
-    background: url('/public/assets/images/TRUSÆL-LG-3DREND.png') no-repeat left;
     padding-top: 50px;
     padding-bottom: 30px;
     border: 0;
-    width: 700px;
+    width: 1000px;
     height: auto;
 }
 
@@ -21,29 +19,9 @@ html {
 
 @media screen and (min-width: 768px) {
     img.logo {
-        background: url('../images/TRUSÆL-sm.png') no-repeat left;
-        min-width: 131px;
-        min-height: 50px;
-        max-height: 50px;
-        border: 0;
-    }
-    nav {
-      background-color: #383838!important;
-      color: white!important;
-      min-width: 131px;
-      min-height: 50px;
-      margin-bottom: 1rem;
-    }
-    .font-color {
-        color: white!important;
-    }
-
-    /* <img src="./assets/images/TRUSÆL-sm.png" alt="Trusael logo"> */
-}
-
-@media screen and (max-width: 767px) {
-    img.logo {
-        background: url('../images/TRUSÆL-sm.png') no-repeat left;
+        background: url('/assets/images/TRUSÆL-LG-ALL3D.svg') no-repeat left;
+        background-size: 131px 50px;
+        border: none;
         min-width: 131px;
         min-height: 50px;
         max-height: 50px;
@@ -59,13 +37,21 @@ html {
     .font-color {
         color: white!important;
     }
-    .frontSlogan {
-        font-family: "Nothing you could do", serif;
-        font-weight: bold;
-        font-size: 2em;
-    }
+    /* <img src="./assets/images/TRUSÆL-sm.png" alt="Trusael logo"> */
 }
 
+.font-color {
+    color: white!important;
+}
+
+.frontSlogan {
+    font-family: "Nothing you could do", serif;
+    font-weight: bold;
+    font-size: 2em;
+}
+
+
+}
 @media screen and (min-width: 576px) {
     .frontSlogan {
         font-family: "Nothing you could do", serif;
@@ -73,7 +59,6 @@ html {
         font-size: 3em;
     }
 }
-
 #page_title_text {
     margin-top: 20px;
     font-family: nothing you could do;
@@ -81,15 +66,11 @@ html {
     font-size: 3em;
 }
 
-
 /* SITE WIDE CSS END */
-
 
 /*------------------------------------------------------------------------------*/
 
-
 /* HOME PAGE CSS START */
-
 #home_page::after {
     content: "";
     background-image: url(https://www.angiemcmonigal.com/site_v2/wp-content/uploads/2017/09/Angie-McMonigal-Photography-7955-Edit-Edit-1-1024x683.jpg);
@@ -103,55 +84,42 @@ html {
     position: absolute;
     z-index: -1;
 }
-
 #head_div {
-    margin-top: 150px;
+    margin-top: 50px;
 }
-
 #home_page_logo {
-    width: 400px;
+    width: 600px;
     height: auto;
 }
-
 #hp_consumer_btn {
     width: 130px;
     background-color: #1570C1;
 }
-
 #hp_agent_btn {
     width: 130px;
     background-color: #1F9EED;
 }
-
 #hp_login_btn {
     width: 130px;
     background-color: #1F9EED;
 }
 
-
 /* HOME PAGE CSS END */
-
 
 /*------------------------------------------------------------------------------*/
 
-
 /* ABOUT PAGE CSS START */
-
 #about_para_one {}
-
 #about_para_two {}
-
 #about_para_three {
     font-weight: bold;
 }
-
 #image10 {
     width: 350px;
     height: auto;
     padding: 0 15px;
     float: left;
 }
-
 #image11 {
     width: 450px;
     height: auto;
@@ -159,80 +127,74 @@ html {
     float: right;
 }
 
-
 /* ABOUT PAGE CSS END */
 
-
 /*------------------------------------------------------------------------------*/
-
 
 /* AGENT DETAILS PAGE CSS START */
 
-
 /* AGENT DETAILS PAGE CSS END */
-
 
 /*------------------------------------------------------------------------------*/
 
-
 /* BID DETAILS PAGE CSS START */
-
 #bid_details .bg-trusael {
     background-color: #383838!important;
 }
-
 .btn-trusael {
     background-color: #383838!important;
     color: white!important;
 }
-
 .text-trusael {
     color: #383838!important;
 }
-
 .active {
     font-weight: bold;
 }
-
 .font-size-sm {
     font-size: 1rem!important;
 }
 
-
 /*--------------------------------------------------------------------------*/
 
-
 /* CONTACT CONFIRM PAGE CSS START */
-
 #contact_thanks {
     display: flex;
     flex-flow: column;
     margin-top: 175px;
     text-align: center;
 }
-
 #contact_trusael_text {
     font-family: audiowide;
     color: #1570C1;
     font-weight: bold;
     font-size: 54px;
 }
-
 #contact_thx_text,
 #contact_custsvc_text {
     font-weight: bold;
     font-size: 25px;
 }
 
-
 /* CONTACT CONFIRM PAGE CSS END */
-
 
 /*-------------------------------------------------------------*/
 
+/* CONTACT PAGE CSS START */
+#name_label_contact,
+#email_label_contact,
+#phone_label_contact,
+#message_label_contact {
+    text-align: left;
+}
+#name_input_contact,
+#email_input_contact,
+#phone_input_contact,
+#message_input_contact {
+    width: 400px;
+}
 
 /* DASHBOARD PAGE CSS START */
-
 .dashboard-container {
     margin: 0;
     width: 100%;
@@ -240,31 +202,25 @@ html {
     padding-left: 0!important;
     padding-bottom: 0!important;
 }
-
 .dashboard-row {
     padding-bottom: 3rem;
     padding-left: 1rem;
 }
-
 .dashboard-col {
     padding: 0;
 }
-
 .dashboard-card-section {
     padding: 0!important;
     border: 0!important;
     margin-top: 0;
     margin-bottom: 1rem;
 }
-
 .dashboard-card-header {
     padding: 0!important;
 }
-
 .dashboard-card-header-margin {
     margin-bottom: 0;
 }
-
 .dashboard-card-button-signed,
 .dashboard-card-button-active {
     font-weight: bold;
@@ -272,71 +228,56 @@ html {
     padding: .5rem;
     border-radius: .25rem;
 }
-
 .dashboard-card-button-active {
     background-color: #28a745;
 }
-
 .dashboard-card-button-signed {
     background-color: #343a40;
 }
-
 .dashboard-card-button-section,
 .dashboard-card-button-address {
     display: flex!important;
     color: white!important;
     width: 100%;
     /* justify-content: space-between; */
+    
     align-items: center;
     padding: .2rem!important;
 }
-
 .dashboard-card-button-section {
     background-color: #6c757d!important;
 }
-
 .dashboard-card-button-address {
     background-color: #adb3b8!important;
 }
-
 .dashboard-card-button-text {
     padding: 0.65rem;
 }
-
 .dashboard-card-address {
     padding: 0 0 0 1rem!important;
     border: 0;
     background-color: lightgray!important;
 }
-
 .dashboard-card-body {
     display: flex;
     justify-content: space-between;
     background-color: #f8f9fa!important;
 }
 
-
 /* DASHBOARD PAGE CSS END */
-
 
 /*--------------------------------------------------------------------------*/
 
-
 /* DELETE BID PAGE CSS START */
-
 #delete_bid_btn {
     color: #1570C1;
 }
 
-
 /* DELETE BID PAGE CSS END */
-
 
 /*--------------------------------------------------------------------------*/
 
-
 /* LOGIN PAGE CSS START */
-
 #email_login_input,
 #password_login_input {
     display: flex;
@@ -344,15 +285,11 @@ html {
     width: 350px;
 }
 
-
 /* LOGIN PAGE CSS END */
-
 
 /*---------------------------------------------------------------------------*/
 
-
 /* PROFILE A PAGE CSS START */
-
 #agentName,
 #agentLast,
 #agentTitle,
@@ -363,25 +300,19 @@ html {
 #agentPass {
     width: 350px;
 }
-
 #cons_prof_save_btn {
     background-color: #1570C1!important;
     width: 250px;
 }
-
 #page_title_text {
     margin-bottom: 20px;
 }
 
-
 /* PROFILE A PAGE CSS END */
-
 
 /*---------------------------------------------------------------------------*/
 
-
 /* PROFILE C PAGE CSS START */
-
 #firstName,
 #lastName,
 #profileDisplayNameCons,
@@ -390,108 +321,103 @@ html {
     width: 100px;
 }
 
-
 /* PROFILE C PAGE CSS END */
-
 
 /*----------------------------------------------------------------------------*/
 
-
 /* SUBMIT REVIEW PAGE CSS START */
-
 #review,
 #review_text {
     width: 500px;
 }
 
-
 /* SUBMIT REVIEW PAGE CSS END */
 
-
 /*----------------------------------------------------------------------------*/
-
 .frontButton {
     width: 35%;
     margin-bottom: 1rem;
 }
-
 .fa-1x {
     font-size: 1.5rem;
 }
-
 .navbar-toggler.toggler-example {
     cursor: pointer;
 }
-
 .dark-blue-text {
     color: #0A38F5;
 }
-
 #buyer_value_estimate {
     width: 80%;
     /* Width of the outside container */
 }
-
 #buyer_value_slider {
     -webkit-appearance: none;
     /* Override default CSS styles */
+    
     appearance: none;
     width: 80%;
     /* Full-width */
+    
     height: 25px;
     /* Specified height */
+    
     background: #d3d3d3;
     /* Grey background */
+    
     outline: none;
     /* Remove outline */
+    
     opacity: 0.7;
     /* Set transparency (for mouse-over effects on hover) */
+    
     -webkit-transition: .2s;
     /* 0.2 seconds transition on hover */
+    
     transition: opacity .2s;
     align-content: center;
 }
 
-
 /* Mouse-over effects */
-
 #buyer_value_slider:hover {
     opacity: 1;
     /* Fully shown on mouse-over */
 }
 
-
 /* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
-
 #buyer_value_slider::-webkit-slider-thumb {
     -webkit-appearance: none;
     /* Override default look */
+    
     appearance: none;
     width: 25px;
     /* Set a specific slider handle width */
+    
     height: 25px;
     /* Slider handle height */
+    
     background: #1570C1;
     /* Green background */
+    
     cursor: pointer;
     /* Cursor on hover */
 }
-
 #buyer_value_slider::-moz-range-thumb {
     width: 25px;
     /* Set a specific slider handle width */
+    
     height: 25px;
     /* Slider handle height */
+    
     background: #4CAF50;
     /* Green background */
+    
     cursor: pointer;
     /* Cursor on hover */
 }
-
 #other_reason_text {
     width: 60%;
 }
-
 #bid_too_low,
 #off_market,
 #agt_extras,
@@ -499,23 +425,19 @@ html {
 #other_text {
     display: inline-block;
 }
-
 .custom-checkbox {
     display: inline-block;
     justify-content: space-around;
     flex-wrap: wrap;
     min-width: 8em;
 }
-
 .card {
     padding: 20px;
     border-right: none;
 }
-
 #listingsHeader {
     text-align: center;
 }
-
 #bidsHeader {
     text-align: center;
 }
