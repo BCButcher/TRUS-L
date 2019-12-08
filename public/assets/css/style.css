@@ -15,29 +15,22 @@ html {
 }
 
 
-/* On screens that are 768px or more (bootstrap medium) */
+img.logo {
+    background: url('/assets/images/TRUSÆL-LG-ALL3D.svg') no-repeat left;
+    background-size: 131px 50px;
+    border: none;
+    min-width: 131px;
+    min-height: 50px;
+    max-height: 50px;
+    border: 0;
+}
 
-@media screen and (min-width: 768px) {
-    img.logo {
-        background: url('/assets/images/TRUSÆL-LG-ALL3D.svg') no-repeat left;
-        background-size: 131px 50px;
-        border: none;
-        min-width: 131px;
-        min-height: 50px;
-        max-height: 50px;
-        border: 0;
-    }
-    nav {
-        background-color: #383838!important;
-        color: white!important;
-        min-width: 131px;
-        min-height: 50px;
-        margin-bottom: 1rem;
-    }
-    .font-color {
-        color: white!important;
-    }
-    /* <img src="./assets/images/TRUSÆL-sm.png" alt="Trusael logo"> */
+nav {
+    background-color: #383838!important;
+    color: white!important;
+    min-width: 131px;
+    min-height: 50px;
+    margin-bottom: 1rem;
 }
 
 .font-color {
@@ -50,8 +43,6 @@ html {
     font-size: 2em;
 }
 
-
-}
 @media screen and (min-width: 576px) {
     .frontSlogan {
         font-family: "Nothing you could do", serif;
@@ -61,7 +52,7 @@ html {
 }
 #page_title_text {
     margin-top: 20px;
-    font-family: nothing you could do;
+    font-family: "Nothing you could do", serif;
     font-weight: bold;
     font-size: 3em;
 }
