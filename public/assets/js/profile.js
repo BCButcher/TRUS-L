@@ -56,8 +56,8 @@ function createUser() {
 }
 
 function showConfirmation() {
-  // Redirect them to the dashboard
-  window.location.href='/dashboard';
+  // Redirect them to the login page
+  window.location.href='/login';
 }
 
 function updateSlider() {

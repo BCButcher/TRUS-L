@@ -48,6 +48,7 @@ class UserDBAccess {
 
     // If no such email exists, return an empty array
     if(rows.length === 0) {
+      // console.log("no such email");
       return {user_id: -1, agent_id: null, display_name: ""};
     }
 
@@ -68,6 +69,7 @@ class UserDBAccess {
       let agent_id = (rows[0].agent_id == "null") ? null : rows[0].agent_id;
       return {user_id: id, agent_id: agent_id, display_name: rows[0].display_name};
     } else {
+      // console.log("password doesn't match");
       return {user_id: -1, agent_id: null, display_name: ""};
     }
   }
