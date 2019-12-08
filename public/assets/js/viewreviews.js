@@ -9,11 +9,16 @@ async function renderPage(agent_id) {
     let rows = review.map( (row) => {return row.stars;});
     let starsAverage = getStarsAverage(rows);
     let stars = getStars(starsAverage);  
+    let starsExplanation = " out of 5";
+    if(isNaN(starsAverage)) {
+      starsExplanation = "";
+    }
+  
     $('#name').append(
         `<div class="card border-left-0 border-right-0 mt-3">
             <h5>${agent[0].first_name} ${agent[0].last_name}</h5>
             <div class="d-flex w-100 justify-content-between">
-              <small class="text-success font-weight-bold">Average Rating ${stars} (${starsAverage} out of 5) </small>
+              <small class="text-success font-weight-bold">Average Rating ${stars} (${starsAverage}${starsExplanation}) </small>
             </div>
           </div>
         `

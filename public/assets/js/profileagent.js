@@ -22,7 +22,7 @@ function createAgent() {
         // console.log("profileagent.js after new agent created");
         // console.log(newAgent);
 
-        window.location.href = '/dashboard';
+        window.location.href = '/login';
     });
   }
 

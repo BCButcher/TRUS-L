@@ -208,6 +208,9 @@ function getStarsAverage(rows) {
   // console.log(starsCount);
   let starsAverage = (starsCount / rows.length).toFixed(1);
   // console.log(starsAverage);
+  if(isNaN(starsAverage)) {
+    starsAverage = "No reviews yet";
+  }
   return starsAverage;
 }
 
@@ -225,6 +228,10 @@ async function getBidRowForUser(bid) {
   let rows = review.map( (row) => {return row.stars;});
   let starsAverage = getStarsAverage(rows);
   let stars = getStars(starsAverage);
+  let starsExplanation = " out of 5";
+  if(isNaN(starsAverage)) {
+    starsExplanation = "";
+  }
   let bidsRow = 
   `
     <br>
@@ -237,7 +244,7 @@ async function getBidRowForUser(bid) {
         <p class='text-info'><i class="fas fa-quote-left"></i> ${bid.message} <i class="fas fa-quote-right"></i></p>
       </div>
       <div class="d-flex w-100 justify-content-between">
-        <small class="text-warning font-weight-bold">Rating ${stars} (${starsAverage} out of 5) </small>
+        <small class="text-warning font-weight-bold">Rating ${stars} (${starsAverage}${starsExplanation}) </small>
         <small><a href="/viewreviews?id=${bid.agent_id}">View reviews</a></small>
       </div>
      </a>
@@ -253,10 +260,14 @@ async function getReviewRows(agent_id) {
   let reviewRows = "";
   for(review of reviews){
     let stars = getStars(review.stars);
+    let starsExplanation = " out of 5";
+    if(isNaN(review.stars)) {
+      starsExplanation = "";
+    }  
     reviewRows += `
       <div class="card border-left-0 border-right-0 mt-3">
         <div class="d-flex w-100 justify-content-between">
-          <small class="text-warning font-weight-bold">Rating ${stars} (${review.stars} out of 5) </small>
+          <small class="text-warning font-weight-bold">Rating ${stars} (${review.stars}${starsExplanation}) </small>
         </div>
         <div class="d-flex w-100 justify-content-between mt-3">
           <p class='text-info'><i class="fas fa-quote-left"></i> ${review.review} <i class="fas fa-quote-right"></i></p>

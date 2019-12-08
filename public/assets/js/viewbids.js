@@ -26,9 +26,19 @@ async function renderPageForConsumer(listing_id) {
     <div id="accordion">
   `;
 
+  let bidCount = 0;
   for(let i=0; i<bids.length; i++) {
     const bid = bids[i];
-    bidSection += await getBidRowForUser(bid);
+    if(bid.bid_status == "Active") {
+      // If a bid was rejected, we don't want to list it. If the agent counters
+      // then it will be marked Active again. 
+      bidSection += await getBidRowForUser(bid);
+      bidCount++;
+    }
+  }
+  if(bidCount == 0) {
+    $('#bids' ).append(`<h5>No bids yet</h5>`);
+    return;
   }
 
   bidSection += `

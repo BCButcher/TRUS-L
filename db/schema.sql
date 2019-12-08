@@ -40,7 +40,7 @@ CREATE TABLE bids (
    agent_id INTEGER NOT NULL,
    listing_id INTEGER NOT NULL,
    bid_status ENUM("Active", "Signed", "Rejected"),
-   services VARCHAR(8),
+   services VARCHAR(100),
    message VARCHAR(500),
    rejection_reason VARCHAR(500),
    FOREIGN KEY (agent_id) REFERENCES agents(id),
