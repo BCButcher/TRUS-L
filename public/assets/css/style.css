@@ -178,11 +178,18 @@ nav {
 #message_label_contact {
     text-align: left;
 }
-#name_input_contact,
-#email_input_contact,
-#phone_input_contact,
-#message_input_contact {
-    width: 400px;
+
+.container-trusael {
+    display: flex;
+    justify-content: center;
+}
+
+.label-trusael {
+    margin-bottom: 0;
+}
+
+.contact-button-trusael {
+    margin-top: 0.5rem;
 }
 
 /* DASHBOARD PAGE CSS START */
