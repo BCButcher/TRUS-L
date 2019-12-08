@@ -39,7 +39,7 @@ function displayContactInfoAndReviewButton(listingId) {
 
             const reviewButton = $('#review').empty();
             const button = `
-                <button type="button" class="btn-secondary" onClick="window.location.href='/submitreview?id=${user.id}'">Review agent</button>
+                <button type="button" class="btn btn-secondary" onClick="window.location.href='/submitreview?id=${user.id}'">Review agent</button>
             `;
             reviewButton.append(button);
         }

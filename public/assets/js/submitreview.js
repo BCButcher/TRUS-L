@@ -7,8 +7,11 @@ function submitReview() {
     let escapedReview = escape(review);
     let stars = $("#stars").val().trim();
     let poster_id = getUserInfo().user_id;
-    if(parseInt(stars) === "NaN") {
+    let tempStars = parseInt(stars);
+    if(tempStars=== "NaN" || tempStars>5) {
         stars = 5;
+    } else if (tempStars < 1) {
+        stars = 1;
     }
 
     $.ajax({

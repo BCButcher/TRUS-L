@@ -36,6 +36,10 @@ function createUser() {
       password:$('#password').val()
     };
 
+    if(newConsumer.display_name.trim() == "") {
+      newConsumer.display_name = newConsumer.first_name;
+    }
+
     // eslint-disable-next-line no-undef
     $.ajax({
       url: "/api/consumer/",
