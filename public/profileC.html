@@ -70,24 +70,24 @@
             <div class="col">
                 <h1 class="text-center" id="page_title_text"> CREATE YOUR PROFILE </h1>
                 <div class="form-group mt-2" id="agt_prof_input_sec">
-                    <label for=" firstName ">First Name:</label>
-                    <input type="name " class="form-control " id="firstName " aria-describedby="consFirstName" placeholder="Please enter your first name ">
+                    <label id="consFirstName" for="firstName">First Name:</label>
+                    <input type="text" class="form-control" id="firstName" aria-describedby="consFirstName" placeholder="Please enter your first name ">
                 </div>
                 <div class="form-group ">
-                    <label for="lastName ">Last Name:</label>
-                    <input type="name " class="form-control " id="lastName " aria-describedby="consLastName" placeholder="Please enter your last name ">
+                    <label id="consLastName" for="lastName">Last Name:</label>
+                    <input type="text" class="form-control " id="lastName" aria-describedby="consLastName" placeholder="Please enter your last name ">
                 </div>
                 <div class="form-group ">
-                    <label for="profileDisplayName ">Display Name:</label>
-                    <input type="text " class="form-control " id="profileDisplayNameCons " aria-describedby="consProfileDisplayName" placeholder="Please enter a display name ">
+                    <label id="consProfileDisplayName" for="profileDisplayNameCon">Display Name:</label>
+                    <input type="text" class="form-control " id="profileDisplayNameCon" aria-describedby="consProfileDisplayName" placeholder="Please enter a display name ">
                 </div>
                 <div class="form-group ">
-                    <label for="email ">Email:</label>
-                    <input type="email " class="form-control " id="email " aria-describedby="consEmail" placeholder="Please enter your email">
+                    <label id="consEmail" for="email">Email:</label>
+                    <input type="email" class="form-control " id="email" aria-describedby="consEmail" placeholder="Please enter your email">
                 </div>
                 <div class="form-group ">
-                    <label for="password ">Password:</label>
-                    <input type="password " class="form-control " id="password " aria-describedby="consPassword" placeholder="Please enter your password">
+                    <label id="consPassword" for="password">Password:</label>
+                    <input type="password" class="form-control" id="password" aria-describedby="consPassword" placeholder="Please enter your password">
                 </div>
             </div>
         </div>
@@ -103,26 +103,26 @@
             <div class="container-fluid pb-3 ">
                 <div class="row ">
                     <div class="col ">
-                        <form id="profilec_Form ">
-                            <div class="form-group w-100 ">
-                                <label for="buyer_location ">Location:</label>
-                                <input type="text " class="form-control w-100 " id="buyer_location " placeholder="Please enter your location ">
+                        <form id="profilec_Form">
+                            <div class="form-group w-100">
+                                <label for="buyer_location">Location:</label>
+                                <input type="text" class="form-control w-100" id="buyer_location" placeholder="Please enter your location">
                             </div>
                             <div class="form-group w-100 ">
-                                <label for="propertyType ">Property Type:</label>
-                                <select class="form-control " id="propertyType ">
-                                  <option value="a ">House</option>
-                                  <option value="b ">Row/Townhouse</option>
-                                  <option value="c ">Duplex</option>
-                                  <option value="d ">Triplex</option>
-                                  <option value="e ">Condo/Strata</option>
+                                <label for="propertyType">Property Type:</label>
+                                <select class="form-control" id="propertyType">
+                                  <option value="a">House</option>
+                                  <option value="b">Row/Townhouse</option>
+                                  <option value="c">Duplex</option>
+                                  <option value="d">Triplex</option>
+                                  <option value="e">Condo/Strata</option>
                                 </select>
                             </div>
-                            <div class="form-group w-100 " id="buyer_value_estimate ">
-                                <label for="buyer_value_slider ">Estimated Value:</label>$<span id="value ">0</span>
-                                <input type="range " class="form-control-range w-100 " onInput="updateSlider() " min="100000 " max="10000000 " value="100000 " step="10000 " id="buyer_value_slider ">
+                            <div class="form-group w-100" id="buyer_value_estimate">
+                                <label for="buyer_value_slider">Estimated Value:</label>$<span id="value">0</span>
+                                <input type="range" class="form-control-range w-100" onInput="updateSlider()" min="100000" max="10000000" value="100000" step="10000" id="buyer_value_slider">
                             </div>
-                            <button onClick="createUser(); " type="button " class="btn btn-trusael " id="loginBtn_fp ">Submit</button>
+                            <button onClick="createUser();" type="button" class="btn btn-trusael" id="loginBtn_fp">Submit</button>
                         </form>
                     </div>
                 </div>

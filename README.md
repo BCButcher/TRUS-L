@@ -113,6 +113,5 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 * Filipe Laborde - [codefreeze8](https://github.com/codefreeze8) Instructor at the U of T coding bootcamp who wrote the code in connection.js
 * David Bland = [thatdevguy1](https://github.com/thatdevguy1) Assistant instructor at the U of T coding bootcamp. This code would not have been deployed to Heroku without him. 
-* [Photo by Jeffrey Czum from Pexels](https://www.pexels.com/photo/brown-and-white-concrete-building-2727483/) Background of image used on home page.
-* [Photo by Binyamin Mellish from Pexels](https://www.pexels.com/photo/home-real-estate-106399/) House on home page. 
+* [Photo by Angie McMonigal](https://www.angiemcmonigal.com/site_v2/wp-content/uploads/2017/09/Angie-McMonigal-Photography-7955-Edit-Edit-1-1024x683.jpg) Image used on home page.
 
