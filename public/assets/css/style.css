@@ -50,11 +50,16 @@ nav {
         font-size: 3em;
     }
 }
-#page_title_text {
+#page_title_text, .page_subtitle_text {
     margin-top: 20px;
     font-family: "Nothing you could do", serif;
     font-weight: bold;
     font-size: 3em;
+}
+
+.page_subtitle_text {
+    text-align: center!important;
+    margin-bottom: 0;
 }
 
 /* SITE WIDE CSS END */
